@@ -1,0 +1,60 @@
+/* Template3.css */
+.cv-template {
+    font-family: 'Georgia', serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.cv-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cv-header h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.cv-header p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.cv-section {
+    margin-bottom: 25px;
+}
+
+.cv-section h2 {
+    font-size: 1.4rem;
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.education-item, .project-item, .certificate-item {
+    margin-bottom: 15px;
+}
+
+.education-item h3, .project-item h3, .certificate-item h3 {
+    font-size: 1.1rem;
+    color: #007bff;
+}
+
+.education-item p, .project-item p, .certificate-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.skills-list {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.skills-list li {
+    margin-bottom: 5px;
+    font-size: 1rem;
+}

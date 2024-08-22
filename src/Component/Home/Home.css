@@ -1,0 +1,23 @@
+.home-main {
+    border: 2px solid black;
+}
+
+.home-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.home-button {
+    border-radius: 15px;
+    width: 10%;
+    height: 5vh;
+    font-weight: bold;
+}
+
+.home-paragraph {
+    font-style: italic;
+    font-size: large;
+}

@@ -1,0 +1,21 @@
+.about-main {
+    border: 2px solid black;
+}
+
+.about-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+}
+
+.about-paragraph {
+    width: 40%;
+    text-align: justify;
+    margin-right: 15vh;
+}
+
+.about-heading {
+    margin-left: 20vh;
+    font-style: italic;
+}

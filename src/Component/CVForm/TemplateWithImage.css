@@ -1,0 +1,66 @@
+.cv-template {
+    font-family: 'Arial', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e6e6e6;
+    color: #000;
+}
+
+.cv-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.header-text {
+    text-align: left;
+}
+
+.cv-header h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.cv-header p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.cv-section {
+    margin-bottom: 25px;
+}
+
+.cv-section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.education-item, .project-item, .certificate-item {
+    margin-bottom: 15px;
+}
+
+.education-item h3, .project-item h3, .certificate-item h3 {
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
+.skills-list {
+    list-style-type: square;
+    margin-left: 20px;
+}
+
+.skills-list li {
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
