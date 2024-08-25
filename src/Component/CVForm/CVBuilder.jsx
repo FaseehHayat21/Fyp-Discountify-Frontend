@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Template3 from './Template3'; // Assuming Template3 as an example
 import PDFTemplate3 from './PDFTemplate3'; // PDF version of Template3
 import { PDFDownloadLink } from '@react-pdf/renderer';
+import template3image from "../../assets/template3.png"
 import './CVBuilder.css';
 
 const CVBuilder = () => {
@@ -13,7 +14,30 @@ const CVBuilder = () => {
     const [introduction, setIntroduction] = useState('');
     const [projects, setProjects] = useState([{ title: '', description: '' }]);
     const [certificates, setCertificates] = useState([{ title: '', year: '' }]);
-
+    const handleSubmitCV = async () => {
+        try {
+         
+            console.log("Token retrieved for CV submission:", localStorage.getItem('token'));
+            const response = await fetch('http://localhost:1000/api/auth/cv', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'auth-token': localStorage.getItem('token'),  // Use the token retrieved
+                },
+                body: JSON.stringify(data),
+            });
+        
+            if (response.ok) {
+                alert('CV saved successfully!');
+            } else {
+                alert('Failed to save CV.');
+            }
+        } catch (error) {
+            console.error('Error saving CV:', error);
+            alert('An error occurred while saving your CV.');
+        }
+    };
+      
     const handleTemplateSelect = (template) => {
         setSelectedTemplate(template);
         setStep(1); // Reset form steps if necessary
@@ -35,7 +59,7 @@ const CVBuilder = () => {
                     <h2>Select a Template</h2>
                     <div className="template-previews">
                         <div className="template-option" onClick={() => handleTemplateSelect('template3')}>
-                            <img src="template3-preview.jpg" alt="Template 3" />
+                            <img src={template3image} alt="Template 3" />
                             <p>Template 3</p>
                         </div>
                         {/* Add more templates here */}
@@ -43,7 +67,7 @@ const CVBuilder = () => {
                 </div>
             ) : (
                 <div className="cv-content">
-                    <div className="cv-header">
+                    <div className="cv-header-1">
                         <h2>Build Your CV</h2>
                         <button className="back-button" onClick={handleBackClick}>
                             Back to Template Selection
@@ -57,12 +81,14 @@ const CVBuilder = () => {
                                 <input
                                     type="text"
                                     placeholder="Name"
+                                    className='p-info'
                                     value={personalInfo.name}
                                     onChange={(e) => setPersonalInfo({ ...personalInfo, name: e.target.value })}
                                 />
                                 <input
                                     type="email"
                                     placeholder="Email"
+                                    className='p-info'
                                     value={personalInfo.email}
                                     onChange={(e) => setPersonalInfo({ ...personalInfo, email: e.target.value })}
                                 />
@@ -70,6 +96,7 @@ const CVBuilder = () => {
                                     type="tel"
                                     placeholder="Phone"
                                     value={personalInfo.phone}
+                                    className='p-info'
                                     onChange={(e) => setPersonalInfo({ ...personalInfo, phone: e.target.value })}
                                 />
                                 <button onClick={nextStep}>Next</button>
@@ -80,9 +107,10 @@ const CVBuilder = () => {
                             <div className="section">
                                 <h3>Education</h3>
                                 {education.map((edu, index) => (
-                                    <div key={index}>
+                                    <div className='section' key={index}>
                                         <input
                                             type="text"
+                                            className='p-info'
                                             placeholder="Degree"
                                             value={edu.degree}
                                             onChange={(e) => {
@@ -94,6 +122,7 @@ const CVBuilder = () => {
                                         <input
                                             type="text"
                                             placeholder="Institution"
+                                            className='p-info'
                                             value={edu.institution}
                                             onChange={(e) => {
                                                 const newEducation = [...education];
@@ -104,6 +133,7 @@ const CVBuilder = () => {
                                         <input
                                             type="text"
                                             placeholder="Year"
+                                            className='p-info'
                                             value={edu.year}
                                             onChange={(e) => {
                                                 const newEducation = [...education];
@@ -113,9 +143,11 @@ const CVBuilder = () => {
                                         />
                                     </div>
                                 ))}
+                                <div>
                                 <button onClick={() => setEducation([...education, { degree: '', institution: '', year: '' }])}>Add Education</button>
                                 <button onClick={prevStep}>Previous</button>
                                 <button onClick={nextStep}>Next</button>
+                                </div>
                             </div>
                         )}
 
@@ -218,7 +250,8 @@ const CVBuilder = () => {
                               ))}
                               <button onClick={() => setCertificates([...certificates, { title: '', year: '' }])}>Add Certificate</button>
                               <button onClick={prevStep}>Previous</button>
-                              <button onClick={() => setStep(7)}>Finish</button>
+                              <button  onClick={() => setStep(7)}>Finish</button>
+                              <button  onClick={handleSubmitCV}>Save</button>
                           </div>
                       )}
                   </div>

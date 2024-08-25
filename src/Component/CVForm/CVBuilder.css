@@ -46,7 +46,7 @@
     width: 100%;
 }
 
-.cv-header {
+.cv-header-1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,13 +57,23 @@
 }
 
 .cv-form {
-    width: 45%;
+    width: 40%;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-
+.section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.p-info{
+    border: 2px solid;
+    margin: 10px 5px;
+    width: 100%;
+}
 .cv-preview {
     width: 50%;
     padding: 20px;

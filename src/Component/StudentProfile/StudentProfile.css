@@ -1,0 +1,65 @@
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-left: 17%;
+}
+
+.Personal-Info{
+    width: 50%;
+}
+.profile-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.profile-photo {
+    margin-right: 20px;
+}
+
+.profile-photo-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-tabs {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.profile-tabs button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.profile-tabs button.active {
+    background-color: #ddd;
+}
+
+.profile-content {
+    width: 100%;
+    max-width: 800px;
+}
+
+.personal-info, .cv-info, .user-posts {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.user-posts .post {
+    margin-bottom: 15px;
+}
+
+.user-posts .post h4 {
+    margin: 0 0 5px;
+}

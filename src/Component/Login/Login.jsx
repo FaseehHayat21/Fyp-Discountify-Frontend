@@ -1,70 +1,95 @@
-import React, {useState} from 'react'
-import './Login.css'
-import LoginImage2 from '../Images/LoginImage2.png'
-import UsernameLogo from '../Images/UsernameLogo.png'
-import PasswordLogo from '../Images/PasswordLogo.png'
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import './Login.css';
+import LoginImage2 from '../Images/LoginImage2.png';
+import UsernameLogo from '../Images/UsernameLogo.png';
+import PasswordLogo from '../Images/PasswordLogo.png';
+import { useNavigate, Link } from 'react-router-dom';
+
 export default function Login() {
-    const [email,setEmail]=useState()
-    const [password,setPassword]=useState()
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:1000/api/auth/login", {
+        const response = await fetch("http://localhost:1000/api/auth/student/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({email: email, password: password})
+            body: JSON.stringify({ email: email, password: password })
         });
-        const json = await response.json()
-        console.log(json)
-        if (json.success){
-            console.log(json.authtoken);
-            console.log(json.userRole);
-            console.log(json.access);
-            console.log("Login Succesfull")
-            localStorage.setItem('token', json.authtoken); 
-            localStorage.setItem('role', json.userRole); 
-            localStorage.setItem('access', json.access); 
+        const json = await response.json();
+    
+        console.log("API Response:", json);  // Log the entire response
+    
+        if (json.success === true) {
+            const token = json.authToken;  // Use correct capitalization
+            console.log("Token to be saved:", token);  // Log the token before saving
+    
+            if (token) {
+                localStorage.setItem('token', token);  // Attempt to save
+                localStorage.setItem('usertype', json.userType);  // Attempt to save
+                localStorage.setItem('userid', json.userid);  // Attempt to save
+                console.log("Token saved to localStorage:", localStorage.getItem('token'));  // Verify save
+                console.log("Token saved to localStorage:", localStorage.getItem('userid'));  // Verify save
+                console.log("Token saved to localStorage:", localStorage.getItem('usertype'));  // Verify save
+                navigate("/s"); 
+            } else {
+                console.error("Token is undefined, cannot save to localStorage");
+            }
             
-            navigate("/welcome");
-        }
-        else{
+             // Only navigate if token save is successful
+        } else {
             alert("Invalid credentials");
         }
-
     }
+    
     return (
         <>
             <div className='login-main'>
                 <div>
-                    <img className='login-image' src={LoginImage2} alt="login image" />
+                    <img className='login-image' src={LoginImage2} alt="login" />
                 </div>
 
                 <div className='login-form'>
                     <h2 className='login-heading'>Login</h2>
 
-                    <form action="" onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit}>
                         <div className='login-username'>
                             <img className='login-logos' src={UsernameLogo} alt="username logo" />
-                            <input className='login-input-tag' type="text" placeholder='Username' />
+                            <input
+                                className='login-input-tag'
+                                type="text"
+                                placeholder='Username'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
                         </div>
 
                         <div className='login-password'>
                             <img className='login-logos' src={PasswordLogo} alt="password logo" />
-                            <input className='login-input-tag' type="text" placeholder='Password' />
+                            <input
+                                className='login-input-tag'
+                                type="password"
+                                placeholder='Password'
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
                         </div>
 
                         <div className='login-forget-password'>
-                            <u className='login-underline'>Forget Password</u>
+                            <u className='login-underline'>Forgot Password</u>
                         </div>
+
+                        <button type="submit" className='login-button'>Login</button>
                     </form>
 
-                    <button className='login-button'>Login</button>
-                    <div className='login-signup-request'>Not Have an Account. <u className='login-underline'>SignUp</u></div>
+                    <div className='login-signup-request'>Don't have an account? <Link to="/register" className='login-underline'>SignUp</Link></div>
                 </div>
             </div>
         </>
-    )
+    );
 }
