@@ -1,6 +1,4 @@
-.service-main {
-    border: 2px solid black;
-}
+
 
 .service-main {
     height: 100vh;
@@ -17,6 +15,7 @@
 .service-list {
     display: flex;
     justify-content: space-between;
+    flex-direction: wrap;
     margin-top: 4vh;
     width: 90%;
     height: 50%;

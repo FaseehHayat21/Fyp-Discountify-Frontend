@@ -9,7 +9,7 @@ import ChatIcon from '../Images/ChatIcon.png'
 export default function Services() {
     return (
         <>
-            <div className='service-main'>
+            {/* <div className='service-main'>
                 <div className='service-detail'>
                     <h2 className='service-heading'>Services</h2>
                     <p className='service-paragraph'>We offer a range of solutions to enhance your student experience and support your journey.</p>
@@ -46,7 +46,7 @@ export default function Services() {
                         <p>Chat with fellow students for educational collaboration. Share ideas and support each other's learning!</p>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }

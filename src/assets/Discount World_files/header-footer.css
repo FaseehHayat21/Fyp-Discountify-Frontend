@@ -1,0 +1,215 @@
+/*media quary*/
+
+
+/*ipad*/
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+
+}
+
+/*ipad*/
+
+/*ipad pro*/
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1336px) {
+
+}
+
+/*ipad-pro-cloose*/
+
+@media (max-width: 850px) {
+
+    p {
+        font-size: 15px !important;
+    }
+
+    header {
+        position: relative;
+        background-color: #f2f0f1;
+    }
+
+    ul.nav.navbar-nav.ml-auto {
+        background-color: #fcaf17;
+    }
+
+    header ul.nav.navbar-nav.ml-auto li.nav-item a.nav-link {
+        color: white;
+    }
+
+}
+
+/*media quary cloose*/
+
+@font-face {
+    font-family: festival-budaya;
+    src: url('../font-family/festival-budaya-xxxi.otf');
+}
+
+@font-face {
+    font-family: eyes-wide-open;
+    src: url('../font-family/eyes-wide-open.bold-personal-use.ttf');
+}
+
+@font-face {
+    font-family: ProductSans-Regular;
+    src: url('../font-family/ProductSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: ProductSans-Bold;
+    src: url('../font-family/ProductSans-Bold.ttf');
+}
+
+@font-face {
+    font-family: ProductSans-Medium;
+    src: url('../font-family/ProductSans-Medium.ttf');
+}
+
+
+p {
+    color: #595959;
+    font-size: 18px;
+    font-family: 'ProductSans-Regular';
+    text-align: justify;
+}
+
+
+header ul.nav.navbar-nav.ml-auto li.nav-item a.nav-link {
+    padding-left: 25px;
+}
+
+
+header li.nav-item.active a.nav-link {
+    color: #92278f;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+header li.nav-item a.nav-link {
+    color: #2e2e2e;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+
+/*footrer*/
+
+footer {
+    background-color: #000000;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.footer p {
+    color: #a4a4a4;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.footer a {
+    color: #ff71fb;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.footer .social-icons i.fab.fa-facebook-f {
+    color: #a4a4a4;
+    padding: 5px;
+}
+
+.footer .social-icons i.fab.fa-twitter {
+    color: #a4a4a4;
+    padding: 5px;
+}
+
+.footer .social-icons i.fab.fa-instagram {
+    color: #a4a4a4;
+    padding: 5px;
+}
+
+
+/*footer-close*/
+
+
+/*ipad-pro-cloose*/
+
+@media (max-width: 850px) {
+
+    header {
+        position: relative;
+        background-color: #f2f0f1;
+    }
+
+    ul.nav.navbar-nav.ml-auto {
+        background-color: #fcaf17;
+    }
+
+    header ul.nav.navbar-nav.ml-auto li.nav-item a.nav-link {
+        color: white;
+    }
+
+
+}
+
+/*media quary cloose*/
+
+header {
+}
+
+header ul.nav.navbar-nav.ml-auto li.nav-item a.nav-link {
+    padding-left: 25px;
+}
+
+
+header li.nav-item.active a.nav-link {
+    color: #92278f;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+header li.nav-item a.nav-link {
+    color: #2e2e2e;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/*header-close*/
+
+/*footrer*/
+
+footer {
+    background-color: #000000;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.footer p {
+    color: #a4a4a4;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.footer a {
+    color: #ff71fb;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.footer .social-icons i.fab.fa-facebook-f {
+    color: #a4a4a4;
+    padding: 5px;
+}
+
+.footer .social-icons i.fab.fa-twitter {
+    color: #a4a4a4;
+    padding: 5px;
+}
+
+.footer .social-icons i.fab.fa-instagram {
+    color: #a4a4a4;
+    padding: 5px;
+}
+
+/*footer-close*/

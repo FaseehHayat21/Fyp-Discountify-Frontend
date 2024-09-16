@@ -1,21 +1,27 @@
-.about-main {
-    border: 2px solid black;
-}
 
 .about-main {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     height: 100vh;
+    background-color: #ffffff;
+    /* background: rgb(228,219,222); */
+    color: rgb(22, 21, 105);
+    flex-wrap: wrap;
+    background-color: #ebebeb;
+    background-image: url("../../assets/backgroung-1.png");
+    background-position: center;
+    background-size: cover;
 }
 
 .about-paragraph {
-    width: 40%;
+    width: 70%;
     text-align: justify;
-    margin-right: 15vh;
+    padding: 20px;
+  
 }
 
 .about-heading {
-    margin-left: 20vh;
+   
     font-style: italic;
 }

@@ -4,6 +4,8 @@ import About from '../../Component/About/About'
 import Services from '../../Component/Services/Services'
 import Navbar from '../../Component/Navbar/Navbar'
 import ContactUs from '../../Component/ContactUs/ContactUs'
+import Example from '../../Component/Example/Example'
+import Team from '../../Component/Team/Team'
 
 export default function LandingPage() {
   return (
@@ -18,9 +20,13 @@ export default function LandingPage() {
       <div id="services-section">
     <Services/>
       </div>
+      <div id="services-section">
+      <Team/>
+      </div>
       <div id="contactus">
     <ContactUs/>
       </div>
+      {/* <Example/> */}
   </>
   )
 }
