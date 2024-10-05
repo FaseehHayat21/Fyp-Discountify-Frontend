@@ -16,7 +16,7 @@ const CVBuilder = () => {
     const [certificates, setCertificates] = useState([{ title: '', year: '' }]);
     const handleSubmitCV = async () => {
         try {
-         
+
             console.log("Token retrieved for CV submission:", localStorage.getItem('token'));
             const response = await fetch('http://localhost:1000/api/auth/cv', {
                 method: 'POST',
@@ -26,7 +26,7 @@ const CVBuilder = () => {
                 },
                 body: JSON.stringify(data),
             });
-        
+
             if (response.ok) {
                 alert('CV saved successfully!');
             } else {
@@ -37,7 +37,7 @@ const CVBuilder = () => {
             alert('An error occurred while saving your CV.');
         }
     };
-      
+
     const handleTemplateSelect = (template) => {
         setSelectedTemplate(template);
         setStep(1); // Reset form steps if necessary
@@ -74,200 +74,216 @@ const CVBuilder = () => {
                         </button>
                     </div>
                     <div className="cpb">
-                    <div className="cv-form">
-                        {step === 1 && (
-                            <div className="section">
-                                <h3>Personal Information</h3>
-                                <input
-                                    type="text"
-                                    placeholder="Name"
-                                    className='p-info'
-                                    value={personalInfo.name}
-                                    onChange={(e) => setPersonalInfo({ ...personalInfo, name: e.target.value })}
-                                />
-                                <input
-                                    type="email"
-                                    placeholder="Email"
-                                    className='p-info'
-                                    value={personalInfo.email}
-                                    onChange={(e) => setPersonalInfo({ ...personalInfo, email: e.target.value })}
-                                />
-                                <input
-                                    type="tel"
-                                    placeholder="Phone"
-                                    value={personalInfo.phone}
-                                    className='p-info'
-                                    onChange={(e) => setPersonalInfo({ ...personalInfo, phone: e.target.value })}
-                                />
-                                <button onClick={nextStep}>Next</button>
-                            </div>
-                        )}
-
-                        {step === 2 && (
-                            <div className="section">
-                                <h3>Education</h3>
-                                {education.map((edu, index) => (
-                                    <div className='section' key={index}>
-                                        <input
-                                            type="text"
-                                            className='p-info'
-                                            placeholder="Degree"
-                                            value={edu.degree}
-                                            onChange={(e) => {
-                                                const newEducation = [...education];
-                                                newEducation[index].degree = e.target.value;
-                                                setEducation(newEducation);
-                                            }}
-                                        />
-                                        <input
-                                            type="text"
-                                            placeholder="Institution"
-                                            className='p-info'
-                                            value={edu.institution}
-                                            onChange={(e) => {
-                                                const newEducation = [...education];
-                                                newEducation[index].institution = e.target.value;
-                                                setEducation(newEducation);
-                                            }}
-                                        />
-                                        <input
-                                            type="text"
-                                            placeholder="Year"
-                                            className='p-info'
-                                            value={edu.year}
-                                            onChange={(e) => {
-                                                const newEducation = [...education];
-                                                newEducation[index].year = e.target.value;
-                                                setEducation(newEducation);
-                                            }}
-                                        />
+                        <div className="cv-form">
+                            {step === 1 && (
+                                <div className="section">
+                                    <h3>Personal Information</h3>
+                                    <input
+                                        type="text"
+                                        placeholder="Name"
+                                        className='p-info'
+                                        value={personalInfo.name}
+                                        onChange={(e) => setPersonalInfo({ ...personalInfo, name: e.target.value })}
+                                    />
+                                    <input
+                                        type="email"
+                                        placeholder="Email"
+                                        className='p-info'
+                                        value={personalInfo.email}
+                                        onChange={(e) => setPersonalInfo({ ...personalInfo, email: e.target.value })}
+                                    />
+                                    <input
+                                        type="tel"
+                                        placeholder="Phone"
+                                        value={personalInfo.phone}
+                                        className='p-info'
+                                        onChange={(e) => setPersonalInfo({ ...personalInfo, phone: e.target.value })}
+                                    />
+                                    <div className='cv-pagebuttons'>
+                                    <button onClick={nextStep}>Next</button>
                                     </div>
-                                ))}
-                                <div>
-                                <button onClick={() => setEducation([...education, { degree: '', institution: '', year: '' }])}>Add Education</button>
-                                <button onClick={prevStep}>Previous</button>
-                                <button onClick={nextStep}>Next</button>
                                 </div>
-                            </div>
-                        )}
+                            )}
 
-                       
-                        {step === 3 && (
-                          <div className="section">
-                              <h3>Skills</h3>
-                              {skills.map((skill, index) => (
-                                  <input
-                                      key={index}
-                                      type="text"
-                                      placeholder="Skill"
-                                      value={skill}
-                                      onChange={(e) => {
-                                          const newSkills = [...skills];
-                                          newSkills[index] = e.target.value;
-                                          setSkills(newSkills);
-                                      }}
-                                  />
-                              ))}
-                              <button onClick={() => setSkills([...skills, ''])}>Add Skill</button>
-                              <button onClick={prevStep}>Previous</button>
-                              <button onClick={nextStep}>Next</button>
-                          </div>
-                      )}
+                            {step === 2 && (
+                                <div className="section">
+                                    <h3>Education</h3>
+                                    {education.map((edu, index) => (
+                                        <div className='' key={index}>
+                                            <input
+                                                type="text"
+                                                className='p-info'
+                                                placeholder="Degree"
+                                                value={edu.degree}
+                                                onChange={(e) => {
+                                                    const newEducation = [...education];
+                                                    newEducation[index].degree = e.target.value;
+                                                    setEducation(newEducation);
+                                                }}
+                                            />
+                                            <input
+                                                type="text"
+                                                placeholder="Institution"
+                                                className='p-info'
+                                                value={edu.institution}
+                                                onChange={(e) => {
+                                                    const newEducation = [...education];
+                                                    newEducation[index].institution = e.target.value;
+                                                    setEducation(newEducation);
+                                                }}
+                                            />
+                                            <input
+                                                type="text"
+                                                placeholder="Year"
+                                                className='p-info'
+                                                value={edu.year}
+                                                onChange={(e) => {
+                                                    const newEducation = [...education];
+                                                    newEducation[index].year = e.target.value;
+                                                    setEducation(newEducation);
+                                                }}
+                                            />
+                                        </div>
+                                    ))}
+                                    <div className='cv-pagebuttons'>
+                                        <button onClick={() => setEducation([...education, { degree: '', institution: '', year: '' }])}>Add Education</button>
+                                        <button onClick={prevStep}>Previous</button>
+                                        <button onClick={nextStep}>Next</button>
+                                    </div>
+                                </div>
+                            )}
 
-                     
-                      {step === 4 && (
-                          <div className="section">
-                              <h3>Brief Introduction</h3>
-                              <textarea
-                                  placeholder="Introduce Yourself"
-                                  value={introduction}
-                                  onChange={(e) => setIntroduction(e.target.value)}
-                              />
-                              <button onClick={prevStep}>Previous</button>
-                              <button onClick={nextStep}>Next</button>
-                          </div>
-                      )}
 
-                     
-                      {step === 5 && (
-                          <div className="section">
-                              <h3>Projects</h3>
-                              {projects.map((project, index) => (
-                                  <div key={index}>
-                                      <input
-                                          type="text"
-                                          placeholder="Project Title"
-                                          value={project.title}
-                                          onChange={(e) => {
-                                              const newProjects = [...projects];
-                                              newProjects[index].title = e.target.value;
-                                              setProjects(newProjects);
-                                          }}
-                                      />
-                                      <textarea
-                                          placeholder="Project Description"
-                                          value={project.description}
-                                          onChange={(e) => {
-                                              const newProjects = [...projects];
-                                              newProjects[index].description = e.target.value;
-                                              setProjects(newProjects);
-                                          }}
-                                      />
-                                  </div>
-                              ))}
-                              <button onClick={() => setProjects([...projects, { title: '', description: '' }])}>Add Project</button>
-                              <button onClick={prevStep}>Previous</button>
-                              <button onClick={nextStep}>Next</button>
-                          </div>
-                      )}
+                            {step === 3 && (
+                                <div className="section">
+                                    <h3>Skills</h3>
+                                    {skills.map((skill, index) => (
+                                        <input
+                                            key={index}
+                                            type="text"
+                                            placeholder="Skill"
+                                            className='p-info'
+                                            value={skill}
+                                            onChange={(e) => {
+                                                const newSkills = [...skills];
+                                                newSkills[index] = e.target.value;
+                                                setSkills(newSkills);
+                                            }}
+                                        />
+                                    ))}
+                                    <div className='cv-pagebuttons'>
+                                        <button onClick={() => setSkills([...skills, ''])}>Add Skill</button>
+                                        <button onClick={prevStep}>Previous</button>
+                                        <button onClick={nextStep}>Next</button>
+                                    </div>
+                                </div>
+                            )}
 
-                      {step === 6 && (
-                          <div className="section">
-                              <h3>Certificates</h3>
-                              {certificates.map((cert, index) => (
-                                  <div key={index}>
-                                      <input
-                                          type="text"
-                                          placeholder="Certificate Title"
-                                          value={cert.title}
-                                          onChange={(e) => {
-                                              const newCertificates = [...certificates];
-                                              newCertificates[index].title = e.target.value;
-                                              setCertificates(newCertificates);
-                                          }}
-                                      />
-                                      <input
-                                          type="text"
-                                          placeholder="Year"
-                                          value={cert.year}
-                                          onChange={(e) => {
-                                              const newCertificates = [...certificates];
-                                              newCertificates[index].year = e.target.value;
-                                              setCertificates(newCertificates);
-                                          }}
-                                      />
-                                  </div>
-                              ))}
-                              <button onClick={() => setCertificates([...certificates, { title: '', year: '' }])}>Add Certificate</button>
-                              <button onClick={prevStep}>Previous</button>
-                              <button  onClick={() => setStep(7)}>Finish</button>
-                              <button  onClick={handleSubmitCV}>Save</button>
-                          </div>
-                      )}
-                  </div>
-                    <div className="cv-preview">
-                        <h2>Preview</h2>
-                        {selectedTemplate === 'template3' && <Template3 data={data} />}
-                        {step === 7 && (
-                            <PDFDownloadLink
-                                document={<PDFTemplate3 data={data} />}
-                                fileName="cv.pdf"
-                                className="download-link"
-                            >
-                                {({ loading }) => (loading ? 'Loading document...' : 'Download CV as PDF')}
-                            </PDFDownloadLink>
-                        )}
-                    </div>
+
+                            {step === 4 && (
+                                <div className="section">
+                                    <h3>Brief Introduction</h3>
+                                    <textarea
+                                        placeholder="Introduce Yourself"
+                                        className='p-info'
+                                        value={introduction}
+                                        onChange={(e) => setIntroduction(e.target.value)}
+                                    />
+                                    <div className='cv-pagebuttons'>
+                                        <button onClick={prevStep}>Previous</button>
+                                        <button onClick={nextStep}>Next</button>
+                                    </div>
+                                </div>
+                            )}
+
+
+                            {step === 5 && (
+                                <div className="section">
+                                    <h3>Projects</h3>
+                                    {projects.map((project, index) => (
+                                        <div key={index}>
+                                            <input
+                                                type="text"
+                                                placeholder="Project Title"
+                                                className='p-info'
+                                                value={project.title}
+                                                onChange={(e) => {
+                                                    const newProjects = [...projects];
+                                                    newProjects[index].title = e.target.value;
+                                                    setProjects(newProjects);
+                                                }}
+                                            />
+                                            <textarea
+                                                placeholder="Project Description"
+                                                className='p-info'
+                                                value={project.description}
+                                                onChange={(e) => {
+                                                    const newProjects = [...projects];
+                                                    newProjects[index].description = e.target.value;
+                                                    setProjects(newProjects);
+                                                }}
+                                            />
+                                        </div>
+                                    ))}
+                                    <div className='cv-pagebuttons'>
+                                        <button onClick={() => setProjects([...projects, { title: '', description: '' }])}>Add Project</button>
+                                        <button onClick={prevStep}>Previous</button>
+                                        <button onClick={nextStep}>Next</button>
+                                    </div>
+                                </div>
+                            )}
+
+                            {step === 6 && (
+                                <div className="section">
+                                    <h3>Certificates</h3>
+                                    {certificates.map((cert, index) => (
+                                        <div key={index}>
+                                            <input
+                                                type="text"
+                                                placeholder="Certificate Title"
+                                                className='p-info'
+                                                value={cert.title}
+                                                onChange={(e) => {
+                                                    const newCertificates = [...certificates];
+                                                    newCertificates[index].title = e.target.value;
+                                                    setCertificates(newCertificates);
+                                                }}
+                                            />
+                                            <input
+                                                type="text"
+                                                placeholder="Year"
+                                                className='p-info'
+                                                value={cert.year}
+                                                onChange={(e) => {
+                                                    const newCertificates = [...certificates];
+                                                    newCertificates[index].year = e.target.value;
+                                                    setCertificates(newCertificates);
+                                                }}
+                                            />
+                                        </div>
+                                    ))}
+                                    <div className='cv-pagebuttons'>
+                                        <button onClick={() => setCertificates([...certificates, { title: '', year: '' }])}>Add Certificate</button>
+                                        <button onClick={prevStep}>Previous</button>
+                                        <button onClick={() => setStep(7)}>Finish</button>
+                                        <button onClick={handleSubmitCV}>Save</button>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                        <div className="cv-preview">
+                            <h2>Preview</h2>
+                            {selectedTemplate === 'template3' && <Template3 data={data} />}
+                            {step === 7 && (
+                                <PDFDownloadLink
+                                    document={<PDFTemplate3 data={data} />}
+                                    fileName="cv.pdf"
+                                    className="download-link"
+                                >
+                                    {({ loading }) => (loading ? 'Loading document...' : 'Download CV as PDF')}
+                                </PDFDownloadLink>
+                            )}
+                        </div>
                     </div>
                 </div>
             )}

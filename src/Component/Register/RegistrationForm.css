@@ -41,8 +41,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-top: 40px solid rgb(22, 22, 97);
-    border-bottom: 40px solid rgb(22, 22, 97);
+  
   }
   
   .user-type-toggle {

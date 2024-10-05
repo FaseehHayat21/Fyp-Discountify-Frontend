@@ -3,12 +3,17 @@
     padding: 80px 0;
     background-color: #f4f4f4;
     text-align: center;
+    color: #08233A;
+    /* background-image: url("../../assets/AboutBg2.png");
+    background-position: center;
+    background-size: cover; */
   }
   
   .team h2 {
     margin-bottom: 50px;
     font-size: 2.5rem;
-    color: #333;
+    font-weight: bold;
+    /* color: #333; */
   }
   
   .team-members {
@@ -29,23 +34,25 @@
   
   .team-member img {
     max-width: 100%;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     margin-bottom: 20px;
+    height: 20vh;
   }
   
   .team-member h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    color: #333;
+    font-weight: bold;
+    /* color: #333; */
   }
   
   .team-member p {
     font-size: 1.1rem;
-    color: #777;
+    font-weight: bold;
+    /* color: #777; */
   }
   
   .team-member:hover {
     transform: translateY(-10px);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
   }
-  

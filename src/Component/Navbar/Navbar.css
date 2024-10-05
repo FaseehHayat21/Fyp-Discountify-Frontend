@@ -1,45 +1,53 @@
-
-.navbar-background{
+.navbar-background {
   height: 10vh;
   /* background: rgb(0, 0, 0); */
 
   z-index: 100;
 }
-.nav-link{
+
+.nav-link {
   color: white;
 }
-.nav-link:hover{
+
+.nav-link:hover {
   color: rgb(155, 0, 0);
 }
+
 .nav-link.active {
   font-weight: bold;
-  color: #007bff; 
+  color: #007bff;
 }
-.logo{
+
+.logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
 }
-.nav-logo{
-  height: 10vh;
+
+.nav-logo {
+  height: 8vh;
 }
-.nav-heading{
+
+.nav-heading {
   color: #ffffff;
   font-family: "kallisto", sans-serif;
-font-weight: 300;
-font-style: normal;
-margin-bottom: 0px;
+  font-weight: 300;
+  font-style: normal;
+  margin-bottom: 0px;
 }
-#navbarSupportedContent.navbar-collapse.navbar-e.collapse.show{
+
+#navbarSupportedContent.navbar-collapse.navbar-e.collapse.show {
   backdrop-filter: blur(23px);
   color: black;
 }
+
 .navbar-background {
   background-color: transparent;
   transition: background-color 0.3s ease-in-out;
 }
 
 .navbar-background.scrolled {
-  background-color: #000000; /* Your desired background color when scrolled */
+  background-color: #08233A;
+  /* Your desired background color when scrolled */
 }

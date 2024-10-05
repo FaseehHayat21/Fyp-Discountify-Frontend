@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ImProfile } from 'react-icons/im';
 import { FaIdeal } from 'react-icons/fa';
 import { MdMiscellaneousServices, MdMenu, MdClose, MdLogout } from 'react-icons/md';
-import logopng from '../../assets/logo.png';
+import logopng from '../../assets/Logo2.png';
 import { CgProfile } from 'react-icons/cg';
 import './StudentSideBar.css';
 

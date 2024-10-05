@@ -27,7 +27,10 @@
 
 /* src/components/Hero.css */
 .hero {
-    background-color: #152238;
+    /* background-color: #152238; */
+    background-image: url(../../assets/HomeBg.png);
+    background-position: center;
+    background-size: cover;
     color: white;
     height: 100vh;
     display: flex;
@@ -41,7 +44,8 @@
   }
   
   .hero-text {
-    max-width: 50%;
+    max-width: 60%;
+    /* border: 2px solid white; */
   }
   
   .hero-text h1 {
@@ -66,7 +70,8 @@
   
   .hero-image  {
     max-width: 100%;
-    height: 90vh;
-    border-radius: 10px;
+    height: 100vh;
+    /* border-radius: 10px; */
+    /* border: 2px solid white; */
   }
   

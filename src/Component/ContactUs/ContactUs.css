@@ -13,6 +13,7 @@
   flex-direction: column;
   padding: 20px 60px 30px 40px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  color: #08233A;
 }
 .container-c .content-c {
   display: flex;
@@ -45,7 +46,8 @@
 }
 .content-c .left-side .details i {
   font-size: 30px;
-  color: #3e2093;
+  /* color: #3e2093; */
+  /* color: #08233A; */
   margin-bottom: 10px;
 }
 .content-c .left-side .details .topic {

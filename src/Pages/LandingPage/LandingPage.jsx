@@ -9,24 +9,24 @@ import Team from '../../Component/Team/Team'
 
 export default function LandingPage() {
   return (
-  <>
-    <Navbar/>
+    <>
+      <Navbar />
       <div id="home-section">
-    <Home/>        
+        <Home />
       </div>
-    <div id="about-section">
-    <About/>
-      </div>
-      <div id="services-section">
-    <Services/>
+      <div id="about-section">
+        <About />
       </div>
       <div id="services-section">
-      <Team/>
+        <Services />
+      </div>
+      <div id="services-section">
+        <Team />
       </div>
       <div id="contactus">
-    <ContactUs/>
+        <ContactUs />
       </div>
       {/* <Example/> */}
-  </>
+    </>
   )
 }

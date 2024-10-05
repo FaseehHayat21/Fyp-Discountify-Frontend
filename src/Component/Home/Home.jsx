@@ -1,6 +1,6 @@
 import React from 'react'
 import './Home.css'
-import image from "../../assets/bg.png"
+import image from "../../assets/HomeImg2.png"
 export default function Home() {
  
   return (
@@ -8,7 +8,8 @@ export default function Home() {
      <section className="hero" id="home">
       <div className="container">
         <div className="hero-text">
-          <h1>DISCOUNTIFY: A Student Facilitation Portal</h1>
+          <h1>DISCOUNTIFY: <br /> A Student Facilitation Portal</h1>
+          {/* <h2>A Student Facilitation Portal</h2> */}
           <p>Unlock a world of opportunities created exclusively for students - discover more than you ever imagined!</p>
           <a href="#services" className="btn-primary">Explore Services</a>
         </div>

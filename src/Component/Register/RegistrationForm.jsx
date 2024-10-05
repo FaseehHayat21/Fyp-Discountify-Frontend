@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import registerContext from "../../context/Register/RegisterContext";
 
 const RegistrationForm = () => {
+  
   const navigate = useNavigate();
   const context = useContext(registerContext);
   const { userType, setUserType, registerUser } = context;
@@ -60,14 +61,12 @@ const RegistrationForm = () => {
         <div className="user-type-toggle">
           <button
             className={userType === 'Student' ? 'active' : ''}
-            onClick={() => setUserType('Student')}
-          >
+            onClick={() => setUserType('Student')}>
             Student
           </button>
           <button
             className={userType === 'Vendor' ? 'active' : ''}
-            onClick={() => setUserType('Vendor')}
-          >
+            onClick={() => setUserType('Vendor')}>
             Vendor
           </button>
         </div>
