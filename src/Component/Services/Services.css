@@ -1,39 +1,79 @@
-
-
 .service-main {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #08233A;
+    /* border: 2px solid black; */
 }
 
 .service-detail {
     text-align: center;
 }
 
+.service-detail h2 {
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.service-detail p {
+    font-weight: bold;
+    font-style: italic;
+}
+
 .service-list {
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
     flex-direction: wrap;
     margin-top: 4vh;
     width: 90%;
-    height: 50%;
+    height: 50%; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
-.service-deals, .service-job, .service-cv, .service-course, .service-chat {
-    border: 2px solid black;
+.service-list-container {
+    /* border: 2px solid black;
     border-radius: 10px;
     width: 35vh;
     height: 98%;
-    display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    text-align: center;
+    text-align: center; */
+    display: flex;
+    align-items: center;
+    width: 48%;
+    margin: 1%;
+    background-color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-list-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    background-color: #e5e5e5;
+}
+
+.service-list-container h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.service-list-container p {
+    font-size: o.7rem;
+    font-style: italic;
+    /* font-weight: bold; */
 }
 
 .service-icons {
-    width: 40%;
+    width: 20%;
     height: 10vh;
 }

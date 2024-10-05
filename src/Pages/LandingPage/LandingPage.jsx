@@ -20,7 +20,7 @@ export default function LandingPage() {
       <div id="services-section">
         <Services />
       </div>
-      <div id="services-section">
+      <div id="team-section">
         <Team />
       </div>
       <div id="contactus">
