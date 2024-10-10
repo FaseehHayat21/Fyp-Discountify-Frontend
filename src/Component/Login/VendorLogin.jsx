@@ -5,14 +5,14 @@ import UsernameLogo from '../Images/UsernameLogo.png';
 import PasswordLogo from '../Images/PasswordLogo.png';
 import { useNavigate, Link } from 'react-router-dom';
 
-export default function Login() {
+export default function VendorLogin() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:1000/api/auth/student/login", {
+        const response = await fetch("http://localhost:1000/api/auth/vendor/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

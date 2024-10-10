@@ -52,10 +52,10 @@ export default function Navbar() {
                 <a className="nav-link" aria-current="page" href="#home">Home</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="#about">About Us</a>
+                <a className="nav-link" aria-current="page" href="#about-section">About Us</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="#product">Product</a>
+                <a className="nav-link" aria-current="page" href="#services-section">Services</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" aria-current="page" href="#contactus">Contact Us</a>
