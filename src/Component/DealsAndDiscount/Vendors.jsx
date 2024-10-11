@@ -5,7 +5,7 @@ function Vendors({ categoryName }) {
   const [selectedVendor, setSelectedVendor] = useState(null);
   const [deals, setDeals] = useState([]);
 
-  // Fetch vendors when category changes
+  // Fetch vendors by specific Category
   useEffect(() => {
     if (categoryName) {
       fetch(`http://localhost:1000/api/auth/vendors?category=${categoryName}`)

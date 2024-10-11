@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "./Categories.css"
 function Categories({ onSelectCategory }) {
   const categories = [
     'Eateries',
@@ -10,11 +10,11 @@ function Categories({ onSelectCategory }) {
   ];
 
   return (
-    <div>
-      <h2>Select a Category</h2>
-      <ul>
+    <div className='category-page'>
+      <h2 className='category-heading'>Select a Category</h2>
+      <ul className='category-ul '>
         {categories.map(category => (
-          <li key={category} onClick={() => onSelectCategory(category)}>
+          <li className={`category-${category}  category-li` }  key={category} onClick={() => onSelectCategory(category)}>
             {category}
           </li>
         ))}

@@ -16,6 +16,8 @@ import StudentProfile from './Component/StudentProfile/StudentProfile';
 import VendorLogin from './Component/Login/VendorLogin';
 import StudentLogin from './Component/Login/StudentLogin';
 import LoginAs from "./Component/LoginAs/LoginAs"
+import VendorPage from './Pages/VendorPage/VendorPage';
+import AddDealsVendor from './Component/AddDealsVendor/AddDealsVendor';
 function App() {
   const [userType, setUserType] = useState(localStorage.getItem('userType') || '');
 
@@ -40,6 +42,12 @@ function App() {
           <Route path="jobListing" element={<JobListing />} />
           <Route path="addPostStudent" element={<AddPostStudent />} />
           <Route path="studentProfile" element={<StudentProfile/>} />
+        </Route>
+        <Route path='/v/*' element={userType === 'Vendor' ?  <Navigate to="/login" />: <VendorPage />} >
+          {/* Define child routes with relative paths */}
+          <Route path="cv" element={<CVBuilder/>} />
+          <Route path="adddeal" element={<AddDealsVendor/>} />
+        
         </Route>
       </Routes>
       </RegisterState>

@@ -22,6 +22,7 @@ const RegistrationForm = () => {
     city: '',
     companyName: '',
     companyAddress: '',
+    category: '', 
   });
 
   const loginPage = () => {
@@ -42,7 +43,7 @@ const RegistrationForm = () => {
       alert("Passwords do not match!");
       return; // Stop form submission
     }
-
+    console.log(formData);
     // Call the registerUser function from the context
     registerUser(formData);
   };
@@ -99,6 +100,23 @@ const RegistrationForm = () => {
               value={formData.phoneNumber}
               onChange={handleInputChange}
             />
+            {userType === 'Vendor' && (
+                <select
+                  name="category"
+                  required
+                  value={formData.category}
+                  onChange={handleInputChange}
+                >
+                  <option value="" disabled>Select Category</option>
+                  <option value="Eateries">Eateries</option>
+                  <option value="Healthcare">Healthcare</option>
+                  <option value="Fashion">Fashion</option>
+                  <option value="Accommodations">Accommodations</option>
+                  <option value="Retail">Retail</option>
+                </select>
+
+            )}
+
           </div>
           <div className="form-row">
             <input
