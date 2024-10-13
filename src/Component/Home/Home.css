@@ -1,77 +1,67 @@
-
-
-.home-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url("../../assets/background.jpg");
-    background-position: center;
-    background-size: cover;
-}
-
-.home-button {
-    border-radius: 15px;
-    width: 10%;
-    height: 5vh;
-    font-weight: bold;
-}
-
-.home-paragraph {
-    font-style: italic;
-    font-size: large;
-}
-
-
-
 /* src/components/Hero.css */
 .hero {
-    /* background-color: #152238; */
-    background-image: url(../../assets/HomeBg.png);
-    background-position: center;
-    background-size: cover;
-    color: white;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-  
-  .hero .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .hero-text {
-    max-width: 60%;
-    /* border: 2px solid white; */
-  }
-  
-  .hero-text h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
-  
-  .hero-text p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-  }
-  
-  .btn-primary {
-    display: inline-block;
-    background-color: #ff5a5f;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-  }
-  
-  .hero-image  {
-    max-width: 100%;
-    height: 100vh;
-    /* border-radius: 10px; */
-    /* border: 2px solid white; */
-  }
-  
+  /* background-image: url(../../assets/HomeBg.png);
+  background-position: center;
+  background-size: cover; */
+  color: white;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  /* position: relative; */
+  /* overflow: hidden; */
+}
+
+.hero .container {
+  /* position: relative; */
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-text {
+  max-width: 60%;
+  /* border: 2px solid white; */
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  /* font-weight: bold; */
+  font-style: italic;
+  margin-bottom: 20px;
+  z-index: 2;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: #ff5a5f;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: 60vh;
+  /* border-radius: 10px; */
+  /* border: 2px solid white; */
+}
+
+.hero-bgvideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* z-index: 1; */
+}

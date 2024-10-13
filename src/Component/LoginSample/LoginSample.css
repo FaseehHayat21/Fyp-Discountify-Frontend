@@ -1,0 +1,101 @@
+.login-sample {
+    /* border: 2px solid black; */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../assets/LoginSampleBg.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.loginsample-main{
+    /* border: 2px solid black; */
+    height: 80vh;
+    width: 80%;
+    display: flex;
+    box-shadow: 5px 5px 15px #340c35;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.loginsample-left {
+    /* border: 2px solid black; */
+    background-color: rgb(255, 255, 255);
+    color: #340c35;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    padding-left: 5%;
+}
+
+.loginsample-heading1 {
+    /* font-size: 1.5rem; */
+    font-weight: bold;
+}
+
+.loginsample-inputtag{
+    border: none;
+    border-bottom: 2px solid #340c35;
+    width: 85%;
+    margin-bottom: 10px;
+}
+
+.login-sample :placeholder-shown {
+    font-style: italic;
+}
+
+.loginsample-lbutton{
+    width: 85%;
+    border-radius: 7px;
+    margin-top: 25px;
+    background-color: #340c35;
+    border: 2px solid #340c35;
+    color: white;
+}
+
+.loginsample-sdiv{
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 50px;
+    width: 85%;
+}
+.loginsample-paragraph2 {
+    margin: 0;
+}
+
+.loginsample-sbutton{
+    border-radius: 7px;
+    background-color: #340c35;
+    border: 2px solid #340c35;
+    color: white;
+}
+
+.loginsample-right {
+    /* border: 2px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 61%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    background-image: url(../../assets/LoginSample.png);
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
+
+.loginsample-heading2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* .loginsample-img {
+    height: 70%;
+    width: auto;
+} */
