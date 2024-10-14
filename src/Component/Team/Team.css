@@ -3,7 +3,7 @@
     padding: 80px 0;
     background-color: #f4f4f4;
     text-align: center;
-    color: #08233A;
+    color: #340c35;
     /* background-image: url("../../assets/AboutBg2.png");
     background-position: center;
     background-size: cover; */
@@ -25,10 +25,10 @@
   
   .team-member {
     flex: 1;
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    /* border-radius: 10px; */
+    box-shadow: 3px 4px 10px rgb(58, 58, 58);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
@@ -49,10 +49,9 @@
   .team-member p {
     font-size: 1.1rem;
     font-weight: bold;
-    /* color: #777; */
   }
   
   .team-member:hover {
     transform: translateY(-10px);
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 15px rgb(58, 58, 58);
   }

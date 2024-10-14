@@ -15,7 +15,7 @@ export default function LandingPage() {
       <div id="home-section">
         <Home />
       </div>
-      <LoginSample/>
+      {/* <LoginSample/> */}
       <div id="about-section">
         <About />
       </div>

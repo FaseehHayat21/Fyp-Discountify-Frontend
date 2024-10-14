@@ -4,61 +4,46 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #08233A;
+    color: #340c35;
+    /* background-image: url("../../assets/ServicesBg.png");
+    background-position: center;
+    background-size: cover; */
     /* border: 2px solid black; */
 }
 
 .service-detail {
     text-align: center;
-}
-
-.service-detail h2 {
     margin-bottom: 50px;
     font-size: 2.5rem;
     font-weight: bold;
 }
 
-.service-detail p {
-    font-weight: bold;
-    font-style: italic;
-}
-
 .service-list {
-    /* display: flex;
-    justify-content: space-between;
-    flex-direction: wrap;
-    margin-top: 4vh;
-    width: 90%;
-    height: 50%; */
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    max-width: 100%;
-    margin: 0 auto;
+    justify-content: space-between;
+    height: 45vh;
+    width: 90%;
 }
 
 .service-list-container {
-    /* border: 2px solid black;
-    border-radius: 10px;
-    width: 35vh;
-    height: 98%;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center; */
     display: flex;
+    flex-direction: column;
     align-items: center;
-    width: 48%;
-    margin: 1%;
-    background-color: #fff;
-    padding: 10px;
-    box-sizing: border-box;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 18%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 3px 5px 10px rgb(58, 58, 58);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .service-list-container:hover {
+    background-color: #340c35;
+    color: white;
     transform: translateY(-10px);
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-    background-color: #e5e5e5;
 }
 
 .service-list-container h4 {
@@ -68,12 +53,27 @@
 }
 
 .service-list-container p {
-    font-size: o.7rem;
+    display: none;
+    padding-left: 5px;
+    padding-right: 5px;
     font-style: italic;
-    /* font-weight: bold; */
+}
+
+.service-list-container:hover p {
+    display: block
 }
 
 .service-icons {
-    width: 20%;
+    width: 30%;
     height: 10vh;
+    /* transition: transform 0.4s ease-in-out; */
+}
+
+.icon4 {
+    width: 40%;
+}
+
+.service-list-container:hover .service-icons{
+    display: none;
+    /* transform: translateY(-100px); */
 }
