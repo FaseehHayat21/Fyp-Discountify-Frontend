@@ -18,6 +18,7 @@ import StudentLogin from './Component/Login/StudentLogin';
 import LoginAs from "./Component/LoginAs/LoginAs"
 import VendorPage from './Pages/VendorPage/VendorPage';
 import AddDealsVendor from './Component/AddDealsVendor/AddDealsVendor';
+import LoginSample from './Component/LoginSample/LoginSample';
 function App() {
   const [userType, setUserType] = useState(localStorage.getItem('userType') || '');
 
@@ -28,7 +29,7 @@ function App() {
 
         <Route path='/' element={<LandingPage />} />
         <Route path='/register' element={<RegistrationForm />} />
-        <Route path='student/Login' element={<StudentLogin/>} />
+        <Route path='student/Login' element={<LoginSample/>} />
         <Route path='vendor/Login' element={<VendorLogin/>} />
         <Route path='/login' element={<LoginAs/>} />
       

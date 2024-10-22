@@ -33,6 +33,7 @@ export default function ContactUs() {
   return (
     <>
       <div className="container-c">
+        
         <div className='heading-contact'>
           {/* <img className='contact-logo' src={contactlogo} alt="" /> */}
           <h1 className='heading-c'>Get In Touch </h1>

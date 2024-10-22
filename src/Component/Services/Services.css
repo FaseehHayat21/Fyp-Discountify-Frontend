@@ -36,7 +36,7 @@
     background-color: white;
     border-radius: 10px;
     box-shadow: 3px 5px 10px rgb(58, 58, 58);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.5s ease, transform 0.5s ease, color 0.5s ease;
     cursor: pointer;
 }
 
