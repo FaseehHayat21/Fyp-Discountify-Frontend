@@ -9,6 +9,7 @@ const RegistrationState = (props) => {
   const [error, setError] = useState(null);
   const navigate = useNavigate(); 
 
+  //Register 
   const registerUser = async (formData) => {
     let url;
     if (userType === 'Vendor') {
@@ -45,6 +46,7 @@ const RegistrationState = (props) => {
 
     
   };
+    //Register Student Post
   const addPost = async (formData) => {
     try {
         const response = await fetch('http://localhost:1000/api/auth/create', {
@@ -65,8 +67,28 @@ const RegistrationState = (props) => {
         console.error('Error adding post:', error);
     }
 };
+const addDeal = async (formData) => {
+  try {
+      const response = await fetch('http://localhost:1000/api/auth/vendor/addDeal', {
+          method: 'POST',
+          headers: {
+              'auth-token': localStorage.getItem('token') // Don't include 'Content-Type'
+          },
+          body: formData
+      });
 
+      const data = await response.json();
+      if (response.ok && data.success) {
+          setPosts([...posts, data.post]); // Assuming you're setting the new post in state
+      } else {
+          console.error('Failed to add deal:', data.message || 'Unknown error');
+      }
+  } catch (error) {
+      console.error('Error adding deal:', error);
+  }
+};
 
+// Fetching Student Profile
 const fetchProfile = async () => {
   try {
       const token = localStorage.getItem('token');
@@ -89,7 +111,7 @@ const fetchProfile = async () => {
       setLoading(false);
   }
 };
-
+// Updating Student Profile
 const updateProfile = async (updatedFields) => {
   try {
     const response = await fetch('http://localhost:1000/api/auth/studentprofile', {
@@ -113,28 +135,8 @@ const updateProfile = async (updatedFields) => {
     console.error('Error updating profile:', error);
   }
 };
-const addDeal = async (formData) => {
-  try {
-      const response = await fetch('http://localhost:1000/api/auth/vendor/addDeal', {
-          method: 'POST',
-          headers: {
-              'auth-token': localStorage.getItem('token') // Don't include 'Content-Type'
-          },
-          body: formData
-      });
 
-      const data = await response.json();
-      if (response.ok && data.success) {
-          setPosts([...posts, data.post]); // Assuming you're setting the new post in state
-      } else {
-          console.error('Failed to add deal:', data.message || 'Unknown error');
-      }
-  } catch (error) {
-      console.error('Error adding deal:', error);
-  }
-};
-
-
+// Fetching post for a specific student
 const fetchPosts = async () => {
   try {
       const token = localStorage.getItem('token');
@@ -156,10 +158,12 @@ const fetchPosts = async () => {
       setError(err.message);
   }
 };
+
+
   return (
-     <registerContext.Provider value={{ userType, setUserType, registerUser, profile, posts, loading, error, fetchProfile, updateProfile, fetchPosts, addPost, addDeal }}>
-     {props.children}
-   </registerContext.Provider>
+    <registerContext.Provider value={{ userType, setUserType, registerUser, profile, posts, loading, error, fetchProfile, updateProfile, fetchPosts, addPost, addDeal }}>
+      {props.children}
+    </registerContext.Provider>
   );
 };
 

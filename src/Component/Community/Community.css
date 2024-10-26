@@ -1,0 +1,114 @@
+/* Main container styling */
+.community-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    color: white;
+  }
+  
+  .input-c-box {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Individual post container */
+  .post {
+    background-color: #062f3b;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .post:hover {
+    transform: translateY(-5px);
+  }
+  
+  .post-username {
+    margin: 0;
+    font-size: 18px;
+    color: #ffffff;
+  }
+  
+  .post-title {
+    font-size: 24px;
+    text-align: start;
+    margin: 15px 0;
+    color: #ffffff;
+  }
+  
+  .post img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin: 10px 0;
+  }
+  
+  .post-des {
+    font-size: 16px;
+    color: #ffffff;
+  }
+  
+  /* Like button styling */
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Comments section */
+  .comment-section {
+    margin-top: 20px;
+  }
+  
+  .comment-section h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #f1f1f1;
+  }
+  
+  .comment {
+    margin-bottom: 10px;
+  }
+  
+  .comment strong {
+    font-size: 14px;
+    color: #007bff;
+  }
+  
+  .comment span {
+    font-size: 14px;
+    color: #ffffff;
+  }
+  
+  .comment-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .comment-input:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  

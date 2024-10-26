@@ -4,14 +4,17 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    margin-left: 17%;
+    /* margin-left: 17%; */
 }
 
 .template-selection {
     text-align: center;
     margin-bottom: 20px;
 }
-.cpb{display: flex;}
+.cpb{
+    display: flex;
+    justify-content: space-evenly;
+}
 .template-previews {
     display: flex;
     justify-content: space-around;
@@ -70,7 +73,7 @@
     align-items: center;
     border: 2px solid black;
     border-radius: 10px;
-    padding: 20px 20px;
+    padding: 50px 50px;
     background-color: #ccc;
 }
 .p-info{

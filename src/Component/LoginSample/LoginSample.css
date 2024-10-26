@@ -99,3 +99,25 @@
     height: 70%;
     width: auto;
 } */
+
+
+.password-input-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .loginsample-inputtag {
+    width: 100%;
+    padding-right: 10px; /* space for eye icon */
+  }
+  
+  .toggle-password-btn {
+    position: absolute;
+    right: 10px;
+    top: 25%;
+    transform: translateY(-50%);
+    background: transparent;
+    /* border: none; */
+    cursor: pointer;
+    color: black;
+  }

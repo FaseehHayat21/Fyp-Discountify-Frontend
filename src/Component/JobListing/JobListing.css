@@ -1,6 +1,34 @@
-.joblist{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+.jobs-container {
+    padding: 20px;
+  }
+  
+  .filter {
+    margin-bottom: 20px;
+  }
+  
+  .job-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .job-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .bookmark-button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .bookmark-button.bookmarked {
+    background-color: #28a745;
+  }
+  
