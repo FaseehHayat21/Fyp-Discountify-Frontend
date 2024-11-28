@@ -1,7 +1,7 @@
 // src/Component/Admin/ManageUsers.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import "./ManageUser.css"
 function ManageUsers({ authToken }) {
   const [students, setStudents] = useState([]);
   const [vendors, setVendors] = useState([]);
@@ -39,57 +39,55 @@ function ManageUsers({ authToken }) {
 
   return (
     <div>
-      <h3>Manage Users</h3>
+      <h3 className='Manage-User-Heading'>Manage Users</h3>
 
       {/* Tabs for switching between Students and Vendors */}
-      <div style={{ display: 'flex', cursor: 'pointer', marginBottom: '20px' }}>
+      <div className="tabs">
         <div
+          className={`tab ${activeTab === "students" ? "active" : ""}`}
           onClick={() => setActiveTab("students")}
-          style={{
-            padding: '10px 20px',
-            borderBottom: activeTab === "students" ? '2px solid blue' : 'none'
-          }}
         >
           Students
         </div>
         <div
+          className={`tab ${activeTab === "vendors" ? "active" : ""}`}
           onClick={() => setActiveTab("vendors")}
-          style={{
-            padding: '10px 20px',
-            borderBottom: activeTab === "vendors" ? '2px solid blue' : 'none'
-          }}
         >
           Vendors
         </div>
-      </div>
+       </div>
 
       {/* Conditionally render users based on the active tab */}
       {activeTab === "students" && (
-        <div>
-          <h4>Student Users</h4>
-          {students.map((user) => (
-            <div key={user._id}>
-              <p>Name: {user.name}</p>
-              <p>Email: {user.email}</p>
-              <button onClick={() => deleteUser(user._id, "student")}>Delete</button>
-            </div>
-          ))}
+    <div className="user-list">
+      <h4>Student Users</h4>
+      {students.map((user) => (
+        <div className="user-card" key={user._id}>
+          <div className="user-info">
+            <p>Name: {user.name}</p>
+            <p>Email: {user.email}</p>
+          </div>
+          <button onClick={() => deleteUser(user._id, "student")}>Delete</button>
         </div>
-      )}
-
-      {activeTab === "vendors" && (
-        <div>
-          <h4>Vendor Users</h4>
-          {vendors.map((user) => (
-            <div key={user._id}>
-              <p>Name: {user.name}</p>
-              <p>Email: {user.email}</p>
-              <button onClick={() => deleteUser(user._id, "vendor")}>Delete</button>
-            </div>
-          ))}
-        </div>
-      )}
+      ))}
     </div>
+  )}
+
+  {activeTab === "vendors" && (
+    <div className="user-list">
+      <h4>Vendor Users</h4>
+      {vendors.map((user) => (
+        <div className="user-card" key={user._id}>
+          <div className="user-info">
+            <p>Name: {user.name}</p>
+            <p>Email: {user.email}</p>
+          </div>
+          <button onClick={() => deleteUser(user._id, "vendor")}>Delete</button>
+        </div>
+      ))}
+    </div>
+  )}
+</div>
   );
 }
 

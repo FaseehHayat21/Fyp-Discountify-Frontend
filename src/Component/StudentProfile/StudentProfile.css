@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    margin-left: 17%;
 }
 
 .Personal-Info{
@@ -11,6 +10,7 @@
 }
 .profile-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
 }
@@ -23,7 +23,21 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    border: 2px solid #736464;
     object-fit: cover;
+}
+.profile-photo-post {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #736464;
+    object-fit: cover;
+}
+
+.profile-photo-img:hover {
+    transform: scale(1.1);
+    transition: 1.2s;
+    border: 2px solid #ad0000;
 }
 
 .profile-tabs {
@@ -41,7 +55,7 @@
 }
 
 .profile-tabs button.active {
-    background-color: #ddd;
+    background-color: #000000;
 }
 
 .profile-content {
@@ -82,12 +96,11 @@
 .post-header {
     display: flex;
     align-items: center;
+    /* justify-content: center; */
     margin-bottom: 10px;
 }
 
 .profile-photo {
-    width: 40px;
-    height: 40px;
     border-radius: 50%;
     margin-right: 10px;
 }

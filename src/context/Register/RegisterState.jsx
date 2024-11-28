@@ -102,8 +102,8 @@ const fetchProfile = async () => {
       if (!response.ok) {
           throw new Error(`Error: ${response.statusText}`);
       }
-
       const data = await response.json();
+      console.log(data)
       setProfile(data);
   } catch (err) {
       setError(err.message);

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import './StudentProfile.css'; // Custom CSS for styling
 import registerContext from "../../context/Register/RegisterContext";
 import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; 
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const StudentProfile = () => {
     const { profile, posts, loading, error, fetchProfile, updateProfile, fetchPosts } = useContext(registerContext);
@@ -17,28 +17,51 @@ const StudentProfile = () => {
     }, []);
 
     const handleEditClick = () => setEditing(true);
-
     const handleSaveClick = async () => {
-        console.log(editedProfile)
-        await updateProfile(editedProfile);
-        setEditing(false);
-        console.log("Updated Profile:", profile);
-        setEditedProfile(profile); // Debugging to check if profile is updated correctly
-      };
-      
+        const formData = new FormData();
 
-    const handleChange = (e) => {
-        setEditedProfile({
-            ...editedProfile,
-            [e.target.name]: e.target.value,
-        });
+        // Add all edited profile fields to the FormData object
+        for (const key in editedProfile) {
+            if (editedProfile[key]) {
+                formData.append(key, editedProfile[key]);
+            }
+        }
+
+        try {
+            const response = await fetch('http://localhost:1000/api/auth/studentprofile', {
+                method: 'PUT',
+                headers: {
+                    'auth-token': localStorage.getItem('token'), // Include token
+                },
+                body: formData, // Send FormData
+            });
+
+            const data = await response.json();
+            if (!response.ok) {
+                console.error('Failed to update profile:', data.error);
+                return;
+            }
+
+            console.log('Profile updated successfully:', data);
+            setEditing(false);
+            fetchProfile(); // Refresh the profile data
+        } catch (error) {
+            console.error('Error updating profile:', error);
+        }
     };
 
     const handleFileChange = (e) => {
-        setEditedProfile({
-            ...editedProfile,
-            profilePhoto: e.target.files[0],
-        });
+        setEditedProfile((prev) => ({
+            ...prev,
+            profilePhoto: e.target.files[0], // Set the file object
+        }));
+    };
+
+    const handleChange = (e) => {
+        setEditedProfile((prev) => ({
+            ...prev,
+            [e.target.name]: e.target.value,
+        }));
     };
 
     if (loading) return <div>Loading...</div>;
@@ -49,7 +72,7 @@ const StudentProfile = () => {
             <div className="profile-header">
                 <div className="profile-photo">
                     <img
-                        src={profile.profilePhoto || '/default-profile.png'}
+                        src={`http://localhost:1000/${profile.profilePhoto || '/default-profile.png'}`}
                         alt="Profile"
                         className="profile-photo-img"
                     />
@@ -61,9 +84,9 @@ const StudentProfile = () => {
                             accept="image/*"
                         />
                     )}
+                    <h2>{profile.userId.name}</h2>
                 </div>
                 <div className="profile-info">
-                    <h2>{profile.userId.name}</h2>
                     {!editing && <button onClick={handleEditClick}>Edit Profile</button>}
                 </div>
             </div>
@@ -89,35 +112,35 @@ const StudentProfile = () => {
                                 <input
                                     type="text"
                                     name="name"
-                                    value={editedProfile.name || profile.userId.name}
+                                    value={editedProfile.name ?? profile.userId.name}
                                     onChange={handleChange}
                                     placeholder="Name"
                                 />
                                 <input
                                     type="email"
                                     name="email"
-                                    value={editedProfile.email || profile.userId.email}
+                                    value={editedProfile.email ?? profile.userId.email}
                                     onChange={handleChange}
                                     placeholder="Email"
                                 />
                                 <input
                                     type="text"
                                     name="phoneNumber"
-                                    value={editedProfile.phoneNumber || profile.userId.phoneNumber}
+                                    value={editedProfile.phoneNumber ?? profile.userId.phoneNumber}
                                     onChange={handleChange}
                                     placeholder="Phone Number"
                                 />
                                 <input
                                     type="text"
                                     name="semester"
-                                    value={editedProfile.semester || profile.userId.semester}
+                                    value={editedProfile.semester ?? profile.userId.semester}
                                     onChange={handleChange}
                                     placeholder="Semester"
                                 />
                                 <input
                                     type="text"
                                     name="location"
-                                    value={editedProfile.location || profile.userId.location}
+                                    value={editedProfile.location ?? profile.userId.location}
                                     onChange={handleChange}
                                     placeholder="Location"
                                 />
@@ -142,17 +165,16 @@ const StudentProfile = () => {
                 )}
                 {activeTab === 'posts' && (
                     <div className="user-posts">
-                        <h3>User Posts</h3>
                         {posts.length > 0 ? (
                             posts.map((post) => (
                                 <div key={post._id} className="post">
                                     <div className="post-header">
                                         <img
-                                            src={post.user.profilePhoto || '/default-profile.png'}
+                                            src={`http://localhost:1000/${profile.profilePhoto || '/default-profile.png'}`}
                                             alt="User Profile"
-                                            className="profile-photo"
+                                            className="profile-photo-post"
                                         />
-                                        <span className="username">{post.user.name}</span>
+                                        <span className="username">{profile.userId.name}</span>
                                     </div>
                                     <div className="post-image">
                                         <Carousel
