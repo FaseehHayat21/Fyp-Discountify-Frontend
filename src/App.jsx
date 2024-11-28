@@ -54,7 +54,7 @@ function App() {
             <Route path="studentProfile" element={<StudentProfile />} />
           </Route>
           {/* Protect vendor routes */}
-          <Route path='/v/*' element={userType === 'Vendor' ? <VendorPage /> : <Navigate to="/login" />} >
+          <Route path='/v/*' element={userType === 'Vendor' ?  <Navigate to="/login" />: <VendorPage /> } >
             <Route path="cv" element={<CVBuilder />} />
             <Route path="adddeal" element={<AddDealsVendor />} />
           </Route>

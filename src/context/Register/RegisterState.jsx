@@ -78,11 +78,11 @@ const addDeal = async (formData) => {
       });
 
       const data = await response.json();
-      if (response.ok && data.success) {
-          setPosts([...posts, data.post]); // Assuming you're setting the new post in state
-      } else {
-          console.error('Failed to add deal:', data.message || 'Unknown error');
-      }
+      // if (response.ok && data.success) {
+      //     setPosts([...posts, data.post]); // Assuming you're setting the new post in state
+      // } else {
+      //     console.error('Failed to add deal:', data.message || 'Unknown error');
+      // }
   } catch (error) {
       console.error('Error adding deal:', error);
   }

@@ -31,7 +31,7 @@ export default function LoginSample() {
                 console.log("Token saved to localStorage:", localStorage.getItem('token'));  // Verify save
                 console.log("Token saved to localStorage:", localStorage.getItem('userid'));  // Verify save
                 console.log("Token saved to localStorage:", localStorage.getItem('usertype'));  // Verify save
-                navigate("/s"); 
+                navigate("/v"); 
             } else {
                 console.error("Token is undefined, cannot save to localStorage");
             }
