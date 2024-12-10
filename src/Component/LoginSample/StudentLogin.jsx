@@ -3,6 +3,7 @@ import "./LoginSample.css"
 import loginsample from "../../assets/LoginSample.jpg"
 import { useNavigate, Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+
 export default function StudentLogin() {
 
     const [email, setEmail] = useState('');
@@ -54,9 +55,11 @@ export default function StudentLogin() {
                         <p className='loginsample-paragraph1'>Enter your Account Details</p>
 
                         <form onSubmit={handleSubmit} className='loginsample-form'>
+                            <div className='loginsample-input-container'>                               
                             <input className='loginsample-inputtag'   onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Email' />
+                            </div>
                             {/* <input className='loginsample-inputtag'   onChange={(e) => setPassword(e.target.value)} type="text" placeholder='Password' /> */}
-                            <div className="password-input-container">
+                            <div className="loginsample-input-container">
                             <input
                                 className="loginsample-inputtag"
                                 type={showPassword ? "text" : "password"}

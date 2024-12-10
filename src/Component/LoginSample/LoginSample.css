@@ -9,7 +9,7 @@
     background-size: cover;
 }
 
-.loginsample-main{
+.loginsample-main {
     /* border: 2px solid black; */
     height: 80vh;
     width: 80%;
@@ -26,7 +26,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
     padding-left: 5%;
 }
 
@@ -35,18 +34,20 @@
     font-weight: bold;
 }
 
-.loginsample-inputtag{
+.loginsample-inputtag {
     border: none;
     border-bottom: 2px solid #340c35;
-    width: 85%;
     margin-bottom: 10px;
+    width: 100%;
+    padding-right: 10px;
+    /* space for eye icon */
 }
 
 .login-sample :placeholder-shown {
     font-style: italic;
 }
 
-.loginsample-lbutton{
+.loginsample-lbutton {
     width: 85%;
     border-radius: 7px;
     margin-top: 25px;
@@ -55,7 +56,7 @@
     color: white;
 }
 
-.loginsample-sdiv{
+.loginsample-sdiv {
     /* border: 2px solid black; */
     display: flex;
     justify-content: space-evenly;
@@ -63,11 +64,12 @@
     margin-top: 50px;
     width: 85%;
 }
+
 .loginsample-paragraph2 {
     margin: 0;
 }
 
-.loginsample-sbutton{
+.loginsample-sbutton {
     border-radius: 7px;
     background-color: #340c35;
     border: 2px solid #340c35;
@@ -101,23 +103,23 @@
 } */
 
 
-.password-input-container {
+.loginsample-input-container {
     position: relative;
-    width: 100%;
-  }
-  
-  .loginsample-inputtag {
-    width: 100%;
-    padding-right: 10px; /* space for eye icon */
-  }
-  
-  .toggle-password-btn {
+    width: 85%;
+}
+
+
+.toggle-password-btn {
     position: absolute;
-    right: 10px;
+    right: 0px;
     top: 25%;
     transform: translateY(-50%);
     background: transparent;
     /* border: none; */
     cursor: pointer;
     color: black;
-  }
+}
+
+.toggle-password-btn:hover {
+    background: transparent;
+}

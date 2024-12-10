@@ -15,8 +15,9 @@
 
 .heading-add {
     text-align: center;
-    font-size: 24px;
+    font-size: 24px !important;
     margin-bottom: 20px;
+    color: #340c35 !important;
 }
 
 .post-form {
@@ -41,9 +42,7 @@
     margin-bottom: 5px;
 }
 
-.input-control,
-.textarea-control,
-.file-control {
+.input-control, .textarea-control, .file-control {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -79,13 +78,13 @@
 .left {
     flex: 1;
     height: 100vh;
-    background-color: black;
-    background-image: url("../../assets/AboutBg.png");
+    background-color: rgb(207, 175, 223);
+    /* background-image: url("../../assets/AboutBg.png"); */
 }
 
 .right {
     flex: 1;
     height: 100vh;
-    background-color: black;
-    background-image: url("../../assets/AboutBg.png");
+    background-color: rgb(207, 175, 223);
+    /* background-image: url("../../assets/AboutBg.png"); */
 }

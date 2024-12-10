@@ -71,7 +71,7 @@ const RegistrationForm = () => {
             Vendor
           </button>
         </div>
-        <h2>Apply as a {userType}</h2>
+        <h2 style={{color: "#340c35"}}>Apply as a {userType}</h2>
         <form className="registration-form" onSubmit={handleSubmit}>
           <div className="form-row">
             <input

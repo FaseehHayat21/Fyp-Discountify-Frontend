@@ -63,10 +63,12 @@ export default function Navbar() {
             </ul>
             <form className="d-flex mx-4" role="search">
               <Link className="nav-link" to="/register">
-                <button className="btn btn-danger mx-2" type="button">SignUp</button>
+                {/* <button className="btn btn-danger mx-2" type="button">SignUp</button> */}
+                <button className="btn btn-outline-light mx-2" type="button">SignUp</button>
               </Link>
               <Link className="nav-link" to="/login">
-                <button className="btn btn-secondary" type="button">Login</button>
+                {/* <button className="btn btn-secondary" type="button">Login</button> */}
+                <button className="btn btn-outline-light" type="button">Login</button>
               </Link>
             </form>
           </div>

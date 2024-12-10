@@ -33,7 +33,7 @@ export default function ContactUs() {
   return (
     <>
       <div className="container-c">
-        
+
         <div className='heading-contact'>
           {/* <img className='contact-logo' src={contactlogo} alt="" /> */}
           <h1 className='heading-c'>Get In Touch </h1>
@@ -43,7 +43,7 @@ export default function ContactUs() {
             <div className="address details">
               <i className="fas fa-map-marker-alt"></i>
               <div className="topic">Address</div>
-              <div className="text-one"><FaLocationDot/> PAF Complex E9</div>
+              <div className="text-one"><FaLocationDot /> PAF Complex E9</div>
               <div className="text-two">Islamabad</div>
             </div>
             <div className="phone details">

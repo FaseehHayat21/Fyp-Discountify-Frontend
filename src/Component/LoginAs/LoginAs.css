@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-image: url(../../assets/bglogin2.jpg);
+    background-image: url(../../assets/bglogin.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -20,35 +20,27 @@
     height: 40vh;
     width: 25%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* backdrop-filter: blur(10px); */
 }
 
 .login-as-student:hover, .login-as-vendor:hover {
+    background-color: white;
     transform: translateY(-10px);
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.login-as-student {
-    background-image: url(../../assets/LoginAsStudent.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.login-as-vendor {
-    background-image: url(../../assets/LoginAsVendor.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    box-shadow: 0px 8px 15px #340c35;
 }
 
 .login-as-student h3, .login-as-vendor h3 {
     font-size: 2rem;
     font-weight: bold;
     color: #e6e7e8;
-    /* -webkit-text-stroke: 1px #08233A; */
-    text-shadow: 4px 2px #08233A;
+    text-shadow: 4px 2px #340c35;
     cursor: default;
 }
 
+.login-as-student:hover h3, .login-as-vendor:hover h3{
+    color: #340c35;
+    text-shadow: none;
+}
 
+.link-loginas {
+    text-decoration: none;
+}

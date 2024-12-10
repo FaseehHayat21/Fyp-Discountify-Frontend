@@ -39,14 +39,21 @@
   z-index: 2;
 }
 
-.btn-primary {
+.home-button {
   display: inline-block;
-  background-color: #ff5a5f;
-  color: white;
+  background-color: #ffffff;
+  color: #340c35;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 30px;
   transition: background-color 0.3s ease;
   text-decoration: none;
+  font-weight: bold;
+}
+
+.home-button:hover {
+  background-color: #340c35;
+  color: #ffffff;
+  border: 2px solid white;
 }
 
 .hero-image {
