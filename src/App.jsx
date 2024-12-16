@@ -23,11 +23,10 @@ import ViewDeals from './Component/Vendor/ViewDeals/ViewDeals';
 import EditDeal from './Component/Vendor/EditDeal/EditDeal';
 import VendorProfile from './Component/Vendor/VendorProfile/VendorProfile';
 import Notification from './Component/Vendor/Notification/Notification';
+import FeedbackForm from './Component/FeedbackForm/FeedbackForm';
 
 function App() {
-  const [userType, setUserType] = useState(localStorage.getItem('userType') || '');
-
-  // Update localStorage whenever userType changes
+  const [userType, setUserType] = useState(localStorage.getItem('usertype') || '');
   useEffect(() => {
     localStorage.setItem('userType', userType);
   }, [userType]);
@@ -44,8 +43,7 @@ function App() {
           <Route path='/adminLogin' element={<AdminLogin/>} />
 
           {/* Protect student routes */}
-          <Route path='/s/*' element={userType === 'Student' ?   <StudentPage />:<Navigate to="/login" />} >
-          {/* <Route path='/s/*' element={userType === 'Student' ? <StudentPage /> : <Navigate to="/login" />} > */}
+          <Route path='/s/*' element={userType === 'Student' ?   <StudentPage /> : <Navigate to="/login" />} >
             <Route path="cv" element={<CVBuilder />} />
             <Route path="dealsAndDiscount" element={<DealsDiscount />} />
             <Route path="courseListing" element={<CourseListing />} />
@@ -53,9 +51,11 @@ function App() {
             <Route path="addPostStudent" element={<AddPostStudent />} />
             <Route path="community" element={<Community />} />
             <Route path="studentProfile" element={<StudentProfile />} />
+            <Route path="feedbackform" element={<FeedbackForm/>} />
+            
           </Route>
           {/* Protect vendor routes */}
-          <Route path='/v/*' element={userType === 'Vendor' ?  <Navigate to="/login" />: <VendorPage /> } >
+          <Route path='/v/*' element={userType === 'Vendor' ?   <VendorPage />: <Navigate to="/login" /> } >
             <Route path="adddeal" element={<AddDealsVendor />} />
             <Route path="viewdeal" element={<ViewDeals/>} />
             <Route path="editdeal" element={<EditDeal/>} />

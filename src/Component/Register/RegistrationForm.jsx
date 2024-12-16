@@ -39,7 +39,82 @@ const RegistrationForm = () => {
     const [otpSent, setOtpSent] = useState(false); // Track OTP sent status
     const [otpVerified, setOtpVerified] = useState(false); // Track OTP verification status
 
+    const [errors, setErrors] = useState({});
 
+    const validateForm = () => {
+      let isValid = true;
+      const newErrors = {};
+  
+      // General checks
+      if (!formData.name.trim()) {
+        newErrors.name = "Name is required.";
+        isValid = false;
+      }
+  
+      if (!formData.email.trim() || !/^\S+@\S+\.\S+$/.test(formData.email)) {
+        newErrors.email = "Valid email is required.";
+        isValid = false;
+      }
+  
+      if (!formData.phoneNumber.trim() || !/^\d{10,15}$/.test(formData.phoneNumber)) {
+        newErrors.phoneNumber = "Valid phone number (10-15 digits) is required.";
+        isValid = false;
+      }
+  
+      if (formData.password.length < 8) {
+        newErrors.password = "Password must be at least 8 characters.";
+        isValid = false;
+      }
+  
+      if (formData.password !== formData.confirmPassword) {
+        newErrors.confirmPassword = "Passwords do not match.";
+        isValid = false;
+      }
+  
+      // Student-specific checks
+      if (userType === "Student") {
+        if (!formData.semester.trim()) {
+          newErrors.semester = "Semester is required.";
+          isValid = false;
+        }
+  
+        if (!formData.location.trim()) {
+          newErrors.location = "Location is required.";
+          isValid = false;
+        }
+      }
+  
+      // Vendor-specific checks
+      if (userType === "Vendor") {
+        if (!formData.category) {
+          newErrors.category = "Category is required.";
+          isValid = false;
+        }
+  
+        if (!formData.address.trim()) {
+          newErrors.address = "Address is required.";
+          isValid = false;
+        }
+  
+        if (!formData.city.trim()) {
+          newErrors.city = "City is required.";
+          isValid = false;
+        }
+  
+        if (!formData.companyName.trim()) {
+          newErrors.companyName = "Company name is required.";
+          isValid = false;
+        }
+  
+        if (!formData.companyAddress.trim()) {
+          newErrors.companyAddress = "Company address is required.";
+          isValid = false;
+        }
+      }
+  
+      setErrors(newErrors);
+      return isValid;
+    };
 
     const handleOtpVerification = async () => {
     try {
@@ -96,7 +171,11 @@ const RegistrationForm = () => {
   // };
       const handleSubmit = (e) => {
         e.preventDefault();
-
+        if (validateForm()) {
+          console.log("Form submitted successfully", formData);
+        } else {
+          console.log("Form validation failed");
+        }
         if (formData.password !== formData.confirmPassword) {
           alert("Passwords do not match!");
           return;

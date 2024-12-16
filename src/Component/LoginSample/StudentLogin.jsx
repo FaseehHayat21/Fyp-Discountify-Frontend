@@ -79,7 +79,7 @@ export default function StudentLogin() {
                                 className="toggle-password-btn"
                                 onClick={() => setShowPassword(!showPassword)}
                             >
-                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                {showPassword ? <FaEye /> : <FaEyeSlash />}
                             </button>
                             </div>
                         <p className='loginsample-paragraph2'>Forget Password</p>
