@@ -44,7 +44,7 @@ function App() {
           <Route path='/adminLogin' element={<AdminLogin/>} />
 
           {/* Protect student routes */}
-          <Route path='/s/*' element={userType === 'Student' ?  <Navigate to="/login" />: <StudentPage />} >
+          <Route path='/s/*' element={userType === 'Student' ?   <StudentPage />:<Navigate to="/login" />} >
           {/* <Route path='/s/*' element={userType === 'Student' ? <StudentPage /> : <Navigate to="/login" />} > */}
             <Route path="cv" element={<CVBuilder />} />
             <Route path="dealsAndDiscount" element={<DealsDiscount />} />
