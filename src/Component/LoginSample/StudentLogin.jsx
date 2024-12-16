@@ -12,6 +12,9 @@ export default function StudentLogin() {
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
+        try{
+
+        
         e.preventDefault();
         const response = await fetch("http://localhost:1000/api/auth/student/login", {
             method: 'POST',
@@ -44,6 +47,10 @@ export default function StudentLogin() {
         } else {
             alert("Invalid credentials");
         }
+            }catch (error){
+                    console.log(error)
+                    alert(error)
+            }
     }
     return (
         <>

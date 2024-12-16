@@ -54,6 +54,7 @@ const CVBuilder = () => {
 
     return (
         <div className="cv-builder-container">
+            <h1 className='heading-top-routes'>CREATE YOUR  CV</h1>
             {!selectedTemplate ? (
                 <div className="template-selection">
                     <h2>Select a Template</h2>

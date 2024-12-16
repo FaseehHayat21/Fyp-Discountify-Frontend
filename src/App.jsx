@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Navbar from './Component/Navbar/Navbar';
 import StudentPage from './Pages/StudentPage/StudentPage';
 import RegistrationForm from './Component/Register/RegistrationForm';
 import LandingPage from './Pages/LandingPage/LandingPage';
-import Login from './Component/Login/VendorLogin';
-import DealsAndDiscount from './Component/DealsAndDiscount/DealsAndDiscount';
 import CourseListing from './Component/CourseListing/CourseListing';
 import JobListing from './Component/JobListing/JobListing';
 import AddPostStudent from './Component/AddPostStudent/AddPostStudent';
@@ -22,6 +19,10 @@ import Community from './Component/Community/Community';
 import AdminPage from './Pages/AdminPage/AdminPage';
 import ManageUsers from './Component/Admin/ManageUser/ManageUser';
 import AdminLogin from './Component/Admin/AdminLogin/AdminLogin';
+import ViewDeals from './Component/Vendor/ViewDeals/ViewDeals';
+import EditDeal from './Component/Vendor/EditDeal/EditDeal';
+import VendorProfile from './Component/Vendor/VendorProfile/VendorProfile';
+import Notification from './Component/Vendor/Notification/Notification';
 
 function App() {
   const [userType, setUserType] = useState(localStorage.getItem('userType') || '');
@@ -55,8 +56,13 @@ function App() {
           </Route>
           {/* Protect vendor routes */}
           <Route path='/v/*' element={userType === 'Vendor' ?  <Navigate to="/login" />: <VendorPage /> } >
-            <Route path="cv" element={<CVBuilder />} />
             <Route path="adddeal" element={<AddDealsVendor />} />
+            <Route path="viewdeal" element={<ViewDeals/>} />
+            <Route path="editdeal" element={<EditDeal/>} />
+            <Route path="vendorProfile" element={<VendorProfile/>} />
+            <Route path="notification" element={<Notification/>} />
+            
+           
           </Route>
 
           {/* Protect admin routes */}

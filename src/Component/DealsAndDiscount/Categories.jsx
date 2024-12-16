@@ -11,7 +11,7 @@ function Categories({ onSelectCategory }) {
 
   return (
     <div className='category-page'>
-      <h2 className='category-heading'>Select a Category</h2>
+      <h2 className='category-heading'>Select as Category</h2>
       <ul className='category-ul '>
         {categories.map(category => (
           <li className={`category-${category}  category-li` }  key={category} onClick={() => onSelectCategory(category)}>

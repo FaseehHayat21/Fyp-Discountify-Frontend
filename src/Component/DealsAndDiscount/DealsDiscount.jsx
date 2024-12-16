@@ -7,7 +7,7 @@ function DealsDiscounts() {
 
   return (
     <div className='DealsAndDiscount'>
-      <h1>Deals and Discounts</h1>
+      <h1 className='heading-top-routes'>Deals and Discounts</h1>
       {!selectedCategory && <Categories onSelectCategory={setSelectedCategory} />}
       {selectedCategory && <Vendors categoryName={selectedCategory} />}
     </div>

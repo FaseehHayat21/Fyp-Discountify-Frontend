@@ -5,44 +5,32 @@ import * as IoIcons from 'react-icons/io';
 
 export const SidebarData = [
   {
-    title: 'Deals & Discount',
-    path: 'dealsAndDiscount',
+    title: 'Add Deals',
+    path: 'adddeal',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
   {
-    title: 'Cv',
-    path: 'cv',
+    title: 'View Deals',
+    path: 'viewdeal',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
   {
-    title: 'Course Listing',
-    path: 'courseListing',
-    icon: <FaIcons.FaCartPlus />,
+    title: 'Edit Deals',
+    path: 'editdeal',
+    icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
   {
-    title: 'Add Post',
-    path: 'addPostStudent',
-    icon: <IoIcons.IoMdPeople />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Messages',
-    path: '/chat',
-    icon: <FaIcons.FaEnvelopeOpenText />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Community',
-    path: 'community',
-    icon: <IoIcons.IoMdHelpCircle />,
+    title: 'Notification Deals',
+    path: 'notification',
+    icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
   {
     title: 'Profile',
-    path: 'studentProfile',
+    path: 'vendorProfile',
     icon: <IoIcons.IoMdHelpCircle />,
     cName: 'nav-text'
   },

@@ -5,7 +5,6 @@ import Services from '../../Component/Services/Services'
 import Navbar from '../../Component/Navbar/Navbar'
 import ContactUs from '../../Component/ContactUs/ContactUs'
 import Team from '../../Component/Team/Team'
-import LoginSample from '../../Component/LoginSample/VendorLogin'
 
 
 export default function LandingPage() {

@@ -64,6 +64,28 @@ const StudentProfile = () => {
         }));
     };
 
+    
+    
+    const handleAddSkill = () => {
+        if (editedProfile.newSkill) {
+            setEditedProfile({
+                ...editedProfile,
+                skills: [...(editedProfile.skills || []), editedProfile.newSkill],
+                newSkill: "", // Clear the input field
+            });
+        }
+    };
+    
+    const handleRemoveSkill = (index) => {
+        const updatedSkills = [...(editedProfile.skills || [])];
+        updatedSkills.splice(index, 1);
+        setEditedProfile({
+            ...editedProfile,
+            skills: updatedSkills,
+        });
+    };
+
+
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
@@ -144,16 +166,54 @@ const StudentProfile = () => {
                                     onChange={handleChange}
                                     placeholder="Location"
                                 />
+                                 {/* Skills Section */}
+                                <div className="skills-section">
+                                    <h4>Skills</h4>
+                                    <div>
+                                        {editedProfile.skills?.map((skill, index) => (
+                                            <span key={index} className="skill">
+                                                {skill}
+                                                <button
+                                                    type="button"
+                                                    onClick={() => handleRemoveSkill(index)}
+                                                >
+                                                    &times;
+                                                </button>
+                                            </span>
+                                        ))}
+                                    </div>
+                                    <input
+                                        type="text"
+                                        name="newSkill"
+                                        value={editedProfile.newSkill || ""}
+                                        onChange={handleChange}
+                                        placeholder="Add a new skill"
+                                    />
+                                    <button type="button" onClick={handleAddSkill}>
+                                        Add Skill
+                                    </button>
+                                </div>
                                 <button onClick={handleSaveClick}>Save</button>
                             </div>
                         ) : (
-                            <div className='Personal-Info'>
-                                <h3>Personal Information</h3>
-                                <h5>Email: {profile.userId.email}</h5>
-                                <h5>Semester: {profile.userId.semester}</h5>
-                                <h5>Phone Number: {profile.userId.phoneNumber}</h5>
-                                <h5>Location: {profile.userId.location}</h5>
-                            </div>
+                            <div className="Personal-Info">
+                            <h3>Personal Information</h3>
+                            <h5>Email: {profile.userId.email}</h5>
+                            <h5>Semester: {profile.userId.semester}</h5>
+                            <h5>Phone Number: {profile.userId.phoneNumber}</h5>
+                            <h5>Location: {profile.userId.location}</h5>
+                            <h5>Skills:</h5>
+                            {profile.skills && profile.skills.length > 0 ? (
+                                <ul>
+                                    {profile.skills.map((skill, index) => (
+                                        <li key={index}>{skill}</li>
+                                    ))}
+                                </ul>
+                            ) : (
+                                <p>No skills added yet.</p>
+                            )}
+                        </div>
+
                         )}
                     </div>
                 )}

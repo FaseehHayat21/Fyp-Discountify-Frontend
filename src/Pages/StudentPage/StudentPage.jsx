@@ -2,10 +2,6 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import StudentSideBar from '../../Component/StudentSideBar/StudentSideBar';
 import "./StudentPage.css"
-import DealsAndDiscount from '../../Component/DealsAndDiscount/DealsAndDiscount';
-import CourseListing from '../../Component/CourseListing/CourseListing';
-import JobListing from '../../Component/JobListing/JobListing';
-import AddPostStudent from '../../Component/AddPostStudent/AddPostStudent';
 import { Outlet } from 'react-router-dom';
 export default function StudentPage() {
   return (

@@ -176,32 +176,6 @@ export default function Community() {
     }
   }, [searchTerm, posts]);
 
-  // Handle liking a post
-  // const handleLike = async (postId) => {
-  //   const currentUserId = localStorage.getItem('userid');
-  //   try {
-  //     axios.put(`http://localhost:1000/api/auth/posts/like/${postId}`, {}, {
-  //       headers: {
-  //         'auth-token': localStorage.getItem('token') // Ensure the correct token key
-  //       }
-  //     })
-  //     .then((response) => {
-  //       console.log('Post liked successfully:', response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error liking the post:', error);
-  //     });
-  //     setPosts((prevPosts) =>
-  //       prevPosts.map((post) =>
-  //         post._id === postId
-  //           ? { ...post, likes: post.likes.includes(currentUserId) ? post.likes : [...post.likes, currentUserId] }
-  //           : post
-  //       )
-  //     );
-  //   } catch (error) {
-  //     console.error('Error liking the post:', error);
-  //   }
-  // };
   const handleLike = async (postId) => {
     try {
       const token = localStorage.getItem('token'); // Retrieve token from localStorage
@@ -234,20 +208,7 @@ export default function Community() {
     }
   };
 
-  // Handle commenting on a post
-  // const handleComment = async (postId, commentText) => {
-  //   if (!commentText.trim()) return; // Prevent empty comments
-  //   try {
-  //     const response = await axios.post(`http://localhost:1000/api/auth/post/comment/${postId}`, { text: commentText });
-  //     setPosts((prevPosts) =>
-  //       prevPosts.map((post) =>
-  //         post._id === postId ? { ...post, comments: [...post.comments, response.data] } : post
-  //       )
-  //     );
-  //   } catch (error) {
-  //     console.error('Error commenting on the post:', error);
-  //   }
-  // };
+
 
   const handleComment = async (postId, commentText) => {
     if (!commentText.trim()) return; // Prevent empty comments
@@ -307,7 +268,7 @@ export default function Community() {
               />
             )}
             <p className="post-description">{post.description}</p>
-            <div className="post-actions">
+            <div className="post-actionss">
               <button onClick={() => handleLike(post._id)} className="like-button">
                 👍 Like ({post.likes.length})
               </button>

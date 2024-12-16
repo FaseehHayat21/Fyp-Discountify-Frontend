@@ -3,17 +3,16 @@ import "./AddPostStudent.css"; // Update your CSS filename if necessary
 import { IoMdAdd } from "react-icons/io";
 import registerContext from "../../context/Register/RegisterContext"; // Assume you have a PostContext for handling posts
 import { useNavigate } from 'react-router-dom';
-import pic from "../../assets/AboutBg2.png"
 export default function AddpostStudent() {
     const navigate = useNavigate();
     const context = useContext(registerContext);
     const { addPost } = context;
 
-        // useEffect(() => {
-        //     if (!localStorage.getItem('token')) {
-        //         navigate("/login");
-        //     }
-        // }, [navigate]);
+        useEffect(() => {
+            if (!localStorage.getItem('token')) {
+                navigate("/login");
+            }
+        }, [navigate]);
 
     const [post, setPost] = useState({
         title: "",
