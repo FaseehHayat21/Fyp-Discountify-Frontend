@@ -55,7 +55,7 @@ function App() {
             
           </Route>
           {/* Protect vendor routes */}
-          <Route path='/v/*' element={userType === 'Vendor' ?   <VendorPage />: <Navigate to="/login" /> } >
+          <Route path='/v/*' element={userType === 'Vendor' ?   <VendorPage /> : <Navigate to="/login" /> } >
             <Route path="adddeal" element={<AddDealsVendor />} />
             <Route path="viewdeal" element={<ViewDeals/>} />
             <Route path="editdeal" element={<EditDeal/>} />

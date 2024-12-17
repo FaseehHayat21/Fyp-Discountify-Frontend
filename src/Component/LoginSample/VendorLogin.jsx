@@ -81,7 +81,7 @@ export default function LoginSample() {
 
                         <div className='loginsample-sdiv'>
                             <p className='loginsample-paragraph2'>Don't Have an Account</p>
-                            <button className='loginsample-sbutton'>Sign Up</button>
+                            <button className='loginsample-sbutton'><Link to="/register">Sign Up</Link></button>
                         </div>
                     </div>
 
