@@ -71,7 +71,7 @@ const StudentProfiles = () => {
                             {/* Left Side - Profile Photo */}
                             <div className="student-photo">
                                 <img
-                                    src={student.profilePhoto || 'https://via.placeholder.com/100'}
+                                   src={`http://localhost:1000/${student.profilePhoto || '/default-profile.png'}`}
                                     alt={`${student.name}'s profile`}
                                 />
                             </div>

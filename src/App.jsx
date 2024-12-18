@@ -62,6 +62,7 @@ function App() {
           {/* Protect student routes */}
           <Route path='/s/*' element={!userType === 'Student' ? <Navigate to="/login" />:  <StudentPage />} >
             <Route index element={<StudentProfile />} />
+           
             <Route path="cv" element={<CVBuilder />} />
             <Route path="dealsAndDiscount" element={<DealsDiscount />} />
             <Route path="courseListing" element={<CourseListing />} />
@@ -75,7 +76,8 @@ function App() {
           </Route>
           {/* Protect vendor routes */}
           <Route path='/v/*' element={!userType === 'Vendor' ?  <Navigate to="/login" />: <VendorPage />  } >
-          <Route path="vendorProfile" element={<VendorProfile/>} />
+          <Route index element={<VendorProfile/>} />
+            <Route path="vendorProfile" element={<VendorProfile/>} />
             <Route path="adddeal" element={<AddDealsVendor />} />
             <Route path="viewdeal" element={<ViewDeals/>} />
             <Route path="editdeal" element={<EditDeal/>} />

@@ -262,9 +262,17 @@ const StudentProfile = () => {
                                     <h4>{post.title}</h4>
                                     <p>{post.description}</p>
                                     <div className="post-actions">
-                                        <button className="like-btn">❤️</button>
-                                        <button className="comment-btn">💬</button>
-                                        <button className="share-btn">📤</button>
+                                        <div>
+                                        <button className="like-btn">{post.likes.length}</button>
+                                        </div>
+                                        <div>
+                                        {post.comments.map((comment) => (
+                                            <div key={comment._id} className="comment">
+                                            <strong>{comment.user?.name || 'Anonymous'}:</strong> {comment.text}
+                                            </div>
+                                        ))}
+                                        </div>
+                                     
                                     </div>
                                 </div>
                             ))

@@ -110,3 +110,16 @@ h2 {
   align-self: center;
   margin-top: 20px;
 }
+
+.password-toggle-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #340c35;
+  font-size: 14px;
+  padding: 5px;
+  margin-left: 10px;
+}
+.password-toggle-button:hover {
+  text-decoration: underline;
+}

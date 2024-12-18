@@ -146,7 +146,7 @@ export default function Community() {
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredPosts, setFilteredPosts] = useState([]);
-
+  
   // Fetch posts from the backend
   useEffect(() => {
     const fetchPosts = async () => {
