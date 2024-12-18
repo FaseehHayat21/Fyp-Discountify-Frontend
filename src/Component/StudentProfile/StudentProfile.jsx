@@ -3,18 +3,73 @@ import './StudentProfile.css'; // Custom CSS for styling
 import registerContext from "../../context/Register/RegisterContext";
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
+import axios from 'axios';
 const StudentProfile = () => {
-    const { profile, posts, loading, error, fetchProfile, updateProfile, fetchPosts } = useContext(registerContext);
+    const { profile, posts, loading, error, fetchProfile, updateProfile, fetchPosts,setPosts } = useContext(registerContext);
     const [editing, setEditing] = useState(false);
     const [editedProfile, setEditedProfile] = useState({});
-
     const [activeTab, setActiveTab] = useState('info');
+    const [editingPostId, setEditingPostId] = useState(null);
 
     useEffect(() => {
         fetchProfile();
         fetchPosts();
     }, []);
+const [editedPost, setEditedPost] = useState({ title: '', description: '' });
+
+// Edit Post Handler
+const handleEditPost = (post) => {
+    setEditingPostId(post._id);
+    setEditedPost({ title: post.title, description: post.description });
+};
+
+// Save Edited Post
+const handleSavePost = async (postId) => {
+    try {
+        const token = localStorage.getItem('token'); // Retrieve the token
+        const response = await axios.put(
+            `http://localhost:1000/api/auth/posts/${postId}`,
+            editedPost,
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'auth-token': token, // Pass the token in headers
+                },
+            }
+        );
+
+        if (response.data.success) {
+            const updatedPosts = posts.map((post) =>
+                post._id === postId ? { ...post, ...editedPost } : post
+            );
+            setPosts(updatedPosts);
+            setEditingPostId(null);
+        }
+    } catch (error) {
+        console.error('Error saving post:', error);
+    }
+};
+const handleDeletePost = async (postId) => {
+    try {
+        const token = localStorage.getItem('token'); // Retrieve the token
+        const response = await axios.delete(`http://localhost:1000/api/auth/posts/${postId}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': token, // Pass the token in headers
+            },
+        });
+
+        if (response.data.success) {
+            setPosts(posts.filter((post) => post._id !== postId));
+        }
+    } catch (error) {
+        console.error('Error deleting post:', error);
+    }
+};
+
+
+
+ 
 
     const handleEditClick = () => setEditing(true);
     const handleSaveClick = async () => {
@@ -216,30 +271,30 @@ const StudentProfile = () => {
                         //     )}
                         // </div>
                             <div className="profile-infos">
-    <h3 className="section-title">Personal Information</h3>
-    <div className="profile-section">
-        <h4>Introduction</h4>
-        <p className="introduction">{profile.introduction || "No introduction provided."}</p>
-    </div>
-    <div className="profile-details">
-        <h5>Email: <span>{profile.userId.email}</span></h5>
-        <h5>Semester: <span>{profile.userId.semester}</span></h5>
-        <h5>Phone Number: <span>{profile.userId.phoneNumber}</span></h5>
-        <h5>Location: <span>{profile.userId.location}</span></h5>
-    </div>
-    <div className="skills-section">
-        <h5>Skills:</h5>
-        {profile.skills && profile.skills.length > 0 ? (
-            <ul className="skills-list">
-                {profile.skills.map((skill, index) => (
-                    <li key={index} className="skill-item">{skill}</li>
-                ))}
-            </ul>
-        ) : (
-            <p className="no-skills">No skills added yet.</p>
-        )}
-    </div>
-</div>
+                            <h3 className="section-title">Personal Information</h3>
+                            <div className="profile-section">
+                                <h4>Introduction</h4>
+                                <p className="introduction">{profile.introduction || "No introduction provided."}</p>
+                            </div>
+                            <div className="profile-details">
+                                <h5>Email: <span>{profile.userId.email}</span></h5>
+                                <h5>Semester: <span>{profile.userId.semester}</span></h5>
+                                <h5>Phone Number: <span>{profile.userId.phoneNumber}</span></h5>
+                                <h5>Location: <span>{profile.userId.location}</span></h5>
+                            </div>
+                            <div className="skills-section">
+                                <h5>Skills:</h5>
+                                {profile.skills && profile.skills.length > 0 ? (
+                                    <ul className="skills-list">
+                                        {profile.skills.map((skill, index) => (
+                                            <li key={index} className="skill-item">{skill}</li>
+                                        ))}
+                                    </ul>
+                                ) : (
+                                    <p className="no-skills">No skills added yet.</p>
+                                )}
+                            </div>
+                        </div>
                         )}
                     </div>
                 )}
@@ -249,7 +304,7 @@ const StudentProfile = () => {
                         <a href={`/path-to-cv/${profile.userId._id}`} target="_blank" rel="noopener noreferrer">Download CV</a>
                     </div>
                 )}
-                {activeTab === 'posts' && (
+                {/* {activeTab === 'posts' && (
                     <div className="user-posts">
                         {posts.length > 0 ? (
                             posts.map((post) => (
@@ -306,7 +361,83 @@ const StudentProfile = () => {
                             <p>No posts yet.</p>
                         )}
                     </div>
-                )}
+                )} */}
+                {activeTab === 'posts' && (
+    <div className="user-posts">
+        {posts.length > 0 ? (
+            posts.map((post) => (
+                <div key={post._id} className="post">
+                    <div className="post-header">
+                        <img
+                            src={`http://localhost:1000/${profile.profilePhoto || '/default-profile.png'}`}
+                            alt="User Profile"
+                            className="profile-photo-post"
+                        />
+                        <span className="username">{profile.userId.name}</span>
+                    </div>
+                    <div className="post-image">
+                        <Carousel
+                            showThumbs={false}
+                            infiniteLoop={true}
+                            autoPlay={true}
+                            emulateTouch={true}
+                        >
+                            {post.images.map((image, idx) => (
+                                <a
+                                    key={idx}
+                                    href={`http://localhost:1000${image}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img
+                                        className="img-post"
+                                        src={`http://localhost:1000${image}`}
+                                        alt={`Image ${idx + 1}`}
+                                    />
+                                </a>
+                            ))}
+                        </Carousel>
+                    </div>
+                    {editingPostId === post._id ? (
+                        <div className="edit-post">
+                            <input
+                                type="text"
+                                value={editedPost.title}
+                                onChange={(e) => setEditedPost({ ...editedPost, title: e.target.value })}
+                                placeholder="Post Title"
+                            />
+                            <textarea
+                                value={editedPost.description}
+                                onChange={(e) => setEditedPost({ ...editedPost, description: e.target.value })}
+                                placeholder="Post Description"
+                            />
+                            <button onClick={() => handleSavePost(post._id)}>Save</button>
+                            <button onClick={() => setEditingPostId(null)}>Cancel</button>
+                        </div>
+                    ) : (
+                        <>
+                            <h4>{post.title}</h4>
+                            <p>{post.description}</p>
+                            <div className="post-actions">
+                                <button onClick={() => handleEditPost(post)}>Edit</button>
+                                <button onClick={() => handleDeletePost(post._id)}>Delete</button>
+                            </div>
+                        </>
+                    )}
+                    <div className="post-comments">
+                        {post.comments.map((comment) => (
+                            <div key={comment._id} className="comment">
+                                <strong>{comment.user?.name || 'Anonymous'}:</strong> {comment.text}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))
+        ) : (
+            <p>No posts yet.</p>
+        )}
+    </div>
+)}
             </div>
         </div>
     );

@@ -67,7 +67,11 @@
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .user-posts .post {
@@ -116,7 +120,7 @@
 
 .post-actions {
     display: flex;
-flex-direction: column;
+    /* flex-direction: column; */
     margin-top: 10px;
 }
 
@@ -357,4 +361,68 @@ flex-direction: column;
 .skill-item:hover {
     background-color: #00796b;
     cursor: pointer;
+}
+
+
+
+.post {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-photo-post {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.username {
+    font-weight: bold;
+    color: #333;
+}
+
+.post-actions button {
+    margin-right: 10px;
+    background: #a341bb;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.post-actions button:hover {
+    background: #0056b3;
+}
+
+.edit-post input,
+.edit-post textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.edit-post button {
+    margin-right: 10px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-post button:hover {
+    background: #218838;
 }

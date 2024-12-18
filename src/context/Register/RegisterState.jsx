@@ -163,7 +163,7 @@ const fetchPosts = async () => {
 
 
   return (
-    <registerContext.Provider value={{ userType, setUserType, registerUser, profile, posts, loading, error, fetchProfile, updateProfile, fetchPosts, addPost, addDeal }}>
+    <registerContext.Provider value={{ userType, setUserType, registerUser, profile,setPosts, posts, loading, error, fetchProfile, updateProfile, fetchPosts, addPost, addDeal }}>
       {props.children}
     </registerContext.Provider>
   );
