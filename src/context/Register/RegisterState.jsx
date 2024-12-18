@@ -33,6 +33,7 @@ const RegistrationState = (props) => {
 
       const data = await response.json();
       console.log('Registration successful:', data);
+      alert('Registration successful')
       if (userType === 'Vendor') {
         navigate('/vendor/login');
       } else {
@@ -42,6 +43,7 @@ const RegistrationState = (props) => {
 
     } catch (error) {
       console.error('Error:', error);
+      alert(error)
     }
 
     

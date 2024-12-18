@@ -76,12 +76,11 @@ function App() {
           </Route>
           {/* Protect vendor routes */}
           <Route path='/v/*' element={!userType === 'Vendor' ?  <Navigate to="/login" />: <VendorPage />  } >
-          <Route index element={<VendorProfile/>} />
+          <Route index element={<Notification/>} />
             <Route path="vendorProfile" element={<VendorProfile/>} />
             <Route path="adddeal" element={<AddDealsVendor />} />
             <Route path="viewdeal" element={<ViewDeals/>} />
             <Route path="editdeal" element={<EditDeal/>} />
-            <Route path="vendorProfile" element={<VendorProfile/>} />
             <Route path="notification" element={<Notification/>} />
             
            

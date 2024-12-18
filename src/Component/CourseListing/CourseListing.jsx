@@ -141,6 +141,7 @@ const CourseListing = () => {
             // Update recommendations state
             setRecommendations(courseData);
         } catch (error) {
+            alert(error)
             console.error('Error fetching recommendations:', error.response?.data || error.message);
         } finally {
             setLoading(false);  // Set loading to false when the fetch ends (either success or error)
