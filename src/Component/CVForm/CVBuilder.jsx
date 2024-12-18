@@ -101,7 +101,7 @@ const CVBuilder = () => {
                                         onChange={(e) => setPersonalInfo({ ...personalInfo, phone: e.target.value })}
                                     />
                                     <div className='cv-pagebuttons'>
-                                    <button className='cv-button' onClick={nextStep}>Next</button>
+                                        <button className='cv-button' onClick={nextStep}>Next</button>
                                     </div>
                                 </div>
                             )}
@@ -266,8 +266,10 @@ const CVBuilder = () => {
                                     <div className='cv-pagebuttons'>
                                         <button className='cv-button' onClick={() => setCertificates([...certificates, { title: '', year: '' }])}>Add Certificate</button>
                                         <button className='cv-button' onClick={prevStep}>Previous</button>
-                                        <button className='cv-button' onClick={() => setStep(7)}>Finish</button>
-                                        <button className='cv-button' onClick={handleSubmitCV}>Save</button>
+                                        <button className='cv-button' onClick={() => { setStep(7); handleSubmitCV(); }}>
+                                            Finish & Save
+                                        </button>
+
                                     </div>
                                 </div>
                             )}

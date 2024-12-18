@@ -92,3 +92,13 @@
     color: #999;
     font-style: italic;
 }
+
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #000;
+}
