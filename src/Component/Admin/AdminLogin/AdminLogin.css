@@ -1,0 +1,72 @@
+/* Container for Login Form */
+.admin-login-container {
+    background-color: #531b42;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Heading Style */
+.admin-login-heading {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Input Field Style */
+.admin-login-input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Focus Style for Input Fields */
+.admin-login-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Submit Button Styling */
+.admin-login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button Hover Effect */
+.admin-login-button:hover {
+    background-color: #0056b3;
+}
+
+/* Form Link Styling */
+.admin-login-link {
+    text-align: center;
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+/* Hover effect for Link */
+.admin-login-link:hover {
+    text-decoration: underline;
+}

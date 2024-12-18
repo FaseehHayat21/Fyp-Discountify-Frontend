@@ -1,15 +1,15 @@
 // src/Pages/AdminPage/AdminPage.js
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-
+import "./AdminPage.css"
 function AdminPage() {
   return (
     <div>
-      <h2>Admin Dashboard</h2>
+      <h2 className='heading-top-routes'>Admin Dashboard</h2>
       <nav>
-        <ul>
-          <li><Link to="manage-users">Manage Users</Link></li>
-        </ul>
+      <div className="tab-container">
+        <Link to="manage-users" className="tab-button">Manage Users</Link>
+      </div>
       </nav>
       <Outlet /> {/* This is where nested routes will render */}
     </div>

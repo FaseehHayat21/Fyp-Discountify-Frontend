@@ -1,7 +1,7 @@
 // src/components/AdminLogin.js
 import React, { useState } from "react";
 import axios from "axios";
-
+import "./AdminLogin.css"
 import { useNavigate, Link } from 'react-router-dom';
 function AdminLogin({ setAuthToken }) {
   const [email, setEmail] = useState("");
@@ -41,13 +41,29 @@ function AdminLogin({ setAuthToken }) {
   };
 
   return (
-    <div>
-      <h2>Admin Login</h2>
+    <div className="admin-login-container">
+      <h2 className="admin-login-heading">Admin Login</h2>
       <form onSubmit={handleSubmit}>
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <button type="submit">Login</button>
+        <input 
+          type="email" 
+          className="admin-login-input" 
+          placeholder="Email" 
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)} 
+          required 
+        />
+        <input 
+          type="password" 
+          className="admin-login-input" 
+          placeholder="Password" 
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)} 
+          required 
+        />
+        <button type="submit" className="admin-login-button">Login</button>
       </form>
+      {/* Add a link here if you want a forgot password link */}
+      {/* <Link to="/forgot-password" className="admin-login-link">Forgot Password?</Link> */}
     </div>
   );
 }

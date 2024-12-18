@@ -148,7 +148,7 @@ function ManageUsers({ authToken }) {
 
   const deleteFeedback = async (id) => {
     try {
-      await axios.delete(`http://localhost:1000/api/auth/feedbacks/${id}`, {
+      await axios.delete(`http://localhost:1000/api/admin/feedbacks/${id}`, {
         headers: { 'auth-token': localStorage.getItem('token') }
       });
       setFeedbacks(feedbacks.filter((feedback) => feedback._id !== id));

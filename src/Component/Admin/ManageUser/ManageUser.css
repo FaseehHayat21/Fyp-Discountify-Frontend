@@ -1,7 +1,9 @@
 .Manage-User-Heading{
-    text-align: center;
-  color: #333;
+  text-align: center;
+  color: #5c042d;
+  font-weight: 900;
   margin: 20px 0;
+  text-decoration: none;
 }
 /* Tabs styling */
 .tabs {

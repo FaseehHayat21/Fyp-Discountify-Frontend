@@ -86,7 +86,7 @@ function App() {
           </Route>
 
           {/* Protect admin routes */}
-          <Route path='/admin/*' element={userType === 'admin' ?<Navigate to="/adminLogin" />: <AdminPage />  }>
+          <Route path='/admin/*' element={!userType === 'admin' ? <Navigate to="/adminLogin" /> :<AdminPage /> }>
              <Route path="manage-users" element={<ManageUsers authToken={localStorage.getItem('authToken')} />} />
           </Route>
         </Routes>
