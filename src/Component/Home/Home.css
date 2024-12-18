@@ -72,3 +72,12 @@
   object-fit: cover;
   /* z-index: 1; */
 }
+
+@media (max-width: 500px) {
+  
+.hero-text h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+}

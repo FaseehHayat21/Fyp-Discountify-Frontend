@@ -50,3 +50,11 @@
     border-radius: 15px;
     /* box-shadow: 9px 7px 7px #66517a; */
 }
+
+
+@media (max-width : 620px) {
+    .about-paragraph{
+        width: 100%;
+        padding: 10px;
+    }
+}
