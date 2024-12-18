@@ -369,7 +369,7 @@ import React, { useContext, useState } from 'react';
 import './RegistrationForm.css';
 import { useNavigate } from 'react-router-dom';
 import registerContext from "../../context/Register/RegisterContext";
-import InputMask from 'react-input-mask';
+// import InputMask from 'react-input-mask';
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
@@ -488,7 +488,7 @@ const RegistrationForm = () => {
       if (response.ok) {
         alert("OTP Verified Successfully!");
         setOtpVerified(true);
-        registerUser(formData); // Call registerUser after OTP verification
+        registerUser(formData); // 
       } else {
         alert(data.error || "Invalid OTP");
       }
