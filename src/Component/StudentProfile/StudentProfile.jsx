@@ -196,26 +196,50 @@ const StudentProfile = () => {
                                 <button onClick={handleSaveClick}>Save</button>
                             </div>
                         ) : (
-                            <div className="Personal-Info">
-                            <h3>Personal Information</h3>
-                            <h3>Introduction</h3>
-                            <h2>{profile.introduction} </h2>
-                            <h5>Email: {profile.userId.email}</h5>
-                            <h5>Semester: {profile.userId.semester}</h5>
-                            <h5>Phone Number: {profile.userId.phoneNumber}</h5>
-                            <h5>Location: {profile.userId.location}</h5>
-                            <h5>Skills:</h5>
-                            {profile.skills && profile.skills.length > 0 ? (
-                                <ul>
-                                    {profile.skills.map((skill, index) => (
-                                        <li key={index}>{skill}</li>
-                                    ))}
-                                </ul>
-                            ) : (
-                                <p>No skills added yet.</p>
-                            )}
-                        </div>
-
+                        //     <div className="Personal-Info">
+                        //     <h3>Personal Information</h3>
+                        //     <h3>Introduction</h3>
+                        //     <h2>{profile.introduction} </h2>
+                        //     <h5>Email: {profile.userId.email}</h5>
+                        //     <h5>Semester: {profile.userId.semester}</h5>
+                        //     <h5>Phone Number: {profile.userId.phoneNumber}</h5>
+                        //     <h5>Location: {profile.userId.location}</h5>
+                        //     <h5>Skills:</h5>
+                        //     {profile.skills && profile.skills.length > 0 ? (
+                        //         <ul>
+                        //             {profile.skills.map((skill, index) => (
+                        //                 <li key={index}>{skill}</li>
+                        //             ))}
+                        //         </ul>
+                        //     ) : (
+                        //         <p>No skills added yet.</p>
+                        //     )}
+                        // </div>
+                            <div className="profile-infos">
+    <h3 className="section-title">Personal Information</h3>
+    <div className="profile-section">
+        <h4>Introduction</h4>
+        <p className="introduction">{profile.introduction || "No introduction provided."}</p>
+    </div>
+    <div className="profile-details">
+        <h5>Email: <span>{profile.userId.email}</span></h5>
+        <h5>Semester: <span>{profile.userId.semester}</span></h5>
+        <h5>Phone Number: <span>{profile.userId.phoneNumber}</span></h5>
+        <h5>Location: <span>{profile.userId.location}</span></h5>
+    </div>
+    <div className="skills-section">
+        <h5>Skills:</h5>
+        {profile.skills && profile.skills.length > 0 ? (
+            <ul className="skills-list">
+                {profile.skills.map((skill, index) => (
+                    <li key={index} className="skill-item">{skill}</li>
+                ))}
+            </ul>
+        ) : (
+            <p className="no-skills">No skills added yet.</p>
+        )}
+    </div>
+</div>
                         )}
                     </div>
                 )}
