@@ -131,3 +131,144 @@ flex-direction: column;
 .like-btn{
     background-color: #490d46;
 }
+
+
+
+
+
+.personal-info {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.personal-info h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.personal-info h5 {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.personal-info ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 10px 0;
+}
+
+.personal-info ul li {
+    padding: 8px 12px;
+    background-color: #e0f7fa;
+    border-radius: 5px;
+    margin: 5px 0;
+    display: inline-block;
+}
+
+.personal-info input[type="text"],
+.personal-info input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.personal-info input[type="text"]:focus,
+.personal-info input[type="email"]:focus {
+    border-color: #26a69a;
+    outline: none;
+    box-shadow: 0 0 5px rgba(38, 166, 154, 0.5);
+}
+
+.personal-info .skills-section {
+    margin-top: 20px;
+}
+
+.personal-info .skills-section h4 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.personal-info .skills-section .skill {
+    display: inline-flex;
+    align-items: center;
+    background-color: #26a69a;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+.personal-info .skills-section .skill button {
+    background: none;
+    border: none;
+    color: white;
+    margin-left: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.personal-info .skills-section .skill button:hover {
+    color: #ff5252;
+}
+
+.personal-info .skills-section input[type="text"] {
+    width: calc(100% - 90px);
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.personal-info .skills-section button {
+    background-color: #26a69a;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.personal-info .skills-section button:hover {
+    background-color: #00796b;
+}
+
+.personal-info button {
+    background-color: #26a69a;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.personal-info button:hover {
+    background-color: #00796b;
+}
+
+.Personal-Info {
+    text-align: left;
+}
+
+.Personal-Info p {
+    font-size: 14px;
+    color: #666;
+}
+
+
+
+
+

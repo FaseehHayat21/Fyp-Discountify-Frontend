@@ -198,6 +198,8 @@ const StudentProfile = () => {
                         ) : (
                             <div className="Personal-Info">
                             <h3>Personal Information</h3>
+                            <h3>Introduction</h3>
+                            <h2>{profile.introduction} </h2>
                             <h5>Email: {profile.userId.email}</h5>
                             <h5>Semester: {profile.userId.semester}</h5>
                             <h5>Phone Number: {profile.userId.phoneNumber}</h5>
