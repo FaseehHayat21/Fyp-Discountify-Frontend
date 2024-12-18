@@ -193,7 +193,7 @@ function ManageUsers({ authToken }) {
                 <p>Name: {user.name}</p>
                 <p>Email: {user.email}</p>
               </div>
-              <button onClick={() => deleteUser(user._id, "student")}>Delete</button>
+              <button onClick={() => deleteUser(user._id, "Student")}>Delete</button>
             </div>
           ))}
         </div>
@@ -208,7 +208,7 @@ function ManageUsers({ authToken }) {
                 <p>Name: {user.name}</p>
                 <p>Email: {user.email}</p>
               </div>
-              <button onClick={() => deleteUser(user._id, "vendor")}>Delete</button>
+              <button onClick={() => deleteUser(user._id, "Vendor")}>Delete</button>
             </div>
           ))}
         </div>
