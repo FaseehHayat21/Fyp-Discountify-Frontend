@@ -190,16 +190,16 @@ const handleDeletePost = async (postId) => {
                                     type="text"
                                     name="name"
                                     value={editedProfile.name ?? profile.userId.name}
-                                    onChange={handleChange}
+                                x    onChange={handleChange}
                                     placeholder="Name"
                                 />
-                                <input
+                                {/* <input
                                     type="email"
                                     name="email"
                                     value={editedProfile.email ?? profile.userId.email}
                                     onChange={handleChange}
                                     placeholder="Email"
-                                />
+                                /> */}
                                 <input
                                     type="text"
                                     name="phoneNumber"
@@ -298,12 +298,12 @@ const handleDeletePost = async (postId) => {
                         )}
                     </div>
                 )}
-                {activeTab === 'cv' && (
+                {/* {activeTab === 'cv' && (
                     <div className="cv-info">
                         <h3>CV Document</h3>
                         <a href={`/path-to-cv/${profile.userId._id}`} target="_blank" rel="noopener noreferrer">Download CV</a>
                     </div>
-                )}
+                )} */}
                 {/* {activeTab === 'posts' && (
                     <div className="user-posts">
                         {posts.length > 0 ? (

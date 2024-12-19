@@ -28,12 +28,12 @@ export const SidebarData = [
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
-  {
-    title: 'Profile',
-    path: 'vendorProfile',
-    icon: <IoIcons.IoMdHelpCircle />,
-    cName: 'nav-text'
-  },
+  // {
+  //   title: 'Profile',
+  //   path: 'vendorProfile',
+  //   icon: <IoIcons.IoMdHelpCircle />,
+  //   cName: 'nav-text'
+  // },
   {
     title: 'LogOut',
     path: '', 
