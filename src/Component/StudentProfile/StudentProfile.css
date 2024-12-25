@@ -135,6 +135,14 @@
 .like-btn{
     background-color: #490d46;
 }
+.likess{
+    margin-top: 10px;
+    background-color: #490d46;
+    width: fit-content;
+    color: white;
+    padding: 5px;
+    border-radius: 23px;
+}
 
 
 

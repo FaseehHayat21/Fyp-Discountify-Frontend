@@ -424,6 +424,9 @@ const handleDeletePost = async (postId) => {
                             </div>
                         </>
                     )}
+                     <h5  className="likess">
+                    👍 Like ({post.likes.length})
+                       </h5>
                     <div className="post-comments">
                         {post.comments.map((comment) => (
                             <div key={comment._id} className="comment">

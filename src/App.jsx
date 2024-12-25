@@ -25,6 +25,11 @@ import VendorProfile from './Component/Vendor/VendorProfile/VendorProfile';
 import Notification from './Component/Vendor/Notification/Notification';
 import FeedbackForm from './Component/FeedbackForm/FeedbackForm';
 import StudentProfiles from './Component/StudentProfiles/StudentProfiles';
+import Categories from './Component/DealsAndDiscount/Categories';
+import Layout from './Component/Admin/Layout/Layout';
+import Feedbacks from './Component/Admin/Feedback/Feedback';
+import Users from './Component/Admin/Users/Users';
+import Analytics from './Component/Admin/Analytics/Analytics';
 
 function App() {
   // const [userType, setUserType] = useState(localStorage.getItem('usertype') || '');
@@ -72,6 +77,8 @@ function App() {
             <Route path="studentProfile" element={<StudentProfile />} />
             <Route path="feedbackform" element={<FeedbackForm/>} />
             <Route path="studentprofiles" element={<StudentProfiles/>} />
+            <Route path="categories" element={<Categories/>} />
+            
             
           </Route>
           {/* Protect vendor routes */}
@@ -87,8 +94,16 @@ function App() {
           </Route>
 
           {/* Protect admin routes */}
-          <Route path='/admin/*' element={!userType === 'admin' ? <Navigate to="/adminLogin" /> :<AdminPage /> }>
+          <Route path='/admin/*' element={!userType === 'admin' ? <Navigate to="/adminLogin" /> :<Layout/> }>
              <Route path="manage-users" element={<ManageUsers authToken={localStorage.getItem('authToken')} />} />
+             <Route path="layout" element={<Layout/>} />
+             <Route path="feedbacks" element={<Feedbacks/>} />
+             <Route path="users" element={<Users/>} />
+             <Route path="analytics" element={<Analytics/>} />
+
+             
+             
+             
           </Route>
         </Routes>
       </RegisterState>

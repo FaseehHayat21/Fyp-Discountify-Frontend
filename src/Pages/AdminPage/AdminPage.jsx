@@ -9,6 +9,8 @@ function AdminPage() {
       <nav>
       <div className="tab-container">
         <Link to="manage-users" className="tab-button">Manage Users</Link>
+        <Link to="layout" className="tab-button">Layout</Link>
+
       </div>
       </nav>
       <Outlet /> {/* This is where nested routes will render */}

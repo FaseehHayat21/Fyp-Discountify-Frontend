@@ -385,7 +385,6 @@ const RegistrationForm = () => {
     confirmPassword: '',
     semester: '',
     location: '',
-    address: '',
     city: '',
     companyName: '',
     companyAddress: '',
@@ -407,11 +406,8 @@ const RegistrationForm = () => {
       newErrors.name = "Name is required.";
       isValid = false;
     }
-
-    if (!formData.email.trim() || !/^\S+@\S+\.\S+$/.test(formData.email)) {
-      newErrors.email = "Valid email is required.";
-      isValid = false;
-    }
+   
+    
 
     if (!formData.phoneNumber.trim() || !/^03\d{9}$/.test(formData.phoneNumber)) {
       newErrors.phoneNumber = "Valid Pakistani phone number (starting with 03 and followed by 9 digits) is required.";
@@ -442,6 +438,13 @@ const RegistrationForm = () => {
         newErrors.location = "Location is required.";
         isValid = false;
       }
+      if (
+        !formData.email.trim() ||
+        !/^\S+@students\.au\.edu\.pk$/.test(formData.email)
+      ) {
+        newErrors.email = "Email must be a valid @students.au.edu.pk address.";
+        isValid = false;
+      }
     }
 
     // Vendor-specific checks
@@ -451,10 +454,10 @@ const RegistrationForm = () => {
         isValid = false;
       }
 
-      if (!formData.address.trim()) {
-        newErrors.address = "Address is required.";
-        isValid = false;
-      }
+      // if (!formData.address.trim()) {
+      //   newErrors.address = "Address is required.";
+      //   isValid = false;
+      // }
 
       if (!formData.city.trim()) {
         newErrors.city = "City is required.";
@@ -646,15 +649,18 @@ const RegistrationForm = () => {
             {userType === 'Student' && (
               <>
                 <div className="form-row">
-                  <input
-                    type="text"
-                    name="semester"
-                    placeholder="Semester *"
-                    required
-                    value={formData.semester}
-                    onChange={handleInputChange}
-                    className={errors.semester ? 'error' : ''}
-                  />
+                 <input
+                  type="number"
+                  name="semester"
+                  placeholder="Semester (1-8) *"
+                  required
+                  value={formData.semester}
+                  min="1"
+                  max="8"
+                  onChange={handleInputChange}
+                  className={errors.semester ? 'error' : ''}
+                />
+
                   {errors.semester && <span className="error-message">{errors.semester}</span>}
 
                   <input

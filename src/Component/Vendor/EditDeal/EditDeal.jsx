@@ -15,10 +15,31 @@ function EditDeal() {
 
   useEffect(() => {
     setLoading(true);
-    fetch('http://localhost:1000/api/auth/deals')
-      .then((response) => response.json())
+    
+    const token = localStorage.getItem('token'); // Retrieve the token from localStorage
+    
+    // Check if token is available
+    if (!token) {
+      setError('No authentication token found.');
+      setLoading(false);
+      return;
+    }
+  
+    fetch('http://localhost:1000/api/auth/deals', {
+      method: 'GET',
+      headers: {
+       'Content-Type': 'application/json',
+        'auth-token': token, // Include the token in the request headers
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then((data) => {
-        setDeals(data);
+        setDeals(data); // Set the deals from the response
         setLoading(false);
       })
       .catch((error) => {

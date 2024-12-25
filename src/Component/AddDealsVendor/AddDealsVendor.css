@@ -4,7 +4,8 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
-    height: 89vh;
+    height: fit-content;
+    padding: 20px;
 }
 
 .heading-add{
