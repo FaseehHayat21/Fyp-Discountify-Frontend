@@ -93,13 +93,15 @@ function App() {
            
           </Route>
 
+          
+
           {/* Protect admin routes */}
           <Route path='/admin/*' element={!userType === 'admin' ? <Navigate to="/adminLogin" /> :<Layout/> }>
              <Route path="manage-users" element={<ManageUsers authToken={localStorage.getItem('authToken')} />} />
              <Route path="layout" element={<Layout/>} />
-             <Route path="feedbacks" element={<Feedbacks/>} />
-             <Route path="users" element={<Users/>} />
-             <Route path="analytics" element={<Analytics/>} />
+              <Route path="feedbacks" element={<Feedbacks/>} />
+              <Route path="users" element={<Users/>} />
+              <Route path="analytics" element={<Analytics/>} />
 
              
              
