@@ -6,7 +6,7 @@
     background: linear-gradient(135deg, #e390ff, #abbaf6);
     overflow-x: hidden;
     color: #fff;
-    min-height: 78vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;

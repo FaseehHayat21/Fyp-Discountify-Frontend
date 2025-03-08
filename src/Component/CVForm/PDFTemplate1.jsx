@@ -1,12 +1,14 @@
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 
+// Define styles for the PDF document
 const styles = StyleSheet.create({
     page: {
-        fontFamily: 'Helvetica',
-        padding: 20,
-        backgroundColor: '#f0f0f0',
-        color: '#000',
+        fontFamily: 'Helvetica', // ATS-friendly font
+        padding: 30,
+        backgroundColor: '#ffffff',
+        color: '#333',
+        lineHeight: 1.6,
     },
     header: {
         textAlign: 'center',
@@ -14,6 +16,7 @@ const styles = StyleSheet.create({
     },
     headerText: {
         fontSize: 24,
+        color: '#2c3e50',
         marginBottom: 5,
     },
     headerSubText: {
@@ -21,22 +24,23 @@ const styles = StyleSheet.create({
         color: '#555',
     },
     section: {
-        marginBottom: 25,
+        marginBottom: 20,
     },
     sectionTitle: {
         fontSize: 18,
-        color: '#333',
+        color: '#34495e',
         borderBottomWidth: 2,
-        borderBottomColor: '#333',
+        borderBottomColor: '#3498db',
         paddingBottom: 5,
         marginBottom: 10,
     },
     item: {
-        marginBottom: 15,
+        marginBottom: 10,
     },
     itemTitle: {
         fontSize: 14,
-        color: '#007bff',
+        color: '#2c3e50',
+        marginBottom: 5,
     },
     itemText: {
         fontSize: 12,
@@ -51,19 +55,22 @@ const styles = StyleSheet.create({
     },
 });
 
-const PDFTemplate1 = ({ data }) => (
+const PDFTemplate2 = ({ data }) => (
     <Document>
         <Page style={styles.page}>
+            {/* Header Section */}
             <View style={styles.header}>
                 <Text style={styles.headerText}>{data.name}</Text>
                 <Text style={styles.headerSubText}>{data.email} | {data.phone}</Text>
             </View>
 
+            {/* Brief Introduction Section */}
             <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Summary</Text>
                 <Text style={styles.itemText}>{data.introduction}</Text>
             </View>
 
+            {/* Education Section */}
             <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Education</Text>
                 {data.education.map((edu, index) => (
@@ -74,6 +81,7 @@ const PDFTemplate1 = ({ data }) => (
                 ))}
             </View>
 
+            {/* Skills Section */}
             <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Skills</Text>
                 <View style={styles.skillsList}>
@@ -83,6 +91,7 @@ const PDFTemplate1 = ({ data }) => (
                 </View>
             </View>
 
+            {/* Projects Section */}
             <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Projects</Text>
                 {data.projects.map((project, index) => (
@@ -93,8 +102,9 @@ const PDFTemplate1 = ({ data }) => (
                 ))}
             </View>
 
+            {/* Certificates Section */}
             <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Certificates</Text>
+                <Text style={styles.sectionTitle}>Certifications</Text>
                 {data.certificates.map((cert, index) => (
                     <View key={index} style={styles.item}>
                         <Text style={styles.itemTitle}>{cert.title}</Text>
@@ -106,4 +116,4 @@ const PDFTemplate1 = ({ data }) => (
     </Document>
 );
 
-export default PDFTemplate1;
+export default PDFTemplate2;

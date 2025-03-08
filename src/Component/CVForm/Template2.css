@@ -1,0 +1,105 @@
+/* General Styles */
+.ats-cv-template {
+    font-family: 'Arial', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Section */
+.ats-cv-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.ats-cv-header h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.ats-cv-header p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Section Styling */
+.ats-cv-section {
+    margin-bottom: 25px;
+}
+
+.ats-cv-section h2 {
+    font-size: 1.5rem;
+    color: #34495e;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Education Section */
+.ats-education-item {
+    margin-bottom: 15px;
+}
+
+.ats-education-item h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.ats-education-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Skills Section */
+.ats-skills-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.ats-skills-list li {
+    background-color: #f4f4f9;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* Projects Section */
+.ats-project-item {
+    margin-bottom: 15px;
+}
+
+.ats-project-item h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.ats-project-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Certificates Section */
+.ats-certificate-item {
+    margin-bottom: 15px;
+}
+
+.ats-certificate-item h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.ats-certificate-item p {
+    font-size: 1rem;
+    color: #555;
+}

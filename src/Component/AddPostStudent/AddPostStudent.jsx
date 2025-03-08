@@ -103,11 +103,11 @@ export default function AddpostStudent() {
     const context = useContext(registerContext);
     const { addPost } = context;
 
-    useEffect(() => {
-        if (!localStorage.getItem("token")) {
-            navigate("/login");
-        }
-    }, [navigate]);
+    // useEffect(() => {
+    //     if (!localStorage.getItem("token")) {
+    //         navigate("/login");
+    //     }
+    // }, [navigate]);
 
     const [post, setPost] = useState({
         title: "",

@@ -1,0 +1,40 @@
+/* src/pages/AddCourse.css */
+.add-course {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .add-course h1 {
+    text-align: center;
+  }
+  
+  .add-course form div {
+    margin-bottom: 15px;
+  }
+  
+  .add-course label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .add-course input,
+  .add-course textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .add-course button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .add-course button:hover {
+    background-color: #0056b3;
+  }

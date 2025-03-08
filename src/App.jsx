@@ -30,6 +30,8 @@ import Layout from './Component/Admin/Layout/Layout';
 import Feedbacks from './Component/Admin/Feedback/Feedback';
 import Users from './Component/Admin/Users/Users';
 import Analytics from './Component/Admin/Analytics/Analytics';
+import InstructorPage from './Pages/InstructorPage/InstructorPage';
+import AddCourse from './Component/Instructor/AddCourse/AddCourse';
 
 function App() {
   // const [userType, setUserType] = useState(localStorage.getItem('usertype') || '');
@@ -63,7 +65,6 @@ function App() {
           <Route path='/vendor/login' element={<VendorLogin setUserType={setUserType} />} />
           <Route path='/login' element={<LoginAs />} />
           <Route path='/adminLogin' element={<AdminLogin/>} />
-
           {/* Protect student routes */}
           <Route path='/s/*' element={!userType === 'Student' ? <Navigate to="/login" />:  <StudentPage />} >
             <Route index element={<StudentProfile />} />
@@ -94,6 +95,10 @@ function App() {
           </Route>
 
           
+          <Route path='/c/*' element={!userType === 'Instructor' ?  <Navigate to="/login" />: <InstructorPage />  } >
+          <Route path="addcourse" element={<AddCourse/>} />
+           
+          </Route>
 
           {/* Protect admin routes */}
           <Route path='/admin/*' element={!userType === 'admin' ? <Navigate to="/adminLogin" /> :<Layout/> }>
