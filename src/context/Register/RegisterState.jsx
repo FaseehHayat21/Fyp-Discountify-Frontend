@@ -14,10 +14,12 @@ const RegistrationState = (props) => {
     let url;
     if (userType === 'Vendor') {
       url = 'http://localhost:1000/api/auth/vendorregister';
+    } else if (userType === 'Instructor') {
+      url = 'http://localhost:1000/api/auth/instructorregister'; // New URL for Instructor
     } else {
       url = 'http://localhost:1000/api/auth/studentregister';
     }
-
+  
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -26,27 +28,27 @@ const RegistrationState = (props) => {
         },
         body: JSON.stringify(formData),
       });
-
+  
       if (!response.ok) {
         throw new Error('Registration failed');
       }
-
+  
       const data = await response.json();
       console.log('Registration successful:', data);
-      alert('Registration successful')
+      alert('Registration successful');
+  
+      // Redirect based on user type
       if (userType === 'Vendor') {
         navigate('/vendor/login');
+      } else if (userType === 'Instructor') {
+        navigate('/instructor/login'); // New redirect for Instructor
       } else {
         navigate('/student/login');
       }
-      
-
     } catch (error) {
       console.error('Error:', error);
-      alert(error)
+      alert(error);
     }
-
-    
   };
     //Register Student Post
   const addPost = async (formData) => {

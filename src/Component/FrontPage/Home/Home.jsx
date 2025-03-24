@@ -1,7 +1,7 @@
 import React from 'react'
 import './Home.css'
-import image from "../../assets/HomeImg.png"
-import homevideo from "../../assets/BgVideo.mp4"
+import image from "../../../assets/HomeImg.png"
+import homevideo from "../../../assets/BgVideo.mp4"
 
 export default function Home() {
 

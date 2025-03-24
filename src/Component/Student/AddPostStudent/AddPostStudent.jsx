@@ -95,7 +95,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import "./AddPostStudent.css";
 import { IoMdAdd } from "react-icons/io";
-import registerContext from "../../context/Register/RegisterContext";
+import registerContext from "../../../context/Register/RegisterContext";
 import { useNavigate } from "react-router-dom";
 
 export default function AddpostStudent() {

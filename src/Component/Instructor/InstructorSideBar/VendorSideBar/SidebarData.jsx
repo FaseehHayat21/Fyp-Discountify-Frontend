@@ -11,20 +11,20 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Your PlayList',
-    path: 'viewdeal',
+    title: 'Your Courses',
+    path: 'instcourse',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
   {
     title: 'Edit Deals',
-    path: 'editdeal',
+    path: 'coursedetail',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
   {
     title: 'Notification Deals',
-    path: 'notification',
+    path: 'InstructorCourseManager',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },

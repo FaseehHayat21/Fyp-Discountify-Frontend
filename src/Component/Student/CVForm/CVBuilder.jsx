@@ -301,7 +301,7 @@ import Template2 from './Template2'; // Assuming Template2 as an example
 import PDFTemplate3 from './PDFTemplate3'; // PDF version of Template3
 import PDFTemplate1 from './PDFTemplate1'; // PDF version of Template2
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import template3image from "../../assets/template3.png";
+import template3image from "../../../assets/template3.png";
 import './CVBuilder.css';
 
 const CVBuilder = () => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import StudentSideBar from '../../Component/StudentSideBar/StudentSideBar';
+import StudentSideBar from '../../Component/Student/StudentSideBar/StudentSideBar';
 import "./StudentPage.css"
 import { Outlet } from 'react-router-dom';
 export default function StudentPage() {

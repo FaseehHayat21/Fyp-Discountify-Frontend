@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/Logo2.png';
+import logo from '../../../assets/Logo2.png';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

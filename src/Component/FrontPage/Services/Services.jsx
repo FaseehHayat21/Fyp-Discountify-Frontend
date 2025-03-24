@@ -1,10 +1,10 @@
 import React from 'react'
 import './Services.css'
-import DealsIcon from '../Images/DealsIcon.png'
-import JobIcon from '../Images/JobIcon.png'
-import CVIcon from '../Images/CVIcon.png'
-import CourseIcon from '../Images/CourseIcon.png'
-import ChatIcon from '../Images/ChatIcon.png'
+import DealsIcon from '../../Images/DealsIcon.png'
+import JobIcon from '../../Images/JobIcon.png'
+import CVIcon from '../../Images/CVIcon.png'
+import CourseIcon from '../../Images/CourseIcon.png'
+import ChatIcon from '../../Images/ChatIcon.png'
 
 export default function Services() {
     return (

@@ -1,8 +1,8 @@
 import React from 'react'
 import "./Team.css"
-import Team1 from "../../assets/Team1.png"
-import Team2 from "../../assets/Team2.png"
-import Team3 from "../../assets/Team3.png"
+import Team1 from "../../../assets/Team1.png"
+import Team2 from "../../../assets/Team2.png"
+import Team3 from "../../../assets/Team3.png"
 
 export default function Team() {
   return (

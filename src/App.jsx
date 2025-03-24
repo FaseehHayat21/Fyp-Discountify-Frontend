@@ -3,19 +3,19 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import StudentPage from './Pages/StudentPage/StudentPage';
 import RegistrationForm from './Component/Register/RegistrationForm';
 import LandingPage from './Pages/LandingPage/LandingPage';
-import CourseListing from './Component/CourseListing/CourseListing';
-import JobListing from './Component/JobListing/JobListing';
-import AddPostStudent from './Component/AddPostStudent/AddPostStudent';
-import CVBuilder from './Component/CVForm/CVBuilder';
+import CourseListing from './Component/Student/CourseListing/CourseListing';
+import JobListing from './Component/Student/JobListing/JobListing';
+import AddPostStudent from './Component/Student/AddPostStudent/AddPostStudent';
+import CVBuilder from './Component/Student/CVForm/CVBuilder';
 import RegisterState from "../src/context/Register/RegisterState";
-import DealsDiscount from './Component/DealsAndDiscount/DealsDiscount';
-import StudentProfile from './Component/StudentProfile/StudentProfile';
+import DealsDiscount from './Component/Student/DealsAndDiscount/DealsDiscount';
+import StudentProfile from './Component/Student/StudentProfile/StudentProfile';
 import LoginAs from "./Component/LoginAs/LoginAs";
 import VendorPage from './Pages/VendorPage/VendorPage';
-import AddDealsVendor from './Component/AddDealsVendor/AddDealsVendor';
+import AddDealsVendor from './Component/Vendor/AddDealsVendor/AddDealsVendor';
 import VendorLogin from './Component/LoginSample/VendorLogin';
 import StudentLogin from './Component/LoginSample/StudentLogin';
-import Community from './Component/Community/Community';
+import Community from './Component/Student/Community/Community';
 import AdminPage from './Pages/AdminPage/AdminPage';
 import ManageUsers from './Component/Admin/ManageUser/ManageUser';
 import AdminLogin from './Component/Admin/AdminLogin/AdminLogin';
@@ -23,15 +23,19 @@ import ViewDeals from './Component/Vendor/ViewDeals/ViewDeals';
 import EditDeal from './Component/Vendor/EditDeal/EditDeal';
 import VendorProfile from './Component/Vendor/VendorProfile/VendorProfile';
 import Notification from './Component/Vendor/Notification/Notification';
-import FeedbackForm from './Component/FeedbackForm/FeedbackForm';
-import StudentProfiles from './Component/StudentProfiles/StudentProfiles';
-import Categories from './Component/DealsAndDiscount/Categories';
+import FeedbackForm from './Component/Student/FeedbackForm/FeedbackForm';
+import StudentProfiles from './Component/Student/StudentProfiles/StudentProfiles';
+import Categories from './Component/Student/DealsAndDiscount/Categories';
 import Layout from './Component/Admin/Layout/Layout';
 import Feedbacks from './Component/Admin/Feedback/Feedback';
 import Users from './Component/Admin/Users/Users';
 import Analytics from './Component/Admin/Analytics/Analytics';
 import InstructorPage from './Pages/InstructorPage/InstructorPage';
 import AddCourse from './Component/Instructor/AddCourse/AddCourse';
+import InstructorLogin from './Component/LoginSample/InstructorLogin';
+import InstructorCourses from './Component/Instructor/InstructorCourses/InstructorCourses';
+import CourseDetail from './Component/Instructor/InstructorCourses/CourseDetail';
+import InstructorCourseManager from './Component/Instructor/InstructorCourses/InstructorCourseManager';
 
 function App() {
   // const [userType, setUserType] = useState(localStorage.getItem('usertype') || '');
@@ -63,6 +67,9 @@ function App() {
           <Route path='/register' element={<RegistrationForm />} />
           <Route path='/student/login' element={<StudentLogin setUserType={setUserType} />} />
           <Route path='/vendor/login' element={<VendorLogin setUserType={setUserType} />} />
+          <Route path='/instructor/login' element={<InstructorLogin setUserType={setUserType} />} />
+                 
+
           <Route path='/login' element={<LoginAs />} />
           <Route path='/adminLogin' element={<AdminLogin/>} />
           {/* Protect student routes */}
@@ -96,8 +103,12 @@ function App() {
 
           
           <Route path='/c/*' element={!userType === 'Instructor' ?  <Navigate to="/login" />: <InstructorPage />  } >
-          <Route path="addcourse" element={<AddCourse/>} />
-           
+            <Route path="addcourse" element={<AddCourse/>} />
+            <Route path="instcourse" element={<InstructorCourses/>} />
+            <Route path="coursedetail" element={<CourseDetail/>} />
+            <Route path="InstructorCourseManager" element={ <InstructorCourseManager/>} />
+          
+         
           </Route>
 
           {/* Protect admin routes */}

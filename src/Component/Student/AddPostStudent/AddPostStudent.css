@@ -11,6 +11,20 @@
     align-items: center;
     justify-content: center;
     padding: 50px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298, #1e3c72);
+    background-size: 400% 400%; /* Larger than the container to create movement */
+    animation: moveBackground 10s linear infinite;
+}
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .post-container {

@@ -1,0 +1,233 @@
+.instructor-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+    gap: 40px;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #f0f4f8, #f9f9f9);
+  }
+  
+  /* ---------- COURSE LIST SECTION ---------- */
+  
+  .course-list {
+    flex: 1;
+    min-width: 280px;
+    max-width: 360px;
+  }
+  
+  .course-list h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  
+  .course-item {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  
+  .course-item:hover {
+    background: #f5fbff;
+    border-color: #3498db;
+    transform: scale(1.015);
+  }
+  
+  .course-item.selected {
+    background-color: #eaf4ff;
+    border: 2px solid #3498db;
+    font-weight: 600;
+  }
+  
+  /* ---------- COURSE DETAIL SECTION ---------- */
+  
+  .course-detail {
+    flex: 2;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .course-header h2 {
+    font-size: 26px;
+    color: #2c3e50;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .course-info {
+    font-size: 16px;
+    color: #4a4a4a;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .edit-section label {
+    display: block;
+    margin: 15px 0 6px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .edit-section input,
+  .edit-section textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #fefefe;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+  }
+  
+  .edit-section input:focus,
+  .edit-section textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    background-color: #ffffff;
+  }
+  
+  /* ---------- BUTTONS ---------- */
+  
+  button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  
+  .save-btn {
+    background-color: #2ecc71;
+  }
+  
+  .save-btn:hover {
+    background-color: #27ae60;
+  }
+  
+  .edit-btn {
+    background-color: #f1c40f;
+    color: #333;
+  }
+  
+  .edit-btn:hover {
+    background-color: #d4ac0d;
+    color: #fff;
+  }
+  
+  .upload-btn {
+    background-color: #8e44ad;
+  }
+  
+  .upload-btn:hover {
+    background-color: #732d91;
+  }
+  
+  .delete-btn {
+    background-color: #e74c3c;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  /* ---------- MATERIALS ---------- */
+  
+  .materials-section {
+    margin-top: 40px;
+  }
+  
+  .materials-section h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 15px;
+  }
+  
+  .materials-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .materials-section li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    font-size: 15px;
+  }
+  
+  .materials-section a {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .delete-material-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.3s ease;
+  }
+  
+  .delete-material-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  /* ---------- RESPONSIVE ---------- */
+  
+  @media screen and (max-width: 768px) {
+    .instructor-container {
+      flex-direction: column;
+    }
+  
+    .course-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .action-buttons {
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  }
+  

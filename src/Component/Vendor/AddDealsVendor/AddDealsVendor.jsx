@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import "./AddDealsVendor.css";
 import { IoMdAdd } from "react-icons/io";
-import registerContext from "../../context/Register/RegisterContext";
+import registerContext from "../../../context/Register/RegisterContext";
 import { useNavigate } from 'react-router-dom';
 
 export default function AddDealsVendor() {
@@ -74,7 +74,7 @@ export default function AddDealsVendor() {
 
     return (
         <>
-            <div className="add-post-container">
+            <div className="add-post-containers">
                 <h2 className='mt-4 heading-add'>Create a New Deal</h2>
                 <form className="my-3 post-form">
                     <div className='form-section'>

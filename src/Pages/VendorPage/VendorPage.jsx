@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import "./VendorPage.css"
 import { Outlet } from 'react-router-dom';
-import VendorSideBar from '../../Component/VendorSideBar/VendorSideBar';
+import VendorSideBar from '../../Component/Vendor/VendorSideBar/VendorSideBar';
 export default function VendorPage() {
   return (
     <>

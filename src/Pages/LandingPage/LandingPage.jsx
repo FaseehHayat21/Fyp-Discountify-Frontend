@@ -1,10 +1,10 @@
 import React from 'react'
-import Home from '../../Component/Home/Home'
-import About from '../../Component/About/About'
-import Services from '../../Component/Services/Services'
-import Navbar from '../../Component/Navbar/Navbar'
-import ContactUs from '../../Component/ContactUs/ContactUs'
-import Team from '../../Component/Team/Team'
+import Home from '../../Component//FrontPage/Home/Home'
+import About from '../../Component/FrontPage/About/About'
+import Services from '../../Component/FrontPage/Services/Services'
+import Navbar from '../../Component/FrontPage/Navbar/Navbar'
+import ContactUs from '../../Component/FrontPage/ContactUs/ContactUs'
+import Team from '../../Component/FrontPage/Team/Team'
 
 
 export default function LandingPage() {
