@@ -79,8 +79,213 @@ const InstructorCourses = () => {
           </div>
         ))}
       </div>
-
       {selectedCourse && (
+  <div className="luxury-course-detail">
+    <div className="luxury-course-card">
+      <div className="luxury-course-header">
+        <div className="luxury-course-badge">{selectedCourse.category}</div>
+        <h2 className="luxury-course-title">
+          <span className="luxury-course-icon">🎓</span>
+          {selectedCourse.title}
+        </h2>
+        <div className="luxury-course-meta">
+          <span className="luxury-meta-item">
+            ⏱️ {selectedCourse.duration} hours
+          </span>
+          <span className="luxury-meta-item">
+            💰 Rs. {selectedCourse.price}
+          </span>
+        </div>
+      </div>
+
+      <div className="luxury-course-content">
+        {editing ? (
+          <div className="luxury-edit-section">
+            <div className="luxury-form-group">
+              <label className="luxury-label">Course Title</label>
+              <input
+                value={form.title}
+                onChange={(e) => setForm({ ...form, title: e.target.value })}
+                className="luxury-input"
+              />
+            </div>
+            
+            <div className="luxury-form-group">
+              <label className="luxury-label">Description</label>
+              <textarea
+                value={form.description}
+                onChange={(e) => setForm({ ...form, description: e.target.value })}
+                className="luxury-textarea"
+                rows="5"
+              />
+            </div>
+            
+            <div className="luxury-form-grid">
+              <div className="luxury-form-group">
+                <label className="luxury-label">Price (Rs.)</label>
+                <input
+                  type="number"
+                  value={form.price}
+                  onChange={(e) => setForm({ ...form, price: e.target.value })}
+                  className="luxury-input"
+                />
+              </div>
+              
+              <div className="luxury-form-group">
+                <label className="luxury-label">Duration (hours)</label>
+                <input
+                  value={form.duration}
+                  onChange={(e) => setForm({ ...form, duration: e.target.value })}
+                  className="luxury-input"
+                />
+              </div>
+            </div>
+            
+            <div className="luxury-form-group">
+              <label className="luxury-label">Category</label>
+              <input
+                value={form.category}
+                onChange={(e) => setForm({ ...form, category: e.target.value })}
+                className="luxury-input"
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="luxury-course-description">
+            <p className="luxury-description-text">{selectedCourse.description}</p>
+            
+            <div className="luxury-highlights">
+              <div className="luxury-highlight-item">
+                <span className="luxury-highlight-icon">📚</span>
+                <span>Comprehensive Curriculum</span>
+              </div>
+              <div className="luxury-highlight-item">
+                <span className="luxury-highlight-icon">🎯</span>
+                <span>Practical Exercises</span>
+              </div>
+              <div className="luxury-highlight-item">
+                <span className="luxury-highlight-icon">🏆</span>
+                <span>Certificate of Completion</span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className="luxury-action-buttons">
+          {editing ? (
+            <button 
+              onClick={handleUpdate}
+              className="luxury-save-btn"
+            >
+              Save Changes
+            </button>
+          ) : (
+            <>
+              <button 
+                onClick={() => setEditing(true)}
+                className="luxury-edit-btn"
+              >
+                Edit Course
+              </button>
+              <button 
+                onClick={handleDeleteCourse}
+                className="luxury-delete-btn"
+              >
+                Delete Course
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+
+      <div className="luxury-materials-section">
+        <div className="luxury-section-header">
+          <h3 className="luxury-section-title">
+            <span className="luxury-section-icon">📂</span>
+            Course Materials
+          </h3>
+          <div className="luxury-upload-area">
+            <input 
+              type="file" 
+              multiple 
+              onChange={(e) => setNewMaterials([...e.target.files])}
+              id="material-upload"
+              className="luxury-file-input"
+            />
+            <label htmlFor="material-upload" className="luxury-upload-btn">
+              + Add Materials
+            </label>
+            {newMaterials.length > 0 && (
+              <button 
+                onClick={handleMaterialUpload}
+                className="luxury-upload-confirm"
+              >
+                Upload {newMaterials.length} Files
+              </button>
+            )}
+          </div>
+        </div>
+
+        <div className="luxury-materials-grid">
+          {selectedCourse.materials?.length > 0 ? (
+            selectedCourse.materials.map(mat => (
+              <div key={mat._id} className="luxury-material-card">
+                <div className="luxury-material-icon">
+                  {mat.type.includes('pdf') ? '📄' : 
+                   mat.type.includes('video') ? '🎬' : 
+                   mat.type.includes('image') ? '🖼️' : '📂'}
+                </div>
+                <div className="luxury-material-info">
+                  <h4 className="luxury-material-title">{mat.title}</h4>
+                  <div className="luxury-material-meta">
+                    <span className="luxury-material-type">{mat.type.split('/')[1]}</span>
+                    {/* <span className="luxury-material-category">{mat.category}</span> */}
+                  </div>
+                </div>
+                <div className="luxury-material-actions">
+                  <a 
+                    href={`http://localhost:1000${mat.fileUrl}`} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="luxury-download-btn"
+                  >
+                    Download
+                  </a>
+                  <button
+                    onClick={async () => {
+                      if (window.confirm('Delete this material?')) {
+                        try {
+                          await axios.delete(`http://localhost:1000/api/course/material/${mat._id}`, {
+                            headers: {
+                              'auth-token': localStorage.getItem('token')
+                            }
+                          });
+                          alert('Material deleted');
+                          fetchCourseDetail(selectedCourse._id);
+                        } catch (err) {
+                          alert('Failed to delete material');
+                        }
+                      }
+                    }}
+                    className="luxury-delete-material-btn"
+                  >
+                    🗑️
+                  </button>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="luxury-empty-materials">
+              <div className="luxury-empty-icon">📭</div>
+              <p>No materials added yet</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+      {/* {selectedCourse && (
         // <div className="course-detail">
         //   <h2>Course Detail</h2>
         //   {editing ? (
@@ -235,7 +440,7 @@ const InstructorCourses = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

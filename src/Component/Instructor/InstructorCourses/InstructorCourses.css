@@ -46,188 +46,395 @@
   }
   
   /* ---------- COURSE DETAIL SECTION ---------- */
-  
-  .course-detail {
-    flex: 2;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  /* Luxury Course Detail Styles */
+.luxury-course-detail {
+  flex: 2;
+  min-width: 0;
+}
+
+.luxury-course-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.luxury-course-card:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px);
+}
+
+.luxury-course-header {
+  background: linear-gradient(135deg, #000000 0%, #764ba2 100%);
+  color: white;
+  padding: 30px;
+  position: relative;
+}
+
+.luxury-course-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 6px 15px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.luxury-course-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.luxury-course-icon {
+  font-size: 32px;
+}
+
+.luxury-course-meta {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.luxury-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.luxury-course-content {
+  padding: 30px;
+}
+
+.luxury-edit-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.luxury-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.luxury-label {
+  font-weight: 600;
+  color: #4a5568;
+  font-size: 15px;
+}
+
+.luxury-input, .luxury-textarea {
+  padding: 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+}
+
+.luxury-input:focus, .luxury-textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.luxury-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.luxury-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.luxury-course-description {
+  color: #4a5568;
+  line-height: 1.7;
+}
+
+.luxury-description-text {
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+.luxury-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.luxury-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8fafc;
+  padding: 12px 15px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.luxury-highlight-icon {
+  font-size: 20px;
+}
+
+.luxury-action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #edf2f7;
+}
+
+/* Luxury Buttons */
+.luxury-save-btn, .luxury-edit-btn, .luxury-delete-btn {
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.luxury-save-btn {
+  background: linear-gradient(to right, #48bb78, #38a169);
+  color: white;
+  box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+}
+
+.luxury-save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+}
+
+.luxury-edit-btn {
+  background: linear-gradient(to right, #4299e1, #3182ce);
+  color: white;
+  box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+}
+
+.luxury-edit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
+}
+
+.luxury-delete-btn {
+  background: linear-gradient(to right, #f56565, #e53e3e);
+  color: white;
+  box-shadow: 0 4px 15px rgba(245, 101, 101, 0.3);
+}
+
+.luxury-delete-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 101, 101, 0.4);
+}
+
+/* Materials Section */
+.luxury-materials-section {
+  background: #f8fafc;
+  padding: 30px;
+  border-top: 1px solid #edf2f7;
+}
+
+.luxury-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.luxury-section-title {
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.luxury-section-icon {
+  font-size: 24px;
+}
+
+.luxury-upload-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.luxury-file-input {
+  display: none;
+}
+
+.luxury-upload-btn {
+  background: white;
+  color: #4299e1;
+  border: 1px solid #4299e1;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.luxury-upload-btn:hover {
+  background: #ebf8ff;
+}
+
+.luxury-upload-confirm {
+  background: #48bb78;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.luxury-upload-confirm:hover {
+  background: #38a169;
+}
+
+.luxury-materials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.luxury-material-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.luxury-material-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-color: #c3dafe;
+}
+
+.luxury-material-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.luxury-material-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.luxury-material-title {
+  font-weight: 600;
+  margin: 0 0 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.luxury-material-meta {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.luxury-material-type {
+  background: #ebf8ff;
+  color: #3182ce;
+  padding: 2px 8px;
+  border-radius: 50px;
+}
+
+.luxury-material-category {
+  background: #fff5f5;
+  color: #e53e3e;
+  padding: 2px 8px;
+  border-radius: 50px;
+}
+
+.luxury-material-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.luxury-download-btn {
+  background: #ebf8ff;
+  color: #3182ce;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.luxury-download-btn:hover {
+  background: #bee3f8;
+}
+
+.luxury-delete-material-btn {
+  background: #fff5f5;
+  color: #e53e3e;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.luxury-delete-material-btn:hover {
+  background: #fed7d7;
+}
+
+.luxury-empty-materials {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 20px;
+  color: #a0aec0;
+}
+
+.luxury-empty-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+  opacity: 0.5;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .luxury-form-grid {
+    grid-template-columns: 1fr;
   }
   
-  .course-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
+  .luxury-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
   }
   
-  .course-header h2 {
-    font-size: 26px;
-    color: #2c3e50;
-    font-weight: 700;
-    margin: 0;
+  .luxury-materials-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .action-buttons {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .course-info {
-    font-size: 16px;
-    color: #4a4a4a;
-    line-height: 1.7;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e0e0e0;
-  }
-  
-  .edit-section label {
-    display: block;
-    margin: 15px 0 6px;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .edit-section input,
-  .edit-section textarea {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 15px;
-    background-color: #fefefe;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
-    transition: 0.3s ease;
-  }
-  
-  .edit-section input:focus,
-  .edit-section textarea:focus {
-    outline: none;
-    border-color: #3498db;
-    background-color: #ffffff;
-  }
-  
-  /* ---------- BUTTONS ---------- */
-  
-  button {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
-  }
-  
-  button:hover {
-    background-color: #2980b9;
-  }
-  
-  .save-btn {
-    background-color: #2ecc71;
-  }
-  
-  .save-btn:hover {
-    background-color: #27ae60;
-  }
-  
-  .edit-btn {
-    background-color: #f1c40f;
-    color: #333;
-  }
-  
-  .edit-btn:hover {
-    background-color: #d4ac0d;
-    color: #fff;
-  }
-  
-  .upload-btn {
-    background-color: #8e44ad;
-  }
-  
-  .upload-btn:hover {
-    background-color: #732d91;
-  }
-  
-  .delete-btn {
-    background-color: #e74c3c;
-  }
-  
-  .delete-btn:hover {
-    background-color: #c0392b;
-  }
-  
-  /* ---------- MATERIALS ---------- */
-  
-  .materials-section {
-    margin-top: 40px;
-  }
-  
-  .materials-section h4 {
-    font-size: 18px;
-    font-weight: 600;
-    color: #2c3e50;
-    margin-bottom: 15px;
-  }
-  
-  .materials-section ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .materials-section li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 12px;
-    margin-bottom: 10px;
-    background-color: #f7f7f7;
-    border-radius: 8px;
-    font-size: 15px;
-  }
-  
-  .materials-section a {
-    color: #2980b9;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .delete-material-btn {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 6px 10px;
-    font-size: 13px;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: 0.3s ease;
-  }
-  
-  .delete-material-btn:hover {
-    background-color: #c0392b;
-  }
-  
-  /* ---------- RESPONSIVE ---------- */
-  
-  @media screen and (max-width: 768px) {
-    .instructor-container {
-      flex-direction: column;
-    }
-  
-    .course-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-  
-    .action-buttons {
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-  }
-  
+}

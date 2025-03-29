@@ -1,40 +1,402 @@
-/* src/pages/AddCourse.css */
-.add-course {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
+/* .add-course-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.add-course-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 12px;
+}
+
+.add-course-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.add-course-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .add-course-grid {
+    grid-template-columns: 1fr 1fr;
   }
-  
-  .add-course h1 {
-    text-align: center;
+}
+
+.add-course-label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.add-course-input,
+.add-course-textarea,
+.add-course-select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #fefefe;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+  transition: border-color 0.3s ease;
+}
+
+.add-course-input:focus,
+.add-course-textarea:focus,
+.add-course-select:focus {
+  outline: none;
+  border-color: #3498db;
+  background-color: #ffffff;
+}
+
+.add-course-error {
+  background-color: #ffe5e5;
+  border: 1px solid #ff4d4d;
+  color: #b30000;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.add-course-materials {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #fafafa;
+}
+
+.add-course-materials h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.add-course-material-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.add-course-material-filename {
+  font-weight: 500;
+  color: #333;
+  flex-grow: 1;
+  word-break: break-word;
+}
+
+.add-course-submit-btn {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  align-self: flex-start;
+}
+
+.add-course-submit-btn:hover {
+  background-color: #2c80b4;
+  transform: scale(1.02);
+}
+
+.add-course-submit-btn:disabled {
+  background-color: #9acff0;
+  cursor: not-allowed;
+} */
+
+
+
+/* Luxury Course Creation Form CSS */
+.luxury-course-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  border-radius: 18px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.luxury-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.luxury-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #000000, #9b59b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.5px;
+}
+
+.luxury-divider {
+  height: 3px;
+  width: 80px;
+  background: linear-gradient(to right, #3498db, #9b59b6);
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
+.luxury-error-alert {
+  background-color: #ffecec;
+  border-left: 4px solid #ff4d4d;
+  color: #b30000;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.luxury-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.luxury-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .luxury-form-grid {
+    grid-template-columns: 1fr 1fr;
   }
-  
-  .add-course form div {
-    margin-bottom: 15px;
-  }
-  
-  .add-course label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .add-course input,
-  .add-course textarea {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-  }
-  
-  .add-course button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .add-course button:hover {
-    background-color: #0056b3;
-  }
+}
+
+.luxury-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.luxury-label {
+  font-weight: 600;
+  color: #4a5568;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+.luxury-input, .luxury-textarea, .luxury-select {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  color: #2d3748;
+}
+
+.luxury-input:focus, .luxury-textarea:focus, .luxury-select:focus {
+  outline: none;
+  border-color: #a0aec0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: white;
+}
+
+.luxury-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.luxury-price-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.luxury-currency {
+  position: absolute;
+  left: 1rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.luxury-price-input .luxury-input {
+  padding-left: 2rem;
+}
+
+.luxury-file-upload {
+  margin-top: 0.5rem;
+}
+
+.luxury-file-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.luxury-file-label input[type="file"] {
+  display: none;
+}
+
+.luxury-file-button {
+  background: linear-gradient(to right, #000000, #9b59b6);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: inline-block;
+  width: fit-content;
+}
+
+.luxury-file-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.luxury-file-text {
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.luxury-materials-section {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background-color: rgba(247, 250, 252, 0.7);
+  border-radius: 12px;
+  border: 1px dashed #cbd5e0;
+}
+
+.luxury-materials-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.luxury-materials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.luxury-material-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.luxury-material-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.luxury-material-info {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.luxury-material-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.luxury-material-name {
+  font-weight: 500;
+  color: #4a5568;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.luxury-select {
+  width: 150px;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.luxury-submit-button {
+  background: linear-gradient(to right, #000000, #9b59b6);
+  color: white;
+  padding: 1.2rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.luxury-submit-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+}
+
+.luxury-submit-button:disabled {
+  background: linear-gradient(to right, #bdc3c7, #95a5a6);
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.luxury-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+

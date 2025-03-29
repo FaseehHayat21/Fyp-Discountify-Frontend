@@ -36,6 +36,7 @@ import InstructorLogin from './Component/LoginSample/InstructorLogin';
 import InstructorCourses from './Component/Instructor/InstructorCourses/InstructorCourses';
 import CourseDetail from './Component/Instructor/InstructorCourses/CourseDetail';
 import InstructorCourseManager from './Component/Instructor/InstructorCourses/InstructorCourseManager';
+import Courses from './Component/Student/Courses/Courses';
 
 function App() {
   // const [userType, setUserType] = useState(localStorage.getItem('usertype') || '');
@@ -86,6 +87,7 @@ function App() {
             <Route path="feedbackform" element={<FeedbackForm/>} />
             <Route path="studentprofiles" element={<StudentProfiles/>} />
             <Route path="categories" element={<Categories/>} />
+            <Route path="course" element={<Courses/>} />
             
             
           </Route>
