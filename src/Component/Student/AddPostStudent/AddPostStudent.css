@@ -3,7 +3,7 @@
 .post-page {
     margin: 0;
     font-family: "Arial", sans-serif;
-    background: linear-gradient(135deg, #e390ff, #abbaf6);
+    background: linear-gradient(135deg, #e390ff, #808494);
     overflow-x: hidden;
     color: #fff;
     min-height: 100vh;
@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: center;
     padding: 50px;
-    background: linear-gradient(135deg, #1e3c72, #2a5298, #1e3c72);
+    background: linear-gradient(135deg, #dddddd, #8b2a98, #681e72);
     background-size: 400% 400%; /* Larger than the container to create movement */
     animation: moveBackground 10s linear infinite;
 }

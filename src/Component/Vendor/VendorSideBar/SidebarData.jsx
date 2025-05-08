@@ -11,20 +11,20 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'View Deals',
+    title: 'Manage Deals',
     path: 'viewdeal',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
+  // {
+  //   title: 'Edit Deals',
+  //   path: 'editdeal',
+  //   icon: <AiIcons.AiFillHome />,
+  //   cName: 'nav-text'
+  // },
   {
-    title: 'Edit Deals',
-    path: 'editdeal',
-    icon: <AiIcons.AiFillHome />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Notification Deals',
-    path: 'notification',
+    title: 'Profile',
+    path: 'vendorProfile',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
   },
