@@ -521,7 +521,7 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     transition: var(--transition);
-    width: 600px;
+    /* width: 300px; */
 }
 
 .post-card:hover {

@@ -65,7 +65,7 @@
   }
   
   .user-info {
-    flex-grow: 1;
+    /* flex-grow: 1; */
   }
   
   .user-info p {

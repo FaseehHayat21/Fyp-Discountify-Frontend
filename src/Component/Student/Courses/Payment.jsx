@@ -106,7 +106,7 @@ const CheckoutForm = ({ courseId, price, onSuccess, onCancel }) => {
       
       <div className="payment-form__amount-display">
         <p className="payment-form__amount-text">
-          Amount: <span className="payment-form__amount-value">${price}</span>
+          Amount: <span className="payment-form__amount-value">PKR {price}</span>
         </p>
         <p className="payment-form__course-id">Course ID: {courseId}</p>
       </div>
