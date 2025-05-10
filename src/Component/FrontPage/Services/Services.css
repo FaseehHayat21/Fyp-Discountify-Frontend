@@ -6,7 +6,8 @@
   align-items: center;
   justify-content: center;
   font-family: 'Poppins', sans-serif;
-  color: #9900b8;
+  /* color: #9900b8; */
+  color: #340c35;
   overflow: hidden;
   padding: 4rem 2rem;
 }
@@ -81,7 +82,8 @@
 }
 
 .title-accent {
-  background: linear-gradient(90deg, #8E2DE2, #4A00E0);
+  /* background: linear-gradient(90deg, #8E2DE2, #4A00E0); */
+  background: linear-gradient(90deg, #8E2DE2, #340c35);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

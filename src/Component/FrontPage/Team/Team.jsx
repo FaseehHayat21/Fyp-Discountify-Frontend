@@ -8,7 +8,7 @@ export default function Team() {
   return (
     <section className="team" id="team">
       <div className="container">
-        <h2>MEET OUR TEAM</h2>
+        <h2>Meet Our Team</h2>
         <div className="team-members">
           <div className="team-member">
             <img src={Team1} alt="Doctor 1" />

@@ -14,12 +14,12 @@ export default function Services() {
       description: "Exclusive discounts on clothing, food, travel, health, and more. Save on what matters most to you!",
       color: "#FF6B6B"
     },
-    {
-      icon: JobIcon,
-      title: "Part-time Jobs",
-      description: "Discover flexible part-time jobs that fit your student life. Boost your income and gain experience!",
-      color: "#4ECDC4"
-    },
+    // {
+    //   icon: JobIcon,
+    //   title: "Part-time Jobs",
+    //   description: "Discover flexible part-time jobs that fit your student life. Boost your income and gain experience!",
+    //   color: "#4ECDC4"
+    // },
     {
       icon: CVIcon,
       title: "CV Creation",
@@ -29,7 +29,7 @@ export default function Services() {
     {
       icon: CourseIcon,
       title: "Courses",
-      description: "Receive notifications for local and international courses. Stay updated on the best opportunities!",
+      description: "Accelerate your growth with instructor-led courses. Gain practical knowledge from professionals!",
       color: "#06D6A0"
     },
     {
