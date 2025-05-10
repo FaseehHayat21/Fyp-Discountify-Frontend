@@ -49,12 +49,12 @@ export default function ContactUs() {
             <div className="phone details">
               <i className="fas fa-phone-alt"></i>
               <div className="topic">Phone</div>
-              <div className="text-one"> <IoIosCall></IoIosCall> +92 XXXXXXXXX</div>
+              <div className="text-one"> <IoIosCall></IoIosCall> +92 3400206911</div>
             </div>
             <div className="email details">
               <i className="fas fa-envelope"></i>
               <div className="topic">Email</div>
-              <div className="text-one">example@gmail.com</div>
+              <div className="text-one">faseehhayat999@gmail.com</div>
             </div>
           </div>
           <div className="right-side">

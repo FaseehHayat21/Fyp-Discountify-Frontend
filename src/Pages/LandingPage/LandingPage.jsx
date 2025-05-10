@@ -5,6 +5,7 @@ import Services from '../../Component/FrontPage/Services/Services'
 import Navbar from '../../Component/FrontPage/Navbar/Navbar'
 import ContactUs from '../../Component/FrontPage/ContactUs/ContactUs'
 import Team from '../../Component/FrontPage/Team/Team'
+import Footer from '../../Component/FrontPage/Footer/Footer'
 
 
 export default function LandingPage() {
@@ -26,6 +27,9 @@ export default function LandingPage() {
       </div>
       <div id="contactus">
         <ContactUs />
+      </div>
+      <div id="footer">
+        <Footer/>
       </div>
       {/* <Example/> */}
     </>
