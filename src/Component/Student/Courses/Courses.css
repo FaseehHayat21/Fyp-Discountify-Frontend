@@ -39,7 +39,7 @@
   color: var(--dark-color);
   margin-bottom: 0.5rem;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  /* -webkit-background-clip: text; */
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }

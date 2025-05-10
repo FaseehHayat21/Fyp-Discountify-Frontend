@@ -1,161 +1,262 @@
-/* General Styles */
-.login-as-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    /* background: linear-gradient(135deg, #6e054b, #380049); */
-    color: white;
-    font-family: 'Arial', sans-serif;
-    padding: 20px;
-    overflow: hidden;
-    position: relative;
-  }
-  
+/* Base Styles */
+.levish-portal {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  overflow: hidden;
+  background: radial-gradient(ellipse at bottom, #962e88 0%, #090A0F 100%);
+}
 
-  .gradient-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: radial-gradient(circle at 20% 30%, #dc59f6 20%, transparent 70%),
-                radial-gradient(circle at 80% 20%, #ffffff 15%, transparent 60%),
-                radial-gradient(circle at 50% 80%, #ffffff 25%, transparent 70%),
-                radial-gradient(circle at 30% 50%, #cb55d6 30%, transparent 80%);
-    background-size: 200% 200%;
-    animation: gradientMotion 10s infinite linear;
-  }
-  
-  @keyframes gradientMotion {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-  }
-  /* Particle Background */
-  .login-as-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.1;
-    z-index: 1;
-  }
-  
-  .login-as-title {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #ff18c7;
-    animation: fadeIn 1.5s ease-in-out;
-    z-index: 2;
-  }
-  
-  .login-as-cards {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    z-index: 2;
-  }
-  
-  .login-as-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 2rem;
-    width: 250px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-    cursor: pointer;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    position: relative;
-    overflow: hidden;
-    z-index: 2;
-  }
-  
-  .login-as-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: 0.5s;
-  }
-  
-  .login-as-card:hover::before {
-    left: 100%;
-  }
-  
+/* Particle Background */
+.particle-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
 
-  
-  .link-loginas {
-    text-decoration: none;
-    color: white;
+.particle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: float 15s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
   }
-  
-  .login-as-card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(124, 1, 108, 0.336);
-    background: rgba(255, 255, 255, 0.2);
-    color: #000;
+
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
   }
-  .login-as-card:hover .link-loginas {
-    
-    color: #000;
+}
+
+/* Content Styling */
+.levish-content {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 1200px;
+  text-align: center;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+.levish-title {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.title-gradient {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff7ee5, #a18dff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.title-main {
+  display: block;
+  background: linear-gradient(90deg, #ffffff, #d1d1ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.levish-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  opacity: 0.8;
+  font-weight: 300;
+}
+
+/* Cards */
+.levish-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.levish-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2.5rem;
+  width: 300px;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.levish-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+
+.levish-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.levish-card:hover::before {
+  transform: scale(1);
+}
+
+.card-icon {
+  position: relative;
+  margin: 0 auto 1.5rem;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+
+.icon-halo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(0.8);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.levish-card:hover .icon-halo {
+  transform: scale(1.5);
+  opacity: 1;
+}
+
+.levish-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.levish-card p {
+  font-size: 1rem;
+  opacity: 0.7;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+.levish-link {
+  text-decoration: none;
+  color: white;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.05);
+  z-index: 1;
+}
+
+/* Individual Card Colors */
+.student {
+  background: linear-gradient(135deg, rgba(255, 24, 199, 0.1), rgba(0, 0, 0, 0.3));
+}
+
+.student:hover {
+  background: linear-gradient(135deg, rgba(255, 24, 199, 0.2), rgba(0, 0, 0, 0.4));
+}
+
+.vendor {
+  background: linear-gradient(135deg, rgba(0, 111, 202, 0.1), rgba(0, 0, 0, 0.3));
+}
+
+.vendor:hover {
+  background: linear-gradient(135deg, rgba(0, 111, 202, 0.2), rgba(0, 0, 0, 0.4));
+}
+
+.instructor {
+  background: linear-gradient(135deg, rgba(0, 154, 192, 0.1), rgba(0, 0, 0, 0.3));
+}
+
+.instructor:hover {
+  background: linear-gradient(135deg, rgba(0, 154, 192, 0.2), rgba(0, 0, 0, 0.4));
+}
+
+/* Footer */
+.levish-footer {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  font-weight: 300;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  .card-icon {
-    margin-bottom: 1rem;
-    transition: transform 0.3s ease;
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .login-as-card:hover .card-icon {
-    transform: rotate(360deg);
-  }
-  
-  .login-as-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .login-as-card p {
-    font-size: 1rem;
-    opacity: 0.8;
-  }
-  
-  /* Specific Card Styles */
-  .student {
-    background:     linear-gradient(135deg, #ff18c7, #000000)
-    ;
-  }
-  
-  .vendor {
-    /* background: linear-gradient(135deg, #006fca, #000000); */
-    background:     linear-gradient(135deg, #ff18c7, #000000)
-    ;
-  }
-  
-  .instructor {
-    /* background: linear-gradient(135deg, #009ac0, #000000); */
-    background:     linear-gradient(135deg, #ff18c7, #000000)
-    ;
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+}
+
+.levish-title,
+.levish-subtitle,
+.levish-card {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.levish-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.levish-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.levish-card:nth-child(3) {
+  animation-delay: 0.6s;
+}

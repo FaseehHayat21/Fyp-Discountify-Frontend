@@ -17,12 +17,6 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Course Listing',
-    path: 'courseListing',
-    icon: <FaIcons.FaCartPlus />,
-    cName: 'nav-text'
-  },
-  {
     title: 'Add Post',
     path: 'addPostStudent',
     icon: <IoIcons.IoMdPeople />,
@@ -37,12 +31,6 @@ export const SidebarData = [
   {
     title: 'Community',
     path: 'community',
-    icon: <IoIcons.IoMdHelpCircle />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Search Students',
-    path: 'studentprofiles',
     icon: <IoIcons.IoMdHelpCircle />,
     cName: 'nav-text'
   },

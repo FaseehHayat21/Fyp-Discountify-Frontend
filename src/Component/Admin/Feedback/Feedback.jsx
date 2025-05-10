@@ -19,26 +19,35 @@ const Feedbacks = () => {
   }, []);
 
   return (
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell>Feedback</TableCell>
-          <TableCell>Actions</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {feedbacks.map((fb) => (
-          <TableRow key={fb._id}>
-            <TableCell>{fb.content}</TableCell>
-            <TableCell>
-              <Button variant="contained" color="secondary" onClick={() => deleteFeedback(fb._id)}>
-                Delete
-              </Button>
-            </TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+  <Table>
+  <TableHead>
+    <TableRow>
+      <TableCell>Name</TableCell>
+      <TableCell>Email</TableCell>
+      <TableCell>Rating</TableCell>
+      <TableCell>Comments</TableCell>
+      <TableCell>Date</TableCell>
+      <TableCell>Actions</TableCell>
+    </TableRow>
+  </TableHead>
+  <TableBody>
+    {feedbacks.map((fb) => (
+      <TableRow key={fb._id}>
+        <TableCell>{fb.name || 'N/A'}</TableCell>
+        <TableCell>{fb.email || 'N/A'}</TableCell>
+        <TableCell>{fb.rating}</TableCell>
+        <TableCell>{fb.comments}</TableCell>
+        <TableCell>{new Date(fb.date).toLocaleDateString()}</TableCell>
+        <TableCell>
+          <Button variant="contained" color="secondary" onClick={() => deleteFeedback(fb._id)}>
+            Delete
+          </Button>
+        </TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+</Table>
+
   );
 };
 
