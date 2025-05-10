@@ -63,10 +63,10 @@
   .user-card:last-child {
     border-bottom: none;
   }
-  
+/*   
   .user-info {
-    /* flex-grow: 1; */
-  }
+    /* flex-grow: 1;
+  } */
   
   .user-info p {
     margin: 0 0 5px;
