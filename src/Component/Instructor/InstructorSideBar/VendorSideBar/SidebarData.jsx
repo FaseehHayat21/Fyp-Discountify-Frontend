@@ -17,18 +17,6 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Edit Deals',
-    path: 'coursedetail',
-    icon: <AiIcons.AiFillHome />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Notification Deals',
-    path: 'InstructorCourseManager',
-    icon: <AiIcons.AiFillHome />,
-    cName: 'nav-text'
-  },
-  {
     title: 'LogOut',
     path: '', 
     icon: <IoIcons.IoMdHelpCircle />,

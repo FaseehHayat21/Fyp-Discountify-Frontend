@@ -1,0 +1,271 @@
+.course-learning-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.course-header {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}
+
+.course-header h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.course-progress-container {
+    margin-top: 1rem;
+}
+
+.progress-bar {
+    height: 8px;
+    background: var(--light-gray);
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+}
+
+.course-content {
+    display: flex;
+    gap: 2rem;
+}
+
+.lessons-sidebar {
+    flex: 0 0 350px;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    padding: 1.5rem;
+    height: fit-content;
+}
+
+.sidebar-header {
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-header h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-header span {
+    font-size: 0.8rem;
+    color: var(--gray-color);
+}
+
+.lessons-list {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.lesson-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.lesson-item:hover {
+    background: rgba(108, 92, 231, 0.1);
+}
+
+.lesson-item.active {
+    background: rgba(108, 92, 231, 0.2);
+    border-left: 3px solid var(--primary-color);
+}
+
+.lesson-number {
+    width: 30px;
+    height: 30px;
+    background: var(--light-gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.lesson-item.active .lesson-number {
+    background: var(--primary-color);
+    color: white;
+}
+
+.lesson-info {
+    flex: 1;
+}
+
+.lesson-info h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.lesson-info p {
+    font-size: 0.8rem;
+    color: var(--gray-color);
+}
+
+.lesson-completed, .lesson-play {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.lesson-completed {
+    background: var(--success-color);
+    color: white;
+}
+
+.lesson-play {
+    background: rgba(108, 92, 231, 0.1);
+    color: var(--primary-color);
+}
+
+.lesson-content {
+    flex: 1;
+}
+
+.lesson-video {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.lesson-video iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.lesson-details h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.lesson-description {
+    color: var(--gray-color);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.lesson-materials {
+    margin-bottom: 2rem;
+}
+
+.lesson-materials h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.material-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: white;
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.material-item:hover {
+    background: rgba(108, 92, 231, 0.1);
+    color: var(--primary-color);
+}
+
+.complete-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.complete-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.complete-btn.completed {
+    background: var(--success-color);
+    cursor: default;
+}
+
+.complete-btn.completed:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+@media (max-width: 1024px) {
+    .course-content {
+        flex-direction: column;
+    }
+    
+    .lessons-sidebar {
+        flex: 1;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .course-learning-container {
+        padding: 1rem;
+    }
+    
+    .course-header h1 {
+        font-size: 1.5rem;
+    }
+}

@@ -859,10 +859,7 @@ const RegistrationForm = () => {
         isValid = false;
       }
 
-      if (!formData.email.trim() || !/^\S+@au\.edu\.pk$/.test(formData.email)) {
-        newErrors.email = "Email must be a valid @au.edu.pk address.";
-        isValid = false;
-      }
+    
     }
 
     setErrors(newErrors);

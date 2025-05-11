@@ -17,6 +17,12 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
+    title: 'MY Course',
+    path: 'mycourse',
+    icon: <AiIcons.AiFillHome />,
+    cName: 'nav-text'
+  },
+  {
     title: 'Add Post',
     path: 'addPostStudent',
     icon: <IoIcons.IoMdPeople />,

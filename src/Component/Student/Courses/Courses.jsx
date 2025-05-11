@@ -15,7 +15,8 @@ const Courses = () => {
   const [loadingMaterials, setLoadingMaterials] = useState(false);
   const [activeTab, setActiveTab] = useState('all');
   const [expandedMaterial, setExpandedMaterial] = useState(null);
-  
+  const [isEnrolled, setIsEnrolled] = useState(false);
+
   // Search and filter states
   const [searchTerm, setSearchTerm] = useState('');
   const [minPrice, setMinPrice] = useState(0);
@@ -34,14 +35,19 @@ const Courses = () => {
   const fetchCourses = async () => {
     try {
       const res = await axios.get('http://localhost:1000/api/course/getAllCourse');
+      // const coursesWithRatings = (res.data.courses || []).map(course => ({
+      //   ...course,
+      //   rating: Math.floor(Math.random() * 3) + 3, // Random rating between 3-5 for demo
+      //   students: Math.floor(Math.random() * 500) + 100 // Random student count for demo
+      // }));
       const coursesWithRatings = (res.data.courses || []).map(course => ({
         ...course,
-        rating: Math.floor(Math.random() * 3) + 3, // Random rating between 3-5 for demo
-        students: Math.floor(Math.random() * 500) + 100 // Random student count for demo
+        rating: course.rating || 4, // Use actual rating if available; fallback to 4
+        students: course.students || 0 // Use actual student count
       }));
       setCourses(coursesWithRatings);
       setFilteredCourses(coursesWithRatings);
-      
+
       if (coursesWithRatings.length > 0) {
         const prices = coursesWithRatings.map(c => c.price || 0);
         const calculatedMax = Math.max(...prices);
@@ -66,29 +72,40 @@ const Courses = () => {
       setLoadingMaterials(false);
     }
   };
-
   const handleSelectCourse = async (course) => {
     setSelectedCourse(course);
     setMessage({ text: '', type: '' });
     setShowPayment(false);
-    
+
     const materials = await fetchCourseMaterials(course._id);
     setSelectedCourse(prev => ({
       ...prev,
       materials: materials
     }));
+
+    try {
+      const token = localStorage.getItem('token');
+      const res = await axios.get(
+        `http://localhost:1000/api/course/isEnrolled/${course._id}`,
+        { headers: { 'auth-token': token } }
+      );
+      setIsEnrolled(res.data.enrolled);
+    } catch (err) {
+      console.error('Error checking enrollment:', err);
+      setIsEnrolled(false);
+    }
   };
 
   const handleBuyCourse = () => {
     if (!selectedCourse) return;
-    
+
     if (selectedCourse.price === 0 || selectedCourse.price === '0') {
       enrollInFreeCourse();
     } else {
       setShowPayment(true);
     }
   };
-  
+
   const enrollInFreeCourse = async () => {
     try {
       setLoading(true);
@@ -97,14 +114,14 @@ const Courses = () => {
         {},
         { headers: { 'auth-token': localStorage.getItem('token') } }
       );
-      
+
       setMessage({ text: 'You have successfully enrolled in this free course!', type: 'success' });
       setSelectedCourse(null);
     } catch (err) {
       console.error('Enrollment failed:', err);
-      setMessage({ 
-        text: err.response?.data?.error || 'Failed to enroll. Please try again.', 
-        type: 'error' 
+      setMessage({
+        text: err.response?.data?.error || 'Failed to enroll. Please try again.',
+        type: 'error'
       });
     } finally {
       setLoading(false);
@@ -132,25 +149,25 @@ const Courses = () => {
 
   const filterCourses = () => {
     let results = [...courses];
-    
+
     // Apply name search filter
     if (searchTerm) {
-      results = results.filter(course => 
+      results = results.filter(course =>
         course.title?.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
-    
+
     // Apply price range filter
     results = results.filter(course => {
       const price = Number(course.price) || 0;
       return price >= minPrice && price <= maxPrice;
     });
-    
+
     // Apply category filter
     if (activeTab !== 'all') {
       results = results.filter(course => course.category === activeTab);
     }
-    
+
     setFilteredCourses(results);
   };
 
@@ -175,9 +192,9 @@ const Courses = () => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
       stars.push(
-        i <= rating ? 
-        <FaStar key={i} className="star-filled" /> : 
-        <FaRegStar key={i} className="star-empty" />
+        i <= rating ?
+          <FaStar key={i} className="star-filled" /> :
+          <FaRegStar key={i} className="star-empty" />
       );
     }
     return stars;
@@ -206,7 +223,7 @@ const Courses = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
-              <button 
+              <button
                 className={`filter-toggle ${showFilters ? 'active' : ''}`}
                 onClick={() => setShowFilters(!showFilters)}
               >
@@ -257,25 +274,25 @@ const Courses = () => {
                 <div className="category-filter">
                   <h4 className="filter-title">Categories</h4>
                   <div className="category-tabs">
-                    <button 
+                    <button
                       className={`category-tab ${activeTab === 'all' ? 'active' : ''}`}
                       onClick={() => setActiveTab('all')}
                     >
                       All
                     </button>
-                    <button 
+                    <button
                       className={`category-tab ${activeTab === 'programming' ? 'active' : ''}`}
                       onClick={() => setActiveTab('programming')}
                     >
                       Programming
                     </button>
-                    <button 
+                    <button
                       className={`category-tab ${activeTab === 'design' ? 'active' : ''}`}
                       onClick={() => setActiveTab('design')}
                     >
                       Design
                     </button>
-                    <button 
+                    <button
                       className={`category-tab ${activeTab === 'business' ? 'active' : ''}`}
                       onClick={() => setActiveTab('business')}
                     >
@@ -369,14 +386,13 @@ const Courses = () => {
                     <p className="course-description">
                       {selectedCourse.description || 'No description available for this course.'}
                     </p>
-                    
+
                     <div className="course-highlights">
                       <h3 className="section-title">What You'll Learn</h3>
                       <ul className="highlight-list">
                         <li><FiCheckCircle /> Master key concepts in {selectedCourse.category || 'this field'}</li>
                         <li><FiCheckCircle /> Build practical, real-world projects</li>
                         <li><FiCheckCircle /> Learn from industry experts</li>
-                        <li><FiCheckCircle /> Get certified upon completion</li>
                       </ul>
                     </div>
                   </div>
@@ -388,7 +404,7 @@ const Courses = () => {
                           <>
                             <span className="current-price">PKR {selectedCourse.price}</span>
                             <span className="original-price">PKR {Math.round(selectedCourse.price * 1.5)}</span>
-                            <span className="discount-badge">Save {Math.round((1 - selectedCourse.price/(selectedCourse.price * 1.5)) * 100)}%</span>
+                            <span className="discount-badge">Save {Math.round((1 - selectedCourse.price / (selectedCourse.price * 1.5)) * 100)}%</span>
                           </>
                         ) : (
                           <span className="free-price">Free</span>
@@ -397,7 +413,7 @@ const Courses = () => {
                       <button
                         onClick={handleBuyCourse}
                         className="enroll-button"
-                        disabled={loading}
+                        disabled={loading || isEnrolled}
                       >
                         {loading ? (
                           <>
@@ -405,20 +421,20 @@ const Courses = () => {
                             Processing...
                           </>
                         ) : selectedCourse.price > 0 ? (
+                          'Enrolled'
+                        ) :  isEnrolled ? (
                           'Enroll Now'
                         ) : (
                           'Get Free Access'
                         )}
                       </button>
-                      <div className="purchase-guarantee">
-                        <div className="guarantee-badge">✓</div>
-                        <span>30-day money-back guarantee</span>
-                      </div>
+
+                        
                     </div>
                   </div>
                 </div>
 
-                <div className="course-materials-section">
+                {/* <div className="course-materials-section">
                   <h3 className="section-title">
                     <span className="section-icon">📚</span>
                     Course Materials
@@ -480,7 +496,7 @@ const Courses = () => {
                       )}
                     </div>
                   )}
-                </div>
+                </div> */}
               </>
             ) : (
               <Payment

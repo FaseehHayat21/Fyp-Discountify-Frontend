@@ -38,6 +38,7 @@
   import CourseDetail from './Component/Instructor/InstructorCourses/CourseDetail';
   import InstructorCourseManager from './Component/Instructor/InstructorCourses/InstructorCourseManager';
   import Courses from './Component/Student/Courses/Courses';
+import MyCourses from './Component/Student/MyCourses/MyCourses';
 
   function App() {
     // const [userType, setUserType] = useState(localStorage.getItem('usertype') || '');
@@ -89,8 +90,11 @@
               <Route path="studentprofiles" element={<StudentProfiles/>} />
               {/* <Route path="categories" element={<Categories/>} /> */}
               <Route path="course" element={<Courses/>} />
+              <Route path="mycourse" element={<MyCourses/>} />
+              
               
             </Route>
+            
             {/* Protect vendor routes */}
             <Route path='/v/*' element={!userType === 'Vendor' ?  <Navigate to="/login" />: <VendorPage />  } >
             <Route index element={<Notification/>} />
