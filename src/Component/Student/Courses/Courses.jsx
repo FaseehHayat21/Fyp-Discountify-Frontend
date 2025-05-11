@@ -420,9 +420,9 @@ const Courses = () => {
                             <span className="button-spinner"></span>
                             Processing...
                           </>
-                        ) : selectedCourse.price > 0 ? (
+                        ) : isEnrolled ? (
                           'Enrolled'
-                        ) :  isEnrolled ? (
+                        ) : selectedCourse.price > 0 ? (
                           'Enroll Now'
                         ) : (
                           'Get Free Access'

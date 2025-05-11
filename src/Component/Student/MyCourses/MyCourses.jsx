@@ -123,7 +123,6 @@ const MyCourses = () => {
       {!selectedCourse ? (
         <div className="mc-list-view">
           <h1 className="mc-title">My Learning Journey</h1>
-          <p className="mc-subtitle">Browse and continue learning</p>
 
           {loading ? (
             <div className="mc-loading-spinner"></div>
