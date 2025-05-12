@@ -2,56 +2,84 @@ import React from 'react';
 import './Template3.css';
 
 const Template3 = ({ data }) => {
+    const { name, email, phone, portfolio, linkedin, introduction, education, skills, projects, certificates } = data;
+
     return (
-        <div className="cv-template">
-            <header className="cv-header">
-                <h1>{data.name}</h1>
-                <p>{data.email} | {data.phone}</p>
+        <div className="cv-template3">
+            {/* Header */}
+            <header className="cv-header3">
+                <h1>{name}</h1>
+                <p className="cv-contact">
+                    {email} | {phone}<br />
+                    <a href={portfolio} target="_blank" rel="noopener noreferrer">{portfolio}</a> | 
+                    <a href={linkedin} target="_blank" rel="noopener noreferrer"> LinkedIn</a>
+                </p>
             </header>
 
-            <section className="cv-section">
-                <h2>Brief Introduction</h2>
-                <p>{data.introduction}</p>
-            </section>
+            {/* Introduction */}
+            {introduction && (
+                <section className="cv-section">
+                    <h2>Brief Introduction</h2>
+                    <p className="cv-intro">{introduction}</p>
+                </section>
+            )}
 
-            <section className="cv-section">
-                <h2>Education</h2>
-                {data.education.map((edu, index) => (
-                    <div key={index} className="education-item">
-                        <h3>{edu.degree}</h3>
-                        <p>{edu.institution} — {edu.year}</p>
-                    </div>
-                ))}
-            </section>
+            <div className="cv-columns">
+                <div className="cv-left">
+                    {/* Education */}
+                    {education?.length > 0 && (
+                        <section className="cv-section">
+                            <h2>Education</h2>
+                            {education.map((edu, index) => (
+                                <div key={index} className="cv-item">
+                                    <h3 className="cv-item-title">{edu.degree}</h3>
+                                    <p className="cv-subtext">{edu.institution} — {edu.year}</p>
+                                </div>
+                            ))}
+                        </section>
+                    )}
 
-            <section className="cv-section">
-                <h2>Skills</h2>
-                <ul className="skills-list">
-                    {data.skills.map((skill, index) => (
-                        <li key={index}>{skill}</li>
-                    ))}
-                </ul>
-            </section>
+                    {/* Skills */}
+                    {skills?.length > 0 && (
+                        <section className="cv-section">
+                            <h2>Skills</h2>
+                            <div className="cv-skills">
+                                {skills.map((skill, index) => (
+                                    <span key={index} className="cv-skill">{skill}</span>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+                </div>
 
-            <section className="cv-section">
-                <h2>Projects</h2>
-                {data.projects.map((project, index) => (
-                    <div key={index} className="project-item">
-                        <h3>{project.title}</h3>
-                        <p>{project.description}</p>
-                    </div>
-                ))}
-            </section>
+                <div className="cv-right">
+                    {/* Projects */}
+                    {projects?.length > 0 && (
+                        <section className="cv-section">
+                            <h2>Projects</h2>
+                            {projects.map((project, index) => (
+                                <div key={index} className="cv-item">
+                                    <h3 className="cv-item-title">{project.title}</h3>
+                                    <p className="cv-subtext">{project.description}</p>
+                                </div>
+                            ))}
+                        </section>
+                    )}
 
-            <section className="cv-section">
-                <h2>Certificates</h2>
-                {data.certificates.map((cert, index) => (
-                    <div key={index} className="certificate-item">
-                        <h3>{cert.title}</h3>
-                        <p>{cert.year}</p>
-                    </div>
-                ))}
-            </section>
+                    {/* Certificates */}
+                    {certificates?.length > 0 && (
+                        <section className="cv-section">
+                            <h2>Certificates</h2>
+                            {certificates.map((cert, index) => (
+                                <div key={index} className="cv-item">
+                                    <h3 className="cv-item-title">{cert.title}</h3>
+                                    <p className="cv-subtext">{cert.year}</p>
+                                </div>
+                            ))}
+                        </section>
+                    )}
+                </div>
+            </div>
         </div>
     );
 };

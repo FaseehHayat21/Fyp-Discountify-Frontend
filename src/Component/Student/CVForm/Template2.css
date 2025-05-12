@@ -1,62 +1,73 @@
-/* General Styles */
-.ats-cv-template {
+/* Template2.css */
+.t2-container {
     font-family: 'Arial', sans-serif;
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 30px;
     background-color: #ffffff;
-    color: #333;
+    color: #2d3748;
     line-height: 1.6;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Header Section */
-.ats-cv-header {
+.t2-header {
     text-align: center;
     margin-bottom: 30px;
+    padding-bottom: 20px;
+    
+    border-bottom: 2px solid #2b6cb0;
 }
 
-.ats-cv-header h1 {
+.t2-name {
     font-size: 2rem;
-    color: #2c3e50;
+    font-weight: 700;
+    color: #2d3748;
     margin-bottom: 10px;
 }
 
-.ats-cv-header p {
+.t2-contact-info {
     font-size: 1rem;
-    color: #555;
+    color: #4a5568;
 }
 
 /* Section Styling */
-.ats-cv-section {
+.t2-section {
     margin-bottom: 25px;
 }
 
-.ats-cv-section h2 {
-    font-size: 1.5rem;
-    color: #34495e;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 5px;
+.t2-section-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2b6cb0;
     margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e2e8f0;
+        text-align: left;
+
+}
+
+.t2-text {
+    font-size: 1rem;
+    color: #4a5568;
+    text-align: left;
+    line-height: 1.5;
 }
 
 /* Education Section */
-.ats-education-item {
-    margin-bottom: 15px;
+.t2-education-item {
+    margin-bottom: 20px;
 }
 
-.ats-education-item h3 {
-    font-size: 1.2rem;
-    color: #2c3e50;
+.t2-degree {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2d3748;
     margin-bottom: 5px;
 }
 
-.ats-education-item p {
-    font-size: 1rem;
-    color: #555;
-}
-
 /* Skills Section */
-.ats-skills-list {
+.t2-skills-list {
     list-style-type: none;
     padding: 0;
     display: flex;
@@ -64,42 +75,42 @@
     gap: 10px;
 }
 
-.ats-skills-list li {
-    background-color: #f4f4f9;
-    padding: 8px 12px;
-    border-radius: 5px;
+.t2-skill-item {
+    background-color: #ebf8ff;
+    color: #2b6cb0;
+    padding: 8px 15px;
+    border-radius: 20px;
     font-size: 0.9rem;
-    color: #333;
+    font-weight: 500;
 }
 
 /* Projects Section */
-.ats-project-item {
-    margin-bottom: 15px;
+.t2-project-item {
+    margin-bottom: 20px;
 }
 
-.ats-project-item h3 {
-    font-size: 1.2rem;
-    color: #2c3e50;
+.t2-project-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2d3748;
     margin-bottom: 5px;
-}
-
-.ats-project-item p {
-    font-size: 1rem;
-    color: #555;
 }
 
 /* Certificates Section */
-.ats-certificate-item {
-    margin-bottom: 15px;
+.t2-certificate-item {
+    margin-bottom: 20px;
 }
 
-.ats-certificate-item h3 {
-    font-size: 1.2rem;
-    color: #2c3e50;
+.t2-certificate-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2d3748;
     margin-bottom: 5px;
 }
 
-.ats-certificate-item p {
-    font-size: 1rem;
-    color: #555;
+@media print {
+    .t2-container {
+        box-shadow: none;
+        padding: 20px;
+    }
 }

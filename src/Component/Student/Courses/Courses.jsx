@@ -215,7 +215,6 @@ const Courses = () => {
         <div className="course-selection-panel">
           <div className="course-search-container">
             <div className="course-search-box">
-              <FiSearch className="search-icon" />
               <input
                 type="text"
                 placeholder="Search courses..."

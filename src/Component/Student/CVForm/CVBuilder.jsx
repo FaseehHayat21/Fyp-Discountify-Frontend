@@ -5,6 +5,7 @@ import PDFTemplate3 from './PDFTemplate3';
 import PDFTemplate1 from './PDFTemplate1';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import template3image from "../../../assets/template3.png";
+import ctm from "../../../assets/template2.png"
 import { FiArrowRight, FiArrowLeft, FiPlus, FiTrash2, FiDownload } from 'react-icons/fi';
 import './CVBuilder.css';
 
@@ -389,19 +390,7 @@ const CVBuilder = () => {
                                                     placeholder="E-commerce Website"
                                                 />
                                             </div>
-                                            <div className="input-group">
-                                                <label>Technologies Used</label>
-                                                <input
-                                                    type="text"
-                                                    value={project.technologies}
-                                                    onChange={(e) => {
-                                                        const newProjects = [...projects];
-                                                        newProjects[index].technologies = e.target.value;
-                                                        setProjects(newProjects);
-                                                    }}
-                                                    placeholder="React, Node.js, MongoDB"
-                                                />
-                                            </div>
+                                           
                                             <div className="input-group">
                                                 <label>Description</label>
                                                 <textarea
@@ -564,7 +553,7 @@ const CVBuilder = () => {
                                 onClick={() => handleTemplateSelect('template3')}
                             >
                                 <div className="template-preview">
-                                    <img src={template3image} alt="Template 3" />
+                                    <img src={ctm} alt="Template 3" />
                                 </div>
                                 <div className="template-info">
                                     <h3>Creative Minimalist</h3>
@@ -590,7 +579,7 @@ const CVBuilder = () => {
                                         selectedTemplate === 'template3' ? <PDFTemplate3 data={data} /> :
                                         null
                                     }
-                                    fileName="professional_cv.pdf"
+                                    fileName="My_CV.pdf"
                                     className="download-btn"
                                 >
                                     {({ loading }) => (
@@ -601,9 +590,6 @@ const CVBuilder = () => {
                                         )
                                     )}
                                 </PDFDownloadLink>
-                                <button className="save-btn" onClick={handleSubmitCV}>
-                                    Save to Profile
-                                </button>
                             </div>
                         </div>
                         

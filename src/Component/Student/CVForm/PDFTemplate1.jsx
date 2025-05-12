@@ -1,119 +1,152 @@
 import React from 'react';
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 
-// Define styles for the PDF document
 const styles = StyleSheet.create({
-    page: {
-        fontFamily: 'Helvetica', // ATS-friendly font
-        padding: 30,
-        backgroundColor: '#ffffff',
-        color: '#333',
-        lineHeight: 1.6,
-    },
-    header: {
-        textAlign: 'center',
-        marginBottom: 20,
-    },
-    headerText: {
-        fontSize: 24,
-        color: '#2c3e50',
-        marginBottom: 5,
-    },
-    headerSubText: {
-        fontSize: 12,
-        color: '#555',
-    },
-    section: {
-        marginBottom: 20,
-    },
-    sectionTitle: {
-        fontSize: 18,
-        color: '#34495e',
-        borderBottomWidth: 2,
-        borderBottomColor: '#3498db',
-        paddingBottom: 5,
-        marginBottom: 10,
-    },
-    item: {
-        marginBottom: 10,
-    },
-    itemTitle: {
-        fontSize: 14,
-        color: '#2c3e50',
-        marginBottom: 5,
-    },
-    itemText: {
-        fontSize: 12,
-        color: '#555',
-    },
-    skillsList: {
-        marginLeft: 20,
-    },
-    skillItem: {
-        fontSize: 12,
-        marginBottom: 5,
-    },
+  page: {
+    fontFamily: 'Helvetica',
+    padding: 30,
+    backgroundColor: '#ffffff',
+    color: '#2d3748',
+  },
+  container: {
+    maxWidth: '100%',
+  },
+  header: {
+    marginBottom: 20,
+    textAlign: 'center',
+    paddingBottom: 15,
+    borderBottomWidth: 2,
+    borderBottomColor: '#2b6cb0',
+  },
+  name: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#2d3748',
+    marginBottom: 8,
+  },
+  contact: {
+    fontSize: 11,
+    color: '#4a5568',
+  },
+  section: {
+    marginBottom: 20,
+  },
+  sectionTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#2b6cb0',
+    marginBottom: 10,
+    paddingBottom: 5,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e2e8f0',
+  },
+  text: {
+    fontSize: 11,
+    lineHeight: 1.5,
+    color: '#4a5568',
+    marginBottom: 8,
+    textAlign: 'left',
+  },
+  skillsList: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: '8px',
+    marginBottom: 10,
+  },
+  skillItem: {
+    backgroundColor: '#ebf8ff',
+    color: '#2b6cb0',
+    padding: '4px 10px',
+    borderRadius: '12px',
+    fontSize: 10,
+    fontWeight: 'medium',
+  },
+  itemTitle: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: '#2d3748',
+    marginBottom: 4,
+  },
 });
 
-const PDFTemplate2 = ({ data }) => (
-    <Document>
-        <Page style={styles.page}>
-            {/* Header Section */}
-            <View style={styles.header}>
-                <Text style={styles.headerText}>{data.name}</Text>
-                <Text style={styles.headerSubText}>{data.email} | {data.phone}</Text>
-            </View>
+const PDFTemplate1 = ({ data }) => (
+  <Document>
+    <Page size="A4" style={styles.page}>
+      <View style={styles.container}>
+        {/* Header */}
+        <View style={styles.header}>
+          <Text style={styles.name}>{data.name}</Text>
+          <Text style={styles.contact}>
+            {data.email} | {data.phone} | {data.portfolio} | {data.linkedin}
+          </Text>
+        </View>
 
-            {/* Brief Introduction Section */}
-            <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Summary</Text>
-                <Text style={styles.itemText}>{data.introduction}</Text>
-            </View>
+        {/* Summary */}
+        {data.introduction && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Summary</Text>
+            <Text style={styles.text}>{data.introduction}</Text>
+          </View>
+        )}
 
-            {/* Education Section */}
-            <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Education</Text>
-                {data.education.map((edu, index) => (
-                    <View key={index} style={styles.item}>
-                        <Text style={styles.itemTitle}>{edu.degree}</Text>
-                        <Text style={styles.itemText}>{edu.institution} — {edu.year}</Text>
-                    </View>
-                ))}
-            </View>
+        {/* Education */}
+        {data.education?.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Education</Text>
+            {data.education.map((edu, index) => (
+              <View key={index} style={{ marginBottom: 12 }}>
+                <Text style={styles.itemTitle}>{edu.degree}</Text>
+                <Text style={styles.text}>
+                  {edu.institution} — {edu.year}
+                </Text>
+              </View>
+            ))}
+          </View>
+        )}
 
-            {/* Skills Section */}
-            <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Skills</Text>
-                <View style={styles.skillsList}>
-                    {data.skills.map((skill, index) => (
-                        <Text key={index} style={styles.skillItem}>• {skill}</Text>
-                    ))}
-                </View>
+        {/* Skills */}
+        {data.skills?.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Skills</Text>
+            <View style={styles.skillsList}>
+              {data.skills.map((skill, index) => (
+                <Text key={index} style={styles.skillItem}>
+                  {skill}
+                </Text>
+              ))}
             </View>
+          </View>
+        )}
 
-            {/* Projects Section */}
-            <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Projects</Text>
-                {data.projects.map((project, index) => (
-                    <View key={index} style={styles.item}>
-                        <Text style={styles.itemTitle}>{project.title}</Text>
-                        <Text style={styles.itemText}>{project.description}</Text>
-                    </View>
-                ))}
-            </View>
+        {/* Projects */}
+        {data.projects?.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Projects</Text>
+            {data.projects.map((project, index) => (
+              <View key={index} style={{ marginBottom: 12 }}>
+                <Text style={styles.itemTitle}>{project.title}</Text>
+                <Text style={styles.text}>{project.description}</Text>
+              </View>
+            ))}
+          </View>
+        )}
 
-            {/* Certificates Section */}
-            <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Certifications</Text>
-                {data.certificates.map((cert, index) => (
-                    <View key={index} style={styles.item}>
-                        <Text style={styles.itemTitle}>{cert.title}</Text>
-                        <Text style={styles.itemText}>{cert.year}</Text>
-                    </View>
-                ))}
-            </View>
-        </Page>
-    </Document>
+        {/* Certificates */}
+        {data.certificates?.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Certifications</Text>
+            {data.certificates.map((cert, index) => (
+              <View key={index} style={{ marginBottom: 12 }}>
+                <Text style={styles.itemTitle}>{cert.title}</Text>
+                <Text style={styles.text}>{cert.year}</Text>
+              </View>
+            ))}
+          </View>
+        )}
+      </View>
+    </Page>
+  </Document>
 );
 
-export default PDFTemplate2;
+export default PDFTemplate1;

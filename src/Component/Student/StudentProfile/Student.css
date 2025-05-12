@@ -416,6 +416,7 @@ body {
 
 .introduction {
     line-height: 1.6;
+    text-align: justify;
     color: var(--text-color);
 }
 
