@@ -528,7 +528,7 @@ const StudentProfile = () => {
                                 <div className="no-posts">
                                     <h4>You haven't created any posts yet</h4>
                                     <p>Share your thoughts, projects, or questions with the community!</p>
-                                    <button className="create-post-btn">
+                                    <button  className="create-post-btn">
                                         Create Your First Post
                                     </button>
                                 </div>

@@ -64,6 +64,7 @@ const RegistrationState = (props) => {
         const data = await response.json();
         if (response.ok && data.success) {
             setPosts([...posts, data.post]);
+            alert("Post added Successfully");
         } else {
             console.error('Failed to add post:', data.message || 'Unknown error');
         }

@@ -76,7 +76,6 @@ export default function Services() {
                 <h3>{service.title}</h3>
                 <div className="card-hover-content">
                   <p>{service.description}</p>
-                  <button className="service-button">Learn More</button>
                 </div>
               </div>
               <div className="card-glow"></div>

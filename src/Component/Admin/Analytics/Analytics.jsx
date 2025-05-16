@@ -253,7 +253,7 @@ const Dashboard = () => {
         </Col>
       </Row>
 
-      <Divider orientation="left" className="dashboard-divider">Registration Trends</Divider>
+      {/* <Divider orientation="left" className="dashboard-divider">Registration Trends</Divider>
       
       <Row gutter={[16, 16]}>
         <Col span={24}>
@@ -311,7 +311,7 @@ const Dashboard = () => {
             </ResponsiveContainer>
           </Card>
         </Col>
-      </Row>
+      </Row> */}
     </div>
   );
 };
