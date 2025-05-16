@@ -132,7 +132,7 @@ function ViewDeals() {
 
       <div className="deals-container">
         {deals.map((deal) => (
-          <div className="deal-card" key={deal._id}>
+          <div className="deal-card-v" key={deal._id}>
             <img
               src={`http://localhost:1000/${deal.images || '/default-profile.png'}`}
               alt="Deal"

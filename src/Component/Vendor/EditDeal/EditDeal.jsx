@@ -118,7 +118,7 @@ function EditDeal() {
 
       <div className="deals-container">
         {deals.map((deal) => (
-          <div className="deal-card" key={deal._id}>
+          <div className="deal-card-ve" key={deal._id}>
             <img
               src={`http://localhost:1000/${deal.images || '/default-profile.png'}`}
               alt="Deal"

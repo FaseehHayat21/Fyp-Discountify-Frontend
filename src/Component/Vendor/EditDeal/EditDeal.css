@@ -64,3 +64,18 @@
     color: white;
   }
   
+  
+.deal-card-ve{
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 250px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.deal-card-ve img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+}
