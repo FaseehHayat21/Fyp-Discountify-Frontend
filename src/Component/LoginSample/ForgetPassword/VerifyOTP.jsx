@@ -6,7 +6,7 @@ const VerifyOTP = () => {
   const [otp, setOtp] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [timer, setTimer] = useState(300);
+  const [timer, setTimer] = useState(300); // 5 minutes in seconds
   const navigate = useNavigate();
   const location = useLocation();
   
@@ -20,8 +20,24 @@ const VerifyOTP = () => {
     }
   }, [email, userType, navigate]);
 
+  // Timer countdown effect
+  useEffect(() => {
+    let interval;
+    if (timer > 0) {
+      interval = setInterval(() => {
+        setTimer(prevTimer => prevTimer - 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [timer]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (timer === 0) {
+      setError('OTP has expired');
+      return;
+    }
+    
     setLoading(true);
     setError('');
 
@@ -32,7 +48,7 @@ const VerifyOTP = () => {
         body: JSON.stringify({ 
           email, 
           otp,
-          userType // Include userType in the request
+          userType
         }),
       });
 
@@ -54,10 +70,36 @@ const VerifyOTP = () => {
       setLoading(false);
     }
   };
+
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  };
+
+  const handleResendOTP = async () => {
+    try {
+      setLoading(true);
+      setError('');
+      const response = await fetch('http://localhost:1000/api/auth/forgot-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, userType }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to resend OTP');
+      }
+
+      // Reset timer to 5 minutes
+      setTimer(300);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -88,7 +130,14 @@ const VerifyOTP = () => {
         </form>
         
         <div className="auth-footer">
-          Didn't receive OTP? <button className="resend-link">Resend OTP</button>
+          Didn't receive OTP? 
+          <button 
+            className="resend-link" 
+            onClick={handleResendOTP}
+            disabled={loading || timer > 0}
+          >
+            Resend OTP
+          </button>
         </div>
       </div>
     </div>
