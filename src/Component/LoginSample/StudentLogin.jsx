@@ -82,13 +82,16 @@ export default function StudentLogin() {
                                 {showPassword ? <FaEye /> : <FaEyeSlash />}
                             </button>
                             </div>
-                        {/* <p className='loginsample-paragraph2'>Forget Password</p> */}
+                        <p className='loginsample-paragraph2'><Link to="/forgot-password">Forgot Password?</Link></p>
                         <button type="submit" className='loginsample-lbutton'>Login</button>
                         
                         </form>
 
                         <div className='loginsample-sdiv'>
                             <p className='loginsample-paragraph2'>Don't Have an Account</p>
+                                
+                            {/* <Link to="/forgot-password">Forgot Password?</Link> */}
+                        
                             <button className='loginsample-sbutton'><Link to="/register">Sign Up</Link></button>
                         </div>
                     </div>
