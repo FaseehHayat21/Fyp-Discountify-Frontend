@@ -7,8 +7,11 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import axios from 'axios';
 import { FiEdit, FiSave, FiTrash2, FiX, FiPlus, FiUser, FiPhone, FiMapPin, FiMail, FiAward } from 'react-icons/fi';
 import { FaGraduationCap } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const StudentProfile = () => {
+    const navigate = useNavigate();
+
     const { profile, posts, loading, error, fetchProfile, updateProfile, fetchPosts, setPosts } = useContext(registerContext);
     const [editing, setEditing] = useState(false);
     const [editedProfile, setEditedProfile] = useState({});
@@ -80,6 +83,12 @@ const StudentProfile = () => {
     };
 
     const handleSaveClick = async () => {
+        const phoneRegex = /^03[0-9]{2}-[0-9]{7}$/;
+        if (!phoneRegex.test(editedProfile.phoneNumber)) {
+            alert("Please enter a valid Pakistani phone number in format 03XX-XXXXXXX.");
+            return;
+        }
+
         const formData = new FormData();
 
         for (const key in editedProfile) {
@@ -123,6 +132,22 @@ const StudentProfile = () => {
             [e.target.name]: e.target.value,
         }));
     };
+
+    const handlePhoneChange = (e) => {
+        let input = e.target.value.replace(/\D/g, ''); // Remove non-digits
+
+        if (input.length > 11) input = input.slice(0, 11);
+
+        if (input.length >= 4) {
+        input = `${input.slice(0, 4)}-${input.slice(4)}`;
+        }
+
+        setEditedProfile((prev) => ({
+        ...prev,
+        phoneNumber: input,
+        }));
+    };
+
 
     const handleAddSkill = () => {
         if (editedProfile.newSkill) {
@@ -239,7 +264,12 @@ const StudentProfile = () => {
                                                 onChange={handleChange}
                                                 placeholder="Tell us about yourself..."
                                                 rows="4"
+                                                minLength={50}
+                                                maxLength={500}
                                             />
+                                            <p className="char-count">
+                                                {(editedProfile.introduction || "").length} / 500 characters
+                                            </p>
                                         </div>
                                         <div className="form-row">
                                             <div className="form-group">
@@ -269,8 +299,10 @@ const StudentProfile = () => {
                                                     type="text"
                                                     name="phoneNumber"
                                                     value={editedProfile.phoneNumber ?? profile.userId.phoneNumber}
-                                                    onChange={handleChange}
-                                                    placeholder="Phone number"
+                                                    onChange={handlePhoneChange}
+                                                    placeholder="03XX-XXXXXXX"
+                                                    pattern="03[0-9]{2}-[0-9]{7}"
+                                                    maxLength={12}
                                                 />
                                             </div>
                                             <div className="form-group">
@@ -285,14 +317,17 @@ const StudentProfile = () => {
                                             </div>
                                         </div>
                                         <div className="form-group">
-                                            <label>Location</label>
-                                            <input
-                                                type="text"
-                                                name="location"
-                                                value={editedProfile.location ?? profile.userId.location}
-                                                onChange={handleChange}
-                                                placeholder="Your location"
-                                            />
+                                        <label>Location</label>
+                                        <select
+                                            name="location"
+                                            value={editedProfile.location ?? profile.userId.location}
+                                            onChange={handleChange}
+                                        >
+                                            <option value="">Select your location</option>
+                                            <option value="Islamabad">Islamabad</option>
+                                            <option value="Kamra">Kamra</option>
+                                            <option value="Multan">Multan</option>
+                                        </select>
                                         </div>
                                     </div>
 
@@ -528,7 +563,7 @@ const StudentProfile = () => {
                                 <div className="no-posts">
                                     <h4>You haven't created any posts yet</h4>
                                     <p>Share your thoughts, projects, or questions with the community!</p>
-                                    <button  className="create-post-btn">
+                                    <button className="create-post-btn" onClick={() => navigate('/s/addPostStudent')}>
                                         Create Your First Post
                                     </button>
                                 </div>

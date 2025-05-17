@@ -506,7 +506,7 @@ function Vendors({ categoryName }) {
                 value={vendorSearchQuery}
                 onChange={(e) => setVendorSearchQuery(e.target.value)}
                 placeholder="Search luxury vendors..."
-                className="search-input"
+                className="search-input-d"
               />
             </div>
           </div>
@@ -563,7 +563,7 @@ function Vendors({ categoryName }) {
                 value={dealSearchQuery}
                 onChange={(e) => setDealSearchQuery(e.target.value)}
                 placeholder="Search luxury deals..."
-                className="search-input"
+                className="search-input-d"
               />
             </div>
           </div>
