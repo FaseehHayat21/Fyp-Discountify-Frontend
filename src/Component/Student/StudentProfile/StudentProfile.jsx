@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 const StudentProfile = () => {
     const navigate = useNavigate();
+    const [introError, setIntroError] = useState('');
 
     const { profile, posts, loading, error, fetchProfile, updateProfile, fetchPosts, setPosts } = useContext(registerContext);
     const [editing, setEditing] = useState(false);
@@ -83,6 +84,13 @@ const StudentProfile = () => {
     };
 
     const handleSaveClick = async () => {
+        if ((editedProfile.introduction || '').length < 50) {
+            setIntroError('Introduction must be at least 50 characters.');
+            return;
+        } else {
+            setIntroError(''); // clear the error if valid
+        }
+
         const phoneRegex = /^03[0-9]{2}-[0-9]{7}$/;
         if (!phoneRegex.test(editedProfile.phoneNumber)) {
             alert("Please enter a valid Pakistani phone number in format 03XX-XXXXXXX.");
@@ -270,6 +278,9 @@ const StudentProfile = () => {
                                             <p className="char-count">
                                                 {(editedProfile.introduction || "").length} / 500 characters
                                             </p>
+                                            {introError && (
+                                                <p className="error-text">{introError}</p>
+                                            )}
                                         </div>
                                         <div className="form-row">
                                             <div className="form-group">
