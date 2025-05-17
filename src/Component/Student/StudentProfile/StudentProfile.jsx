@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 const StudentProfile = () => {
     const navigate = useNavigate();
     const [introError, setIntroError] = useState('');
+    const [phoneError, setPhoneError] = useState('');
 
     const { profile, posts, loading, error, fetchProfile, updateProfile, fetchPosts, setPosts } = useContext(registerContext);
     const [editing, setEditing] = useState(false);
@@ -84,18 +85,27 @@ const StudentProfile = () => {
     };
 
     const handleSaveClick = async () => {
+        let hasError = false;
+
+        //Introduction Validation
         if ((editedProfile.introduction || '').length < 50) {
             setIntroError('Introduction must be at least 50 characters.');
-            return;
+            hasError = true;
         } else {
             setIntroError(''); // clear the error if valid
         }
 
+        //Phone Number Validation
         const phoneRegex = /^03[0-9]{2}-[0-9]{7}$/;
         if (!phoneRegex.test(editedProfile.phoneNumber)) {
-            alert("Please enter a valid Pakistani phone number in format 03XX-XXXXXXX.");
-            return;
+            setPhoneError('Phone number must be in format 03XX-XXXXXXX.');
+            hasError = true;
+        } else {
+            setPhoneError(''); // clear the error if valid
         }
+        
+        // STOP if there's any error
+        if (hasError) return;
 
         const formData = new FormData();
 
@@ -315,6 +325,9 @@ const StudentProfile = () => {
                                                     pattern="03[0-9]{2}-[0-9]{7}"
                                                     maxLength={12}
                                                 />
+                                                {phoneError && (
+                                                    <p className="error-text">{phoneError}</p>
+                                                )}
                                             </div>
                                             <div className="form-group">
                                                 <label>Semester</label>
