@@ -125,14 +125,14 @@ export default function Community() {
         ) : (
           <h1 className="community-title">Community Forum</h1>
         )}
-        <div className="search-container">
-          <FiSearch className="search-icon" />
+        <div className="search-containers">
+          <FiSearch className="search-icon-c" />
           <input
             type="text"
             placeholder="Search posts..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-input"
+            className="search-input-c"
           />
           {searchTerm && (
             <FiX className="clear-icon" onClick={() => setSearchTerm('')} />

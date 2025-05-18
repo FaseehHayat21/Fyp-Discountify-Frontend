@@ -64,14 +64,14 @@ body {
 }
 
 /* Search Container */
-.search-container {
+.search-containers {
   position: relative;
   flex: 1;
   max-width: 500px;
   min-width: 250px;
 }
 
-.search-input {
+.search-input-c {
   width: 100%;
   padding: 12px 20px 12px 40px;
   border: 2px solid var(--border-color);
@@ -82,19 +82,19 @@ body {
   background-color: var(--card-bg);
 }
 
-.search-input:focus {
+.search-input-c:focus {
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.2);
 }
 
-.search-icon, .clear-icon {
+.search-icon-c, .clear-icon {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-light);
 }
 
-.search-icon {
+.search-icon-c {
   left: 15px;
 }
 
@@ -442,7 +442,7 @@ body {
     gap: 15px;
   }
   
-  .search-container {
+  .search-containers {
     width: 100%;
   }
   

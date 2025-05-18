@@ -103,7 +103,7 @@ const StudentProfile = () => {
         } else {
             setPhoneError(''); // clear the error if valid
         }
-        
+
         // STOP if there's any error
         if (hasError) return;
 
@@ -157,12 +157,12 @@ const StudentProfile = () => {
         if (input.length > 11) input = input.slice(0, 11);
 
         if (input.length >= 4) {
-        input = `${input.slice(0, 4)}-${input.slice(4)}`;
+            input = `${input.slice(0, 4)}-${input.slice(4)}`;
         }
 
         setEditedProfile((prev) => ({
-        ...prev,
-        phoneNumber: input,
+            ...prev,
+            phoneNumber: input,
         }));
     };
 
@@ -192,7 +192,7 @@ const StudentProfile = () => {
             <p>Loading your profile...</p>
         </div>
     );
-    
+
     if (error) return (
         <div className="error-container">
             <h2>Error Loading Profile</h2>
@@ -252,14 +252,14 @@ const StudentProfile = () => {
             <div className="profile-main">
                 {/* Navigation Tabs */}
                 <div className="profile-nav">
-                    <button 
-                        onClick={() => setActiveTab('info')} 
+                    <button
+                        onClick={() => setActiveTab('info')}
                         className={`nav-btn ${activeTab === 'info' ? 'active' : ''}`}
                     >
                         Personal Information
                     </button>
-                    <button 
-                        onClick={() => setActiveTab('posts')} 
+                    <button
+                        onClick={() => setActiveTab('posts')}
                         className={`nav-btn ${activeTab === 'posts' ? 'active' : ''}`}
                     >
                         My Posts
@@ -331,27 +331,32 @@ const StudentProfile = () => {
                                             </div>
                                             <div className="form-group">
                                                 <label>Semester</label>
-                                                <input
-                                                    type="text"
+                                                <select
                                                     name="semester"
                                                     value={editedProfile.semester ?? profile.userId.semester}
                                                     onChange={handleChange}
-                                                    placeholder="Current semester"
-                                                />
+                                                >
+                                                    <option value="">Select semester</option>
+                                                    {[...Array(8)].map((_, i) => (
+                                                        <option key={i + 1} value={i + 1}>
+                                                            {i + 1}
+                                                        </option>
+                                                    ))}
+                                                </select>
                                             </div>
                                         </div>
                                         <div className="form-group">
-                                        <label>Location</label>
-                                        <select
-                                            name="location"
-                                            value={editedProfile.location ?? profile.userId.location}
-                                            onChange={handleChange}
-                                        >
-                                            <option value="">Select your location</option>
-                                            <option value="Islamabad">Islamabad</option>
-                                            <option value="Kamra">Kamra</option>
-                                            <option value="Multan">Multan</option>
-                                        </select>
+                                            <label>Location</label>
+                                            <select
+                                                name="location"
+                                                value={editedProfile.location ?? profile.userId.location}
+                                                onChange={handleChange}
+                                            >
+                                                <option value="">Select your location</option>
+                                                <option value="Islamabad">Islamabad</option>
+                                                <option value="Kamra">Kamra</option>
+                                                <option value="Multan">Multan</option>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -380,8 +385,8 @@ const StudentProfile = () => {
                                                     onChange={handleChange}
                                                     placeholder="Add a new skill"
                                                 />
-                                                <button 
-                                                    type="button" 
+                                                <button
+                                                    type="button"
                                                     onClick={handleAddSkill}
                                                     className="add-skill-btn"
                                                 >
@@ -493,13 +498,13 @@ const StudentProfile = () => {
                                                 <div className="post-actions">
                                                     {editingPostId === post._id ? (
                                                         <>
-                                                            <button 
+                                                            <button
                                                                 onClick={() => handleSavePost(post._id)}
                                                                 className="action-btn save-btn"
                                                             >
                                                                 <FiSave /> Save
                                                             </button>
-                                                            <button 
+                                                            <button
                                                                 onClick={() => setEditingPostId(null)}
                                                                 className="action-btn cancel-btn"
                                                             >
@@ -508,13 +513,13 @@ const StudentProfile = () => {
                                                         </>
                                                     ) : (
                                                         <>
-                                                            <button 
+                                                            <button
                                                                 onClick={() => handleEditPost(post)}
                                                                 className="action-btn edit-btn"
                                                             >
                                                                 <FiEdit /> Edit
                                                             </button>
-                                                            <button 
+                                                            <button
                                                                 onClick={() => handleDeletePost(post._id)}
                                                                 className="action-btn delete-btn"
                                                             >
