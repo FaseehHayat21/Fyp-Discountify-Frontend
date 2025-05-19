@@ -48,6 +48,7 @@ const RegistrationState = (props) => {
     } catch (error) {
       console.error('Error:', error);
       alert(error);
+      
     }
   };
     //Register Student Post

@@ -442,6 +442,8 @@ const RegistrationForm = () => {
     category: '',
     department: '',
     designation: '',
+    takeaway: true,   // Default value from schema
+  delivery: false,  // Default value from schema
   });
 
   const [otp, setOtp] = useState("");
@@ -622,22 +624,19 @@ const RegistrationForm = () => {
   };
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    
-    // Special handling for phone number formatting
-    if (name === 'phoneNumber') {
-      const formattedValue = formatPhoneNumber(value);
-      setFormData((prevState) => ({
-        ...prevState,
-        [name]: formattedValue,
-      }));
-    } else {
-      setFormData((prevState) => ({
-        ...prevState,
-        [name]: value,
-      }));
-    }
-  };
+  const { name, value, type, checked } = e.target;
+  
+  // For checkboxes, use checked property
+  const inputValue = type === 'checkbox' ? checked : value;
+
+  // Phone number formatting (existing code)
+  if (name === 'phoneNumber') {
+    const formattedValue = formatPhoneNumber(value);
+    setFormData(prev => ({ ...prev, [name]: formattedValue }));
+  } else {
+    setFormData(prev => ({ ...prev, [name]: inputValue }));
+  }
+};
 
   const handleBackToRegistration = () => {
     setOtpSent(false);
@@ -723,6 +722,7 @@ const RegistrationForm = () => {
                 {errors.phoneNumber && <span className="error-message">{errors.phoneNumber}</span>}
 
                 {userType === 'Vendor' && (
+                  <>
                   <select
                     name="category"
                     required
@@ -737,6 +737,28 @@ const RegistrationForm = () => {
                     <option value="Accommodations">Accommodations</option>
                     <option value="Retail">Retail</option>
                   </select>
+                   <div className="form-row checkbox-group">
+      <label>
+        <input
+          type="checkbox"
+          name="takeaway"
+          checked={formData.takeaway}
+          onChange={handleInputChange}
+        />
+        Offer Takeaway
+      </label>
+      
+      <label>
+        <input
+          type="checkbox"
+          name="delivery"
+          checked={formData.delivery}
+          onChange={handleInputChange}
+        />
+        Offer Delivery
+      </label>
+    </div>
+    </>
                 )}
                 {errors.category && <span className="error-message">{errors.category}</span>}
               </div>

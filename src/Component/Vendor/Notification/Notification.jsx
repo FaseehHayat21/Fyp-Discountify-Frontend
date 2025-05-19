@@ -15,7 +15,7 @@ function Notification() {
     email: '',
     companyName: '',
     phoneNumber: '',
-    location: '',
+    companyAddress: '',
     introduction: ''
   });
   const [unreadCount, setUnreadCount] = useState(0);
@@ -63,14 +63,14 @@ function Notification() {
         });
         const data = await res.json();
         setVendorProfile(data);
-        
+        console.log(data)
         // Initialize profile data for editing
         setProfileData({
           name: data.name || '',
           email: data.email || '',
           companyName: data.companyName || '',
           phoneNumber: data.phoneNumber || '',
-          location: data.location || '',
+          companyAddress: data.companyAddress || '',
           introduction: data.introduction || ''
         });
         
@@ -94,7 +94,7 @@ function Notification() {
       formData.append('email', profileData.email);
       formData.append('companyName', profileData.companyName);
       formData.append('phoneNumber', profileData.phoneNumber);
-      formData.append('location', profileData.location);
+      formData.append('companyAddress', profileData.companyAddress);
       formData.append('introduction', profileData.introduction);
       
       if (profilePhoto) {
@@ -121,7 +121,7 @@ function Notification() {
         email: updated.email || prev.email,
         companyName: updated.companyName || prev.companyName,
         phoneNumber: updated.phoneNumber || prev.phoneNumber,
-        location: updated.location || prev.location,
+        companyAddress: updated.companyAddress || prev.companyAddress,
         introduction: updated.introduction || prev.introduction
       }));
       
@@ -130,7 +130,7 @@ function Notification() {
         email: updated.email || profileData.email,
         companyName: updated.companyName || profileData.companyName,
         phoneNumber: updated.phoneNumber || profileData.phoneNumber,
-        location: updated.location || profileData.location,
+        companyAddress: updated.companyAddress || profileData.companyAddress,
         introduction: updated.introduction || profileData.introduction
       });
       
@@ -306,13 +306,13 @@ function Notification() {
                 {editing ? (
                   <input
                     type='text'
-                    name='location'
-                    value={profileData.location}
+                    name='companyAddress'
+                    value={profileData.companyAddress}
                     onChange={handleInputChange}
                     className='edit-input'
                   />
                 ) : (
-                  <span>{vendorProfile.location || 'Not provided'}</span>
+                  <span>{vendorProfile.companyAddress || 'Not provided'}</span>
                 )}
               </div>
               
@@ -410,6 +410,7 @@ function Notification() {
                 <div className='notification-content'>
                   <strong>{notification.studentName}</strong> availed your deal: 
                   <strong> {notification.dealTitle}</strong>
+                  <strong> {notification.serviceType}</strong>
                   <span className='notification-time'>
                     {new Date(notification.createdAt).toLocaleString()}
                   </span>
