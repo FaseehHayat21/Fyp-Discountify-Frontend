@@ -5,6 +5,7 @@ import PDFTemplate3 from './PDFTemplate3';
 import PDFTemplate1 from './PDFTemplate1';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import template3image from "../../../assets/template3.png";
+import Template4 from './Template4';
 import ctm from "../../../assets/template2.png"
 import { FiArrowRight, FiArrowLeft, FiPlus, FiTrash2, FiDownload } from 'react-icons/fi';
 import './CVBuilder.css';
@@ -560,6 +561,18 @@ const CVBuilder = () => {
                                     <p>Stylish layout with visual elements for creative fields</p>
                                 </div>
                             </div>
+                            <div 
+                                className={`template-card ${selectedTemplate === 'template4' ? 'selected' : ''}`}
+                                onClick={() => handleTemplateSelect('template4')}
+                            >
+                                <div className="template-preview">
+                                    <img src={ctm} alt="Template 3" />
+                                </div>
+                                <div className="template-info">
+                                    <h3>Creative Minimalist</h3>
+                                    <p>Stylish layout with visual elements for creative fields</p>
+                                </div>
+                            </div>
                         </div>
 
                         <button className="back-btn" onClick={() => setStep(7)}>
@@ -576,7 +589,8 @@ const CVBuilder = () => {
                                 <PDFDownloadLink
                                     document={
                                         selectedTemplate === 'template2' ? <PDFTemplate1 data={data} /> :
-                                        selectedTemplate === 'template3' ? <PDFTemplate3 data={data} /> :
+                                        selectedTemplate === 'template2' ? <PDFTemplate1 data={data} /> :
+                                        selectedTemplate === 'template4' ? <PDFTemplate3 data={data} /> :
                                         null
                                     }
                                     fileName="My_CV.pdf"
@@ -596,6 +610,7 @@ const CVBuilder = () => {
                         <div className="preview-content">
                             {selectedTemplate === 'template2' && <Template2 data={data} />}
                             {selectedTemplate === 'template3' && <Template3 data={data} />}
+                            {selectedTemplate === 'template4' && <Template4 data={data} />}
                         </div>
                     </div>
                 )}
