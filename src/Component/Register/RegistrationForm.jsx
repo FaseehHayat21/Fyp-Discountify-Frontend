@@ -111,7 +111,7 @@
 //         isValid = false;
 //       }
 
-    
+
 //     }
 
 //     setErrors(newErrors);
@@ -418,7 +418,7 @@
 
 
 
-import React, { useContext, useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import './RegistrationForm.css';
 import { useNavigate } from 'react-router-dom';
 import registerContext from "../../context/Register/RegisterContext";
@@ -443,7 +443,7 @@ const RegistrationForm = () => {
     department: '',
     designation: '',
     takeaway: true,   // Default value from schema
-  delivery: false,  // Default value from schema
+    delivery: false,  // Default value from schema
   });
 
   const [otp, setOtp] = useState("");
@@ -470,7 +470,7 @@ const RegistrationForm = () => {
   const formatPhoneNumber = (value) => {
     // Remove all non-digit characters
     const cleaned = value.replace(/\D/g, '');
-    
+
     // Format as 03XX-XXXXXXX
     let formatted = cleaned;
     if (cleaned.length > 4) {
@@ -478,7 +478,7 @@ const RegistrationForm = () => {
     } else if (cleaned.length > 0) {
       formatted = cleaned;
     }
-    
+
     return formatted;
   };
 
@@ -575,6 +575,7 @@ const RegistrationForm = () => {
         body: JSON.stringify({ email: formData.email, otp }),
       });
       const data = await response.json();
+      console.log(data)
 
       if (response.ok) {
         alert("OTP Verified Successfully!");
@@ -598,12 +599,12 @@ const RegistrationForm = () => {
         body: JSON.stringify({ email: formData.email }),
       });
       const data = await response.json();
-
       if (response.ok) {
         alert("OTP sent to your email!");
         setOtpSent(true);
         setOtpTimer(120); // Reset timer
         setOtpExpired(false);
+        console.log("OTP send error:", data);
       } else {
         alert(data.error || "Failed to send OTP");
       }
@@ -624,19 +625,19 @@ const RegistrationForm = () => {
   };
 
   const handleInputChange = (e) => {
-  const { name, value, type, checked } = e.target;
-  
-  // For checkboxes, use checked property
-  const inputValue = type === 'checkbox' ? checked : value;
+    const { name, value, type, checked } = e.target;
 
-  // Phone number formatting (existing code)
-  if (name === 'phoneNumber') {
-    const formattedValue = formatPhoneNumber(value);
-    setFormData(prev => ({ ...prev, [name]: formattedValue }));
-  } else {
-    setFormData(prev => ({ ...prev, [name]: inputValue }));
-  }
-};
+    // For checkboxes, use checked property
+    const inputValue = type === 'checkbox' ? checked : value;
+
+    // Phone number formatting (existing code)
+    if (name === 'phoneNumber') {
+      const formattedValue = formatPhoneNumber(value);
+      setFormData(prev => ({ ...prev, [name]: formattedValue }));
+    } else {
+      setFormData(prev => ({ ...prev, [name]: inputValue }));
+    }
+  };
 
   const handleBackToRegistration = () => {
     setOtpSent(false);
@@ -679,6 +680,31 @@ const RegistrationForm = () => {
                 className={userType === 'Instructor' ? 'active' : ''}
                 onClick={() => setUserType('Instructor')}>
                 Instructor
+              </button>
+              <button
+                className={userType === 'Eateries' ? 'active' : ''}
+                onClick={() => setUserType('Eateries')}>
+                Eateries
+              </button>
+              <button
+                className={userType === 'Healthcare' ? 'active' : ''}
+                onClick={() => setUserType('Healthcare')}>
+                Healthcare
+              </button>
+              <button
+                className={userType === 'Fashion' ? 'active' : ''}
+                onClick={() => setUserType('Fashion')}>
+                Fashion
+              </button>
+              <button
+                className={userType === 'Accommodations' ? 'active' : ''}
+                onClick={() => setUserType('Accommodations')}>
+                Accommodations
+              </button>
+              <button
+                className={userType === 'Retail' ? 'active' : ''}
+                onClick={() => setUserType('Retail')}>
+                Retail
               </button>
             </div>
             <h2 style={{ color: "#340c35" }}>Apply as a {userType}</h2>
@@ -723,42 +749,42 @@ const RegistrationForm = () => {
 
                 {userType === 'Vendor' && (
                   <>
-                  <select
-                    name="category"
-                    required
-                    value={formData.category}
-                    onChange={handleInputChange}
-                    className={errors.category ? 'error' : ''}
-                  >
-                    <option value="" disabled>Select Category</option>
-                    <option value="Eateries">Eateries</option>
-                    <option value="Healthcare">Healthcare</option>
-                    <option value="Fashion">Fashion</option>
-                    <option value="Accommodations">Accommodations</option>
-                    <option value="Retail">Retail</option>
-                  </select>
-                   <div className="form-row checkbox-group">
-      <label>
-        <input
-          type="checkbox"
-          name="takeaway"
-          checked={formData.takeaway}
-          onChange={handleInputChange}
-        />
-        Offer Takeaway
-      </label>
-      
-      <label>
-        <input
-          type="checkbox"
-          name="delivery"
-          checked={formData.delivery}
-          onChange={handleInputChange}
-        />
-        Offer Delivery
-      </label>
-    </div>
-    </>
+                    <select
+                      name="category"
+                      required
+                      value={formData.category}
+                      onChange={handleInputChange}
+                      className={errors.category ? 'error' : ''}
+                    >
+                      <option value="" disabled>Select Category</option>
+                      <option value="Eateries">Eateries</option>
+                      <option value="Healthcare">Healthcare</option>
+                      <option value="Fashion">Fashion</option>
+                      <option value="Accommodations">Accommodations</option>
+                      <option value="Retail">Retail</option>
+                    </select>
+                    <div className="form-row checkbox-group">
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="takeaway"
+                          checked={formData.takeaway}
+                          onChange={handleInputChange}
+                        />
+                        Offer Takeaway
+                      </label>
+
+                      <label>
+                        <input
+                          type="checkbox"
+                          name="delivery"
+                          checked={formData.delivery}
+                          onChange={handleInputChange}
+                        />
+                        Offer Delivery
+                      </label>
+                    </div>
+                  </>
                 )}
                 {errors.category && <span className="error-message">{errors.category}</span>}
               </div>
@@ -786,7 +812,7 @@ const RegistrationForm = () => {
                 />
                 {errors.confirmPassword && <span className="error-message">{errors.confirmPassword}</span>}
               </div>
-
+              {/* student form  */}
               {userType === 'Student' && (
                 <>
                   <div className="form-row">
@@ -819,7 +845,7 @@ const RegistrationForm = () => {
                   </div>
                 </>
               )}
-
+              {/* vendor form  */}
               {userType === 'Vendor' && (
                 <>
                   <div className="form-row">
@@ -860,7 +886,7 @@ const RegistrationForm = () => {
                   </div>
                 </>
               )}
-
+              {/* instructor form  */}
               {userType === 'Instructor' && (
                 <>
                   <div className="form-row">
@@ -888,7 +914,386 @@ const RegistrationForm = () => {
                   </div>
                 </>
               )}
+              {/* Eateries form */}
+              {userType === 'Eateries' && (
+                <>
+                  <div className="form-row">
+                    {/* Cuisine Type */}
+                    <input
+                      type="text"
+                      name="cuisineType"
+                      placeholder="Cuisine Type *"
+                      required
+                      value={formData.cuisineType}
+                      onChange={handleInputChange}
+                      className={errors.cuisineType ? 'error' : ''}
+                    />
+                    {errors.cuisineType && (
+                      <span className="error-message">{errors.cuisineType}</span>
+                    )}
 
+                    {/* Location */}
+                    <select
+                      name="location"
+                      required
+                      value={formData.location}
+                      onChange={handleInputChange}
+                      className={errors.location ? 'error' : ''}
+                    >
+                      <option value="" disabled>Select Location</option>
+                      <option value="Islamabad">Islamabad</option>
+                      <option value="Multan">Multan</option>
+                      <option value="Kamra">Kamra</option>
+                    </select>
+                    {errors.location && (
+                      <span className="error-message">{errors.location}</span>
+                    )}
+                  </div>
+
+                  {/* Menu Specialties */}
+                  <div className="form-row">
+                    <input
+                      type="text"
+                      name="menuSpecialties"
+                      placeholder="Menu Specialties"
+                      value={formData.menuSpecialties}
+                      onChange={handleInputChange}
+                      className={errors.menuSpecialties ? 'error' : ''}
+                    />
+                    {errors.menuSpecialties && (
+                      <span className="error-message">{errors.menuSpecialties}</span>
+                    )}
+                  </div>
+                </>
+              )}
+              {/* HealthCare Form  */}
+              {userType === 'Healthcare' && (
+                <>
+                  <div className="form-row">
+                    {/* Healthcare Service Type */}
+                    <input
+                      type="text"
+                      name="serviceType"
+                      placeholder="Service Type *"
+                      required
+                      value={formData.serviceType}
+                      onChange={handleInputChange}
+                      className={errors.serviceType ? 'error' : ''}
+                    />
+                    {errors.serviceType && (
+                      <span className="error-message">{errors.serviceType}</span>
+                    )}
+
+                    {/* Location */}
+                    <select
+                      name="location"
+                      required
+                      value={formData.location}
+                      onChange={handleInputChange}
+                      className={errors.location ? 'error' : ''}
+                    >
+                      <option value="" disabled>Select Location</option>
+                      <option value="Islamabad">Islamabad</option>
+                      <option value="Multan">Multan</option>
+                      <option value="Kamra">Kamra</option>
+                    </select>
+                    {errors.location && (
+                      <span className="error-message">{errors.location}</span>
+                    )}
+                  </div>
+
+                  {/* Consultation Hours */}
+                  <div className="form-row">
+                    <input
+                      type="text"
+                      name="consultationHours"
+                      placeholder="Consultation Hours (e.g. 9AM - 5PM)"
+                      required
+                      value={formData.consultationHours}
+                      onChange={handleInputChange}
+                      className={errors.consultationHours ? 'error' : ''}
+                    />
+                    {errors.consultationHours && (
+                      <span className="error-message">{errors.consultationHours}</span>
+                    )}
+
+                    {/* License Number */}
+                    <input
+                      type="text"
+                      name="licenseNumber"
+                      placeholder="License Number *"
+                      required
+                      value={formData.licenseNumber}
+                      onChange={handleInputChange}
+                      className={errors.licenseNumber ? 'error' : ''}
+                    />
+                    {errors.licenseNumber && (
+                      <span className="error-message">{errors.licenseNumber}</span>
+                    )}
+                  </div>
+                </>
+              )}
+              {/* Fashion form  */}
+              {userType === 'Fashion' && (
+                <>
+                  <div className="form-row">
+                    {/* Fashion Category */}
+                    <select
+                      name="fashionCategory"
+                      required
+                      value={formData.fashionCategory}
+                      onChange={handleInputChange}
+                      className={errors.fashionCategory ? 'error' : ''}
+                    >
+                      <option value="" disabled>Select Fashion Category</option>
+                      <option value="Clothing">Clothing</option>
+                      <option value="Footwear">Footwear</option>
+                      <option value="Accessories">Accessories</option>
+                      <option value="Jewelry">Jewelry</option>
+                    </select>
+                    {errors.fashionCategory && (
+                      <span className="error-message">{errors.fashionCategory}</span>
+                    )}
+
+                    {/* Location */}
+                    <select
+                      name="location"
+                      required
+                      value={formData.location}
+                      onChange={handleInputChange}
+                      className={errors.location ? 'error' : ''}
+                    >
+                      <option value="" disabled>Select Location</option>
+                      <option value="Islamabad">Islamabad</option>
+                      <option value="Multan">Multan</option>
+                      <option value="Kamra">Kamra</option>
+                    </select>
+                    {errors.location && (
+                      <span className="error-message">{errors.location}</span>
+                    )}
+                  </div>
+
+                  {/* Brand Name */}
+                  <div className="form-row">
+                    <input
+                      type="text"
+                      name="brandName"
+                      placeholder="Brand Name *"
+                      required
+                      value={formData.brandName}
+                      onChange={handleInputChange}
+                      className={errors.brandName ? 'error' : ''}
+                    />
+                    {errors.brandName && (
+                      <span className="error-message">{errors.brandName}</span>
+                    )}
+
+                    {/* Size Range */}
+                    <input
+                      type="text"
+                      name="sizeRange"
+                      placeholder="Size Range (e.g. S-XL, 28-40) *"
+                      required
+                      value={formData.sizeRange}
+                      onChange={handleInputChange}
+                      className={errors.sizeRange ? 'error' : ''}
+                    />
+                    {errors.sizeRange && (
+                      <span className="error-message">{errors.sizeRange}</span>
+                    )}
+                  </div>
+                </>
+              )}
+              {/* Accommodations form  */}
+              {userType === 'Accommodations' && (
+                <>
+                  <div className="form-row">
+                    {/* Accommodation Type */}
+                    <select
+                      name="accommodationType"
+                      required
+                      value={formData.accommodationType}
+                      onChange={handleInputChange}
+                      className={errors.accommodationType ? 'error' : ''}
+                    >
+                      <option value="" disabled>Select Accommodation Type</option>
+                      <option value="Hotel">Hotel</option>
+                      <option value="Hostel">Hostel</option>
+                      <option value="Guest House">Guest House</option>
+                      <option value="Apartment">Apartment</option>
+                    </select>
+                    {errors.accommodationType && (
+                      <span className="error-message">{errors.accommodationType}</span>
+                    )}
+
+                    {/* Location */}
+                    <select
+                      name="location"
+                      required
+                      value={formData.location}
+                      onChange={handleInputChange}
+                      className={errors.location ? 'error' : ''}
+                    >
+                      <option value="" disabled>Select Location</option>
+                      <option value="Islamabad">Islamabad</option>
+                      <option value="Multan">Multan</option>
+                      <option value="Kamra">Kamra</option>
+                    </select>
+                    {errors.location && (
+                      <span className="error-message">{errors.location}</span>
+                    )}
+                  </div>
+
+                  {/* Number of Rooms */}
+                  <div className="form-row">
+                    <input
+                      type="number"
+                      name="numberOfRooms"
+                      placeholder="Number of Rooms *"
+                      required
+                      min="1"
+                      value={formData.numberOfRooms}
+                      onChange={handleInputChange}
+                      className={errors.numberOfRooms ? 'error' : ''}
+                    />
+                    {errors.numberOfRooms && (
+                      <span className="error-message">{errors.numberOfRooms}</span>
+                    )}
+
+                    {/* Price Per Night */}
+                    <input
+                      type="number"
+                      name="pricePerNight"
+                      placeholder="Price Per Night (PKR) *"
+                      required
+                      min="0"
+                      value={formData.pricePerNight}
+                      onChange={handleInputChange}
+                      className={errors.pricePerNight ? 'error' : ''}
+                    />
+                    {errors.pricePerNight && (
+                      <span className="error-message">{errors.pricePerNight}</span>
+                    )}
+                  </div>
+
+                  {/* Amenities */}
+                  <div className="form-row checkbox-group">
+                    <label>
+                      <input
+                        type="checkbox"
+                        name="wifi"
+                        checked={formData.wifi}
+                        onChange={handleInputChange}
+                      />
+                      Free Wi-Fi
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        name="breakfast"
+                        checked={formData.breakfast}
+                        onChange={handleInputChange}
+                      />
+                      Breakfast Included
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        name="parking"
+                        checked={formData.parking}
+                        onChange={handleInputChange}
+                      />
+                      Parking Available
+                    </label>
+                  </div>
+                </>
+              )}
+              {/* Retail vendor form */}
+              {userType === 'Retail' && (
+                <>
+                  <div className="form-row">
+                    {/* Retail Category */}
+                    <select
+                      name="retailCategory"
+                      required
+                      value={formData.retailCategory}
+                      onChange={handleInputChange}
+                      className={errors.retailCategory ? 'error' : ''}
+                    >
+                      <option value="" disabled>Select Retail Category</option>
+                      <option value="Grocery">Grocery</option>
+                      <option value="Electronics">Electronics</option>
+                      <option value="Home Appliances">Home Appliances</option>
+                      <option value="Books & Stationery">Books & Stationery</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    {errors.retailCategory && (
+                      <span className="error-message">{errors.retailCategory}</span>
+                    )}
+
+                    {/* Location */}
+                    <select
+                      name="location"
+                      required
+                      value={formData.location}
+                      onChange={handleInputChange}
+                      className={errors.location ? 'error' : ''}
+                    >
+                      <option value="" disabled>Select Location</option>
+                      <option value="Islamabad">Islamabad</option>
+                      <option value="Multan">Multan</option>
+                      <option value="Kamra">Kamra</option>
+                    </select>
+                    {errors.location && (
+                      <span className="error-message">{errors.location}</span>
+                    )}
+                  </div>
+
+                  {/* Shop Name */}
+                  <div className="form-row">
+                    <input
+                      type="text"
+                      name="shopName"
+                      placeholder="Shop Name *"
+                      required
+                      value={formData.shopName}
+                      onChange={handleInputChange}
+                      className={errors.shopName ? 'error' : ''}
+                    />
+                    {errors.shopName && (
+                      <span className="error-message">{errors.shopName}</span>
+                    )}
+
+                    {/* Product Range */}
+                    <input
+                      type="text"
+                      name="productRange"
+                      placeholder="Product Range (e.g. groceries, electronics) *"
+                      required
+                      value={formData.productRange}
+                      onChange={handleInputChange}
+                      className={errors.productRange ? 'error' : ''}
+                    />
+                    {errors.productRange && (
+                      <span className="error-message">{errors.productRange}</span>
+                    )}
+                  </div>
+
+                  {/* Delivery Service */}
+                  <div className="form-row checkbox-group">
+                    <label>
+                      <input
+                        type="checkbox"
+                        name="deliveryService"
+                        checked={formData.deliveryService}
+                        onChange={handleInputChange}
+                      />
+                      Offers Delivery Service
+                    </label>
+                  </div>
+                </>
+              )}
+              
               <div className="form-row">
                 <button type="submit" className="submit-btn">
                   Send OTP
@@ -900,8 +1305,8 @@ const RegistrationForm = () => {
           <div className="otp-verification-container">
             <div className="otp-verification-box">
               <h2>OTP Verification</h2>
-              <p>We've sent a 6-digit OTP to your email at <strong>{formData.email}</strong></p>
-              
+              <p>We have sent a 6-digit OTP to your email at <strong>{formData.email}</strong></p>
+
               <div className="otp-input-container">
                 <input
                   type="text"
@@ -912,7 +1317,7 @@ const RegistrationForm = () => {
                   className="otp-input"
                 />
               </div>
-              
+
               <div className="timer">
                 {otpExpired ? (
                   <p className="expired">OTP has expired</p>
@@ -920,18 +1325,18 @@ const RegistrationForm = () => {
                   <p>Time remaining: {formatTime(otpTimer)}</p>
                 )}
               </div>
-              
+
               <div className="otp-actions">
-                <button 
-                  onClick={handleOtpVerification} 
+                <button
+                  onClick={handleOtpVerification}
                   disabled={otpVerified || otpExpired}
                   className="verify-btn"
                 >
                   {otpVerified ? 'Verified!' : 'Verify OTP'}
                 </button>
-                
+
                 {otpExpired && (
-                  <button 
+                  <button
                     onClick={handleBackToRegistration}
                     className="back-btn"
                   >
@@ -939,9 +1344,9 @@ const RegistrationForm = () => {
                   </button>
                 )}
               </div>
-              
+
               <p className="resend-text">
-                Didn't receive OTP? <button className="resend-link" onClick={sendOtp}>Resend OTP</button>
+                Did not receive OTP? <button className="resend-link" onClick={sendOtp}>Resend OTP</button>
               </p>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./CourseListing.css";
 
@@ -29,7 +29,7 @@ const CourseListing = () => {
             }
 
             const recommendationResponse = await axios.post(
-                'http://localhost:5000/api/recommendations',
+                'http://localhost:1000/api/recommendations',
                 { student_name: studentName },
                 {
                     headers: {
